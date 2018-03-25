@@ -332,7 +332,18 @@
 
       
         
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>将复杂的对象从其构造中分离出来，用于使相同的构造过程可以产生不同的引用<br><img src="/images/builder/1.png" alt="alt text" title="Builder"><br>
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>将复杂的对象从其构造中分离出来，用于使相同的构造过程可以产生不同的引用</p>
+<h2 id="适用性"><a href="#适用性" class="headerlink" title="适用性"></a>适用性</h2><p>什么情况下需要Builder</p>
+<ul>
+<li>the algorithm for creating a complex object should be independent of the parts that make up the object and how they’re assembled（google翻译….:用于创建复杂对象的算法应该独立于构成对象的部件以及它们的组装方式)</li>
+<li>the construction process must allow different representations for the object that’s constructed(google翻译….:允许不同的引用对象拥有相同的构造过程)</li>
+</ul>
+<h2 id="经典案例"><a href="#经典案例" class="headerlink" title="经典案例"></a>经典案例</h2><ul>
+<li><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html" target="_blank" rel="noopener">java.lang.StringBuilder</a></li>
+<li><a href="http://docs.oracle.com/javase/8/docs/api/java/nio/ByteBuffer.html#put-byte-" target="_blank" rel="noopener">java.nio.ByteBuffer</a> 以及类似的缓冲区，如FloatBuffer，IntBuffer等等</li>
+<li><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/StringBuffer.html#append-boolean-" target="_blank" rel="noopener">java.lang.StringBuffer</a></li>
+<li>All implementations of <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Appendable.html" target="_blank" rel="noopener">java.lang.Appendable</a></li>
+<li><a href="https://github.com/apache/camel/tree/0e195428ee04531be27a0b659005e3aa8d159d23/camel-core/src/main/java/org/apache/camel/builder" target="_blank" rel="noopener">Apache Camel builders</a>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/01/15/Builder设计模式/#more" rel="contents">
