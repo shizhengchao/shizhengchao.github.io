@@ -398,6 +398,153 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://shizhengchao.cn/2018/01/29/quartz集群datasource使用问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="轻薄的假像灬">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/assert/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hunter X Hunter">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/29/quartz集群datasource使用问题/" itemprop="url">quartz集群datasource使用问题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-29T01:05:00+08:00">
+                2018-01-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/mysql/" itemprop="url" rel="index">
+                    <span itemprop="name">mysql</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我在使用springboot+quartz集群对任务进行持久化过程中，出现了数据库连接问题，在没有增加quartz之前是没有出现过的。错误信息如下：</p>
+<p><pre><br>2018-01-28 10:48:17.170 [QuartzScheduler_schedulerFactoryBean-server-p-532411522141704336_ClusterManager] WARN  c.m.v2.c3p0.impl.NewPooledConnection - [c3p0] Another error has occurred [ com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException: No operations allowed after connection closed. ] which will not be reported to listeners!<br>com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException: No operations allowed after connection closed.<br>    at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.7.0_71]<br>    at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57) ~[na:1.7.0_71]<br>    at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.7.0_71]<br>    at java.lang.reflect.Constructor.newInstance(Constructor.java:526) ~[na:1.7.0_71]<br>    at com.mysql.jdbc.Util.handleNewInstance(Util.java:389) ~[mysql-connector-java-5.1.35.jar:5.1.35]<br>    at com.mysql.jdbc.Util.getInstance(Util.java:372) ~[mysql-connector-java-5.1.35.jar:5.1.35]<br>    at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:958) ~[mysql-connector-java-5.1.35.jar:5.1.35]<br>    at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:937) ~[mysql-connector-java-5.1.35.jar:5.1.35]<br>    at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:926) ~[mysql-connector-java-5.1.35.jar:5.1.35]<br>    at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:872) ~[mysql-connector-java-5.1.35.jar:5.1.35]<br>    at com.mysql.jdbc.ConnectionImpl.throwConnectionClosedException(ConnectionImpl.java:1236) ~[mysql-connector-java-5.1.35.jar:5.1.35]<br>    at com.mysql.jdbc.ConnectionImpl.checkClosed(ConnectionImpl.java:1231) ~[mysql-connector-java-5.1.35.jar:5.1.35]<br>    at com.mysql.jdbc.ConnectionImpl.setAutoCommit(ConnectionImpl.java:4811) ~[mysql-connector-java-5.1.35.jar:5.1.35]<br>    at com.mchange.v2.c3p0.impl.NewProxyConnection.setAutoCommit(NewProxyConnection.java:881) ~[c3p0-0.9.1.1.jar:0.9.1.1]<br>    at org.quartz.impl.jdbcjobstore.AttributeRestoringConnectionInvocationHandler.restoreOriginalAtributes(AttributeRestoringConnectionInvocationHandler.java:141) [quartz-2.2.1.jar:na]<br>    at org.quartz.impl.jdbcjobstore.JobStoreSupport.cleanupConnection(JobStoreSupport.java:3600) [quartz-2.2.1.jar:na]<br>    at org.quartz.impl.jdbcjobstore.JobStoreSupport.doCheckin(JobStoreSupport.java:3286) [quartz-2.2.1.jar:na]<br>    at org.quartz.impl.jdbcjobstore.JobStoreSupport$ClusterManager.manage(JobStoreSupport.java:3858) [quartz-2.2.1.jar:na]<br>    at org.quartz.impl.jdbcjobstore.JobStoreSupport$ClusterManager.run(JobStoreSupport.java:3895) [quartz-2.2.1.jar:na]<br>Caused by: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: The last packet successfully received from the server was 17,145,825 milliseconds ago.  The last packet sent successfully to the server was 17,145,825 milliseconds ago. is longer than the server configured value of ‘wait_timeout’. You should consider either expiring and/or testing connection validity before use in your application, increasing the server configured values for client timeouts, or using the Connector/J connection property ‘autoReconnect=true’ to avoid this problem.<br></pre><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/01/29/quartz集群datasource使用问题/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://shizhengchao.cn/2018/01/21/maven项目转换成web项目/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1295,160 +1442,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://shizhengchao.cn/2017/03/20/linux常用命令记录/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="轻薄的假像灬">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/assert/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hunter X Hunter">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/03/20/linux常用命令记录/" itemprop="url">linux常用命令记录</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-20T19:03:00+08:00">
-                2017-03-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h2><ul>
-<li><code>df -h</code> : 查看磁盘使用情况</li>
-<li><code>du -h –max-depth=1</code> : 查看当前目录下的所有目录的使用情况 参数 –max-depth=1代表目录深度</li>
-<li><code>find . -type f -size +800M -print</code> : 找出当前目录下及子目录下的大于800M的文件</li>
-<li><code>rm -rf xxx</code>:-f强制删除，-r如果是目录，删除包含子目录的所有文件</li>
-<li><code>mkdir folder</code>:创建文件夹</li>
-<li><code>cp abc.log /dir/</code>:复制abc.log文件到/dir目录下</li>
-<li><code>mv abc.log /dir</code>:移动或者重命名文件</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/20/linux常用命令记录/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1503,7 +1496,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1514,7 +1507,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1525,7 +1518,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
