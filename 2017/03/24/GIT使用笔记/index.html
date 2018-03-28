@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Hunter X Hunter">
 <meta property="og:description" content="初始化工程 在Git官网上点击New repository新建项目 在本地新建一个同名文件。 打开git bash切换到新建的文件目录 新建一个README文件并写入内容echo &quot;# myprojectname&quot;&amp;gt;&amp;gt;README.md 生成“.gitignore”文件。touch .gitignore写入 :.settings/target/.classpath.project.class">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-24T10:24:28.000Z">
+<meta property="og:updated_time" content="2018-03-28T01:44:13.957Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GIT使用笔记">
 <meta name="twitter:description" content="初始化工程 在Git官网上点击New repository新建项目 在本地新建一个同名文件。 打开git bash切换到新建的文件目录 新建一个README文件并写入内容echo &quot;# myprojectname&quot;&amp;gt;&amp;gt;README.md 生成“.gitignore”文件。touch .gitignore写入 :.settings/target/.classpath.project.class">
@@ -98,7 +98,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
+    scheme: 'Gemini',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -345,9 +345,9 @@ git add . #添加当前目录下的所有文件
 git add README.md #只添加README.md文件
 </pre></li>
 <li>提交，-m参数添加注释<pre>git commit -m "commit message" </pre></li>
-<li>将git进行远程连线<pre>
+<li>创建远程仓库origin<pre>
 git remote add origin git@github.com:shizhengchao/hello.git
-如果出现: fatal: remote origin already exists. 执行git remote rm origin后，再进行连接
+如果出现: fatal: remote origin already exists. 说明远程仓库已经存在,如果想重新生成，执行git remote rm origin后，再新增。如果不想重新生成,则不用管,直接跳过这一步就行。
 </pre></li>
 <li>push代码更新远程仓库<pre>git push -u origin master</pre></li>
 <li>9和10可以合并为:<pre>git push git@github.com:shizhengchao/hello.git master</pre>
