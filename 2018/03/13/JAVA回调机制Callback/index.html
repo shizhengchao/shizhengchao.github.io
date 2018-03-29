@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="java, callback,回调机制," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Hunter X Hunter" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="前言大家应该看过spring对jdbc和redis的代码，对JdbcTemplate和RedisTemplate两个类并不陌生，这两个框架中用到了大量的callback机制,因为不管在使用jdbc或者redis时，都需要先获取到这两个框架的客户端,比如jedis。比如这样的代码:123456789101112131415161718192021222324252627282930313233343">
+<meta name="keywords" content="java, callback,回调机制">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA回调机制Callback">
+<meta property="og:url" content="http://shizhengchao.cn/2018/03/13/JAVA回调机制Callback/index.html">
+<meta property="og:site_name" content="Hunter X Hunter">
+<meta property="og:description" content="前言大家应该看过spring对jdbc和redis的代码，对JdbcTemplate和RedisTemplate两个类并不陌生，这两个框架中用到了大量的callback机制,因为不管在使用jdbc或者redis时，都需要先获取到这两个框架的客户端,比如jedis。比如这样的代码:123456789101112131415161718192021222324252627282930313233343">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://shizhengchao.cn/images/callback/1.png">
+<meta property="og:updated_time" content="2018-03-29T07:15:40.537Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JAVA回调机制Callback">
+<meta name="twitter:description" content="前言大家应该看过spring对jdbc和redis的代码，对JdbcTemplate和RedisTemplate两个类并不陌生，这两个框架中用到了大量的callback机制,因为不管在使用jdbc或者redis时，都需要先获取到这两个框架的客户端,比如jedis。比如这样的代码:123456789101112131415161718192021222324252627282930313233343">
+<meta name="twitter:image" content="http://shizhengchao.cn/images/callback/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://shizhengchao.cn/2018/03/13/JAVA回调机制Callback/"/>
+
+
+
+
+
+  <title>JAVA回调机制Callback | Hunter X Hunter</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/shizhengchao" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hunter X Hunter</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-主页">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            主页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-标签">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-文章列表">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            文章列表
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://shizhengchao.cn/2018/03/13/JAVA回调机制Callback/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="轻薄的假像灬">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/assert/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hunter X Hunter">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JAVA回调机制Callback</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-13T17:52:00+08:00">
+                2018-03-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>大家应该看过spring对jdbc和redis的代码，对JdbcTemplate和RedisTemplate两个类并不陌生，这两个框架中用到了大量的callback机制,因为不管在使用jdbc或者redis时，都需要先获取到这两个框架的客户端,比如jedis。比如这样的代码:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JedisSpringDemo</span> </span>&#123;  </span><br><span class="line">    <span class="meta">@Resource</span>(name = <span class="string">"shardedJedisPool"</span>)  </span><br><span class="line">    <span class="keyword">private</span> ShardedJedisPool shardedJedisPool;  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">set</span><span class="params">(String key, String value)</span></span>&#123;  </span><br><span class="line">        ShardedJedis shardedJedis = <span class="keyword">null</span>;  </span><br><span class="line">        <span class="keyword">try</span>&#123;  </span><br><span class="line">            <span class="comment">// 从连接池中获取jedis分片对象  </span></span><br><span class="line">            shardedJedis = shardedJedisPool.getResource();  </span><br><span class="line">            <span class="comment">// 设置值到redis中  </span></span><br><span class="line">            <span class="keyword">return</span> shardedJedis.set(key, value);  </span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e)&#123;  </span><br><span class="line">            System.out.println(e.getMessage());  </span><br><span class="line">        &#125;<span class="keyword">finally</span> &#123;  </span><br><span class="line">            <span class="keyword">if</span>(<span class="keyword">null</span> != shardedJedis)&#123;  </span><br><span class="line">                shardedJedis.close();  </span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;  </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">get</span><span class="params">(String key)</span></span>&#123;  </span><br><span class="line">        ShardedJedis shardedJedis = <span class="keyword">null</span>;  </span><br><span class="line">        <span class="keyword">try</span>&#123;  </span><br><span class="line">            <span class="comment">// 从连接池中获取jedis分片对象  </span></span><br><span class="line">            shardedJedis = shardedJedisPool.getResource();  </span><br><span class="line">            <span class="comment">// 设置值到redis中  </span></span><br><span class="line">            <span class="keyword">return</span> shardedJedis.set(key);  </span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e)&#123;  </span><br><span class="line">            System.out.println(e.getMessage());  </span><br><span class="line">        &#125;<span class="keyword">finally</span> &#123;  </span><br><span class="line">            <span class="keyword">if</span>(<span class="keyword">null</span> != shardedJedis)&#123;  </span><br><span class="line">                shardedJedis.close();  </span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;  </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>上面的这段代码违反了DRY原则，代码中的try，catch，finally中的绝大部分代码都是雷同的，唯一不同的就是我们return的那一行具体的调用方法，如果像这种方法很多的话(jedis提供了几十种类似的方法)，我们的代码重复率是很高的，代码重复率一旦高起来，相应的维护成本也会提高。</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>自己看了下java-design-patterns项目上的实现，但感觉看懂了，对于怎么应用还是没找到感觉，所以就自己再实现了一下，我模仿了spring对redis的实现来练习callback。例子的内容是通过callback来操作map的实现。</p>
+<p><img src="/images/callback/1.png" alt="alt text"></p>
+<p>MapService.java:提供了map的一些基本操作<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 一些map的操作</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>	shizhengchao</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span>	2018年2月13日 上午10:44:55</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span>      </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MapService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Map&lt;String, String&gt; map = <span class="keyword">new</span> HashMap&lt;String, String&gt;();</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> MapService _instance = <span class="keyword">new</span> MapService();</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">MapService</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> MapService <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> _instance;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">get</span><span class="params">(String key)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> map.get(key);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">remove</span><span class="params">(String key)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> map.remove(key);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">add</span><span class="params">(String key, String value)</span> </span>&#123;</span><br><span class="line">	map.put(key, value);</span><br><span class="line">	<span class="keyword">return</span> map.size();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Callback.java:回调接口<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 回调接口</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>	hz17052992 </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span>	2018年3月29日 上午10:53:35</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span>      </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Callback</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 回调方法</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> service</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     *  </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@author</span>	shizhengchao </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@date</span>	2018年2月13日 上午10:44:55</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@version</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> T <span class="title">doCallback</span><span class="params">(MapService service)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>MapOperation.java:操作map类<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 对Map的一些操作，这里是模仿spring对redis的封装，看spring对redis的源码中可以看到，用了大量的回调方法，</span></span><br><span class="line"><span class="comment"> * 大家应该对JdbcTemplate和RedisTemplate这两个类并不陌生，然后都知道，要操作jdbc或者是redis时都要先获取</span></span><br><span class="line"><span class="comment"> * 相应的对象比如jedis</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>	hz17052992 </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span>	2018年3月29日 上午10:58:01</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span>      </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MapOperation</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 向map中插入一个值</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> key</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> value</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     *  </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@author</span>	shizhengchao </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@date</span>	2018年2月13日 上午10:44:55</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@version</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">setValue</span><span class="params">(<span class="keyword">final</span> String key, <span class="keyword">final</span> String value)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> execute(<span class="keyword">new</span> Callback&lt;Integer&gt;() &#123;</span><br><span class="line">	    <span class="meta">@Override</span></span><br><span class="line">	    <span class="function"><span class="keyword">public</span> Integer <span class="title">doCallback</span><span class="params">(MapService service)</span> </span>&#123;</span><br><span class="line">			<span class="keyword">return</span> service.add(key, value);</span><br><span class="line">	    &#125;</span><br><span class="line">	&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getValue</span><span class="params">(<span class="keyword">final</span> String key)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> execute(<span class="keyword">new</span> Callback&lt;String&gt;() &#123;</span><br><span class="line">	    <span class="meta">@Override</span></span><br><span class="line">	    <span class="function"><span class="keyword">public</span> String <span class="title">doCallback</span><span class="params">(MapService service)</span> </span>&#123;</span><br><span class="line">			<span class="keyword">return</span> service.get(key);</span><br><span class="line">	    &#125;</span><br><span class="line">	&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">removeKey</span><span class="params">(<span class="keyword">final</span> String key)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> execute(<span class="keyword">new</span> Callback&lt;String&gt;() &#123;</span><br><span class="line">	    <span class="meta">@Override</span></span><br><span class="line">	    <span class="function"><span class="keyword">public</span> String <span class="title">doCallback</span><span class="params">(MapService service)</span> </span>&#123;</span><br><span class="line">			<span class="keyword">return</span> service.remove(key);</span><br><span class="line">	    &#125;</span><br><span class="line">	&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 可能这里看不出对代码的复用，我只是举例。比如说这里如果获取MapService对象比较复杂，</span></span><br><span class="line"><span class="comment">     而且也是必须的，有必要把它封装到这里实现复用</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> callback</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     *  </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@author</span>	hz17052992 </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@date</span>	2018年3月29日 上午11:48:49</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@version</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">   &lt;T&gt; <span class="function">T <span class="title">execute</span><span class="params">(Callback&lt;T&gt; callback)</span> </span>&#123;</span><br><span class="line">   		<span class="comment">//do something</span></span><br><span class="line">		<span class="keyword">return</span> callback.doCallback(MapService.getInstance());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>App.java:程序入口<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>	shizhengchao </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span>	2018年2月13日 上午10:44:55</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span>      </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">App</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Logger LOGGER = LoggerFactory.getLogger(App.class);</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		MapOperation operation = <span class="keyword">new</span> MapOperation();</span><br><span class="line">		Integer size = operation.setValue(<span class="string">"redis"</span>, <span class="string">"good tool"</span>);</span><br><span class="line">		LOGGER.info(<span class="string">"map size:&#123;&#125;"</span>, size);</span><br><span class="line">	</span><br><span class="line">		String ret = operation.getValue(<span class="string">"redis"</span>);</span><br><span class="line">		LOGGER.info(<span class="string">"redis is a &#123;&#125;"</span>, ret);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>输出结果</p>
+<pre>
+14:27:30.059 [main] INFO com.szc.blog.callback.App - map size:1
+14:27:30.065 [main] INFO com.szc.blog.callback.App - redis is a good tool
+</pre>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>通过以上例子，应该对callback的利用有了一个大概的了解，可能我的例子当中，没有很好的体现出对代码的重用，比如在execute方法里就一行代码，获取MapService也比较简单。下面我们来看开头说的spring对redis的封装是如何玩转callback的<br>RedisTemplate.class<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//...其它方法省略</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> &lt;T&gt; <span class="function">T <span class="title">execute</span><span class="params">(RedisCallback&lt;T&gt; action, <span class="keyword">boolean</span> exposeConnection, <span class="keyword">boolean</span> pipeline)</span> </span>&#123;</span><br><span class="line">		Assert.isTrue(initialized, <span class="string">"template not initialized; call afterPropertiesSet() before using it"</span>);</span><br><span class="line">		Assert.notNull(action, <span class="string">"Callback object must not be null"</span>);</span><br><span class="line">		<span class="comment">//这些全都是公共方法，封装到这里</span></span><br><span class="line">		RedisConnectionFactory factory = getConnectionFactory();</span><br><span class="line">		RedisConnection conn = <span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span> (enableTransactionSupport) &#123;</span><br><span class="line">				<span class="comment">// only bind resources in case of potential transaction synchronization</span></span><br><span class="line">				conn = RedisConnectionUtils.bindConnection(factory, enableTransactionSupport);</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				conn = RedisConnectionUtils.getConnection(factory);</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">boolean</span> existingConnection = TransactionSynchronizationManager.hasResource(factory);</span><br><span class="line"></span><br><span class="line">			RedisConnection connToUse = preProcessConnection(conn, existingConnection);</span><br><span class="line"></span><br><span class="line">			<span class="keyword">boolean</span> pipelineStatus = connToUse.isPipelined();</span><br><span class="line">			<span class="keyword">if</span> (pipeline &amp;&amp; !pipelineStatus) &#123;</span><br><span class="line">				connToUse.openPipeline();</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			RedisConnection connToExpose = (exposeConnection ? connToUse : createRedisConnectionProxy(connToUse));</span><br><span class="line">         <span class="comment">//调用回调方法</span></span><br><span class="line">			T result = action.doInRedis(connToExpose);</span><br><span class="line"></span><br><span class="line">			<span class="comment">// close pipeline</span></span><br><span class="line">			<span class="keyword">if</span> (pipeline &amp;&amp; !pipelineStatus) &#123;</span><br><span class="line">				connToUse.closePipeline();</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			<span class="comment">// <span class="doctag">TODO:</span> any other connection processing?</span></span><br><span class="line">			<span class="keyword">return</span> postProcessResult(result, connToUse, existingConnection);</span><br><span class="line">		&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span> (!enableTransactionSupport) &#123;</span><br><span class="line">				RedisConnectionUtils.releaseConnection(conn, factory);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">    </span><br><span class="line">	<span class="keyword">public</span> &lt;T&gt; <span class="function">T <span class="title">execute</span><span class="params">(RedisCallback&lt;T&gt; action, <span class="keyword">boolean</span> exposeConnection)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> execute(action, exposeConnection, <span class="keyword">false</span>);</span><br><span class="line">	&#125;</span><br><span class="line">    </span><br><span class="line">   <span class="comment">//举几个常用操作</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> Boolean <span class="title">move</span><span class="params">(K key, <span class="keyword">final</span> <span class="keyword">int</span> dbIndex)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">final</span> <span class="keyword">byte</span>[] rawKey = rawKey(key);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span> execute(<span class="keyword">new</span> RedisCallback&lt;Boolean&gt;() &#123;</span><br><span class="line"></span><br><span class="line">			<span class="function"><span class="keyword">public</span> Boolean <span class="title">doInRedis</span><span class="params">(RedisConnection connection)</span> </span>&#123;</span><br><span class="line">				<span class="keyword">return</span> connection.move(rawKey, dbIndex);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;, <span class="keyword">true</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> K <span class="title">randomKey</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">byte</span>[] rawKey = execute(<span class="keyword">new</span> RedisCallback&lt;<span class="keyword">byte</span>[]&gt;() &#123;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">public</span> <span class="keyword">byte</span>[] doInRedis(RedisConnection connection) &#123;</span><br><span class="line">				<span class="keyword">return</span> connection.randomKey();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;, <span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span> deserializeKey(rawKey);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
+<p>最后一句话总结：一些方法需要先传给它一个函数，好在合适的时候调用，以完成目标任务。这个被传入的、后又被调用的函数就称为回调函数（callback function），比如前面例子中的execute的参数(Callback callback)就是一个回调。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
+          
+            <a href="/tags/callback/" rel="tag"><i class="fa fa-tag"></i>  callback</a>
+          
+            <a href="/tags/回调机制/" rel="tag"><i class="fa fa-tag"></i> 回调机制</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/29/quartz集群datasource使用问题/" rel="next" title="quartz集群datasource使用问题">
+                <i class="fa fa-chevron-left"></i> quartz集群datasource使用问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/assert/avatar.png"
+                alt="轻薄的假像灬" />
+            
+              <p class="site-author-name" itemprop="name">轻薄的假像灬</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/shizhengchao" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:shizhengchao@outlook.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现"><span class="nav-number">2.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">轻薄的假像灬</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
