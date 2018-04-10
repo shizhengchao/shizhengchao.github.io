@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="基本命令 df -h : 查看磁盘使用情况 du -h –max-depth=1 : 查看当前目录下的所有目录的使用情况 参数 –max-depth=1代表目录深度 find . -type f -size +800M -print : 找出当前目录下及子目录下的大于800M的文件 rm -rf xxx:-f强制删除，-r如果是目录，删除包含子目录的所有文件 mkdir folder:创建文件夹">
+<meta name="description" content="基本命令 查看磁盘使用情况 df -h  查看当前目录下的所有目录的使用情况 du -h --max-depth=1 #参数 --max-depth=1代表目录深度  找出当前目录下及子目录下的大于800M的文件 find . -type f -size +800M -print  删除包含子目录的所有文件 rm -rf xxx  #-f强制删除，-r删除目录;  创建文件夹 mkdir fold">
 <meta name="keywords" content="linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux常用命令记录">
 <meta property="og:url" content="http://shizhengchao.cn/2017/03/20/linux常用命令记录/index.html">
 <meta property="og:site_name" content="Hunter X Hunter">
-<meta property="og:description" content="基本命令 df -h : 查看磁盘使用情况 du -h –max-depth=1 : 查看当前目录下的所有目录的使用情况 参数 –max-depth=1代表目录深度 find . -type f -size +800M -print : 找出当前目录下及子目录下的大于800M的文件 rm -rf xxx:-f强制删除，-r如果是目录，删除包含子目录的所有文件 mkdir folder:创建文件夹">
+<meta property="og:description" content="基本命令 查看磁盘使用情况 df -h  查看当前目录下的所有目录的使用情况 du -h --max-depth=1 #参数 --max-depth=1代表目录深度  找出当前目录下及子目录下的大于800M的文件 find . -type f -size +800M -print  删除包含子目录的所有文件 rm -rf xxx  #-f强制删除，-r删除目录;  创建文件夹 mkdir fold">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-24T10:24:36.000Z">
+<meta property="og:updated_time" content="2018-04-10T14:25:13.417Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux常用命令记录">
-<meta name="twitter:description" content="基本命令 df -h : 查看磁盘使用情况 du -h –max-depth=1 : 查看当前目录下的所有目录的使用情况 参数 –max-depth=1代表目录深度 find . -type f -size +800M -print : 找出当前目录下及子目录下的大于800M的文件 rm -rf xxx:-f强制删除，-r如果是目录，删除包含子目录的所有文件 mkdir folder:创建文件夹">
+<meta name="twitter:description" content="基本命令 查看磁盘使用情况 df -h  查看当前目录下的所有目录的使用情况 du -h --max-depth=1 #参数 --max-depth=1代表目录深度  找出当前目录下及子目录下的大于800M的文件 find . -type f -size +800M -print  删除包含子目录的所有文件 rm -rf xxx  #-f强制删除，-r删除目录;  创建文件夹 mkdir fold">
 
 
 
@@ -346,26 +346,106 @@
 
       
         <h2 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h2><ul>
-<li><code>df -h</code> : 查看磁盘使用情况</li>
-<li><code>du -h –max-depth=1</code> : 查看当前目录下的所有目录的使用情况 参数 –max-depth=1代表目录深度</li>
-<li><code>find . -type f -size +800M -print</code> : 找出当前目录下及子目录下的大于800M的文件</li>
-<li><code>rm -rf xxx</code>:-f强制删除，-r如果是目录，删除包含子目录的所有文件</li>
-<li><code>mkdir folder</code>:创建文件夹</li>
-<li><code>cp abc.log /dir/</code>:复制abc.log文件到/dir目录下</li>
-<li><code>mv abc.log /dir</code>:移动或者重命名文件</li>
+<li>查看磁盘使用情况<pre>
+df -h
+</pre></li>
+<li>查看当前目录下的所有目录的使用情况<pre>
+du -h --max-depth=1 #参数 --max-depth=1代表目录深度
+</pre></li>
+<li>找出当前目录下及子目录下的大于800M的文件<pre>
+find . -type f -size +800M -print
+</pre></li>
+<li>删除包含子目录的所有文件<pre>
+rm -rf xxx  #-f强制删除，-r删除目录;
+</pre></li>
+<li>创建文件夹<pre>
+mkdir folder
+</pre></li>
+<li>复制abc.log文件到/dir目录下<pre>
+cp abc.log /dir/
+</pre></li>
+<li>移动或者重命名文件<pre>
+mv abc.log /dir #把abc.log移到 /dir目录下
+mv abc.log def.log #把abc.log重命名为def.log
+</pre></li>
+<li>显示文件行数<pre>
+wc -l abc.log #显示abc.log中有多少行
+</pre></li>
+<li>comm按行来比较两个排序文件<pre>
+如果两个文件顺序不一样,请用sort命令排序后覆盖原文件再排序
+vim a.txt
+111
+222
+333
+vim b.txt
+333
+444
+555
+comm -1 a.txt b.txt #除去文件a中的唯一行
+333
+444
+555
+comm -2 a.txt b.txt #除去b中的唯一行
+111
+222
+333
+comm -12 a.txt b.txt #取交集
+333
+comm -3 a.txt b.txt #除去a b两个文件中相同的行,输出不同的行
+111
+222
+444
+555
+</pre>
+
+</li>
 </ul>
 <a id="more"></a>
 <h2 id="日志方面"><a href="#日志方面" class="headerlink" title="日志方面"></a>日志方面</h2><ul>
-<li><code>tail -400f demo.log</code>:监控最后400行日志文件的变化</li>
-<li><code>grep ‘INFO’ demo.log</code>:在文件demo.log中查找所有包行INFO的行,还可以加参数显示前后多少行-B 前 -A 后  -C 前后</li>
-<li><code>grep ‘INFO’ demo.log</code>:</li>
-<li><code>grep -o ‘order-fix.curr_id:[0-9]+‘ demo.log</code>:-o选项只提取order-fix.curr_id:xxx的内容（而不是一整行），并输出到屏幕上</li>
+<li>监控最后400行日志文件的变化<pre>
+tail -400f demo.log
+</pre></li>
+<li>在文件demo.log中查找所有包行INFO的行<pre>grep 'INFO' demo.log #还可以加参数显示前后多少行-B 前 -A 后  -C 前后</pre></li>
+<li>-o选项只提取order-fix.curr_id:xxx的内容（而不是一整行），并输出到屏幕上<pre>grep -o 'order-fix.curr_id:[0-9]\+' demo.log</pre>
+
+</li>
 </ul>
 <h2 id="网络方面"><a href="#网络方面" class="headerlink" title="网络方面"></a>网络方面</h2><ul>
-<li><code>netstat -nat|grep -i “6379”|wc -l</code>: 查看redis连接数</li>
-<li><code>losf -i:6379</code>: 查看端口6379 连接数<br>continue…….</li>
-</ul>
+<li>查看redis连接数<pre>netstat -nat|grep -i "6379"|wc -l</pre></li>
+<li>查看端口6379 连接数<pre>losf -i:6379</pre>
 
+</li>
+</ul>
+<h2 id="wget和curl"><a href="#wget和curl" class="headerlink" title="wget和curl"></a>wget和curl</h2><p><strong><em>GET请求</em></strong></p>
+<ul>
+<li><p>使用curl</p>
+<pre>
+curl “http://www.baidu.com” 如果这里的URL指向的是一个文件或者一幅图都可以直接下载到本地
+curl -i “http://www.baidu.com” 显示全部信息
+curl -l “http://www.baidu.com” 只显示头部信息
+curl -v “http://www.baidu.com” 显示get请求全过程解析
+</pre>
+</li>
+<li><p>使用wget命令</p>
+<pre>wget “http://www.baidu.com”</pre>
+
+</li>
+</ul>
+<p><strong><em>post请求</em></strong></p>
+<ul>
+<li>使用curl命令<pre>
+curl -d "param1=value1& param2=value2" "http://www.baidu.com" #通过-d参数，把访问参数放在里面
+</pre></li>
+<li>使用wget命令<pre>
+wget --post-data "user=foo& password=bar" http://www.baidu.com #--post-data参数来实现
+</pre>
+
+</li>
+</ul>
+<p><strong><em>直接发送格式化请求</em></strong></p>
+<pre>
+curl -H "Content-type: application/json" -X POST -d '{"srcRef":"1002"}'http://fsc-inner.99bill.com/acs/deposit/1002
+</pre>
       
     </div>
     
@@ -495,7 +575,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -573,7 +653,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本命令"><span class="nav-number">1.</span> <span class="nav-text">基本命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日志方面"><span class="nav-number">2.</span> <span class="nav-text">日志方面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络方面"><span class="nav-number">3.</span> <span class="nav-text">网络方面</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本命令"><span class="nav-number">1.</span> <span class="nav-text">基本命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日志方面"><span class="nav-number">2.</span> <span class="nav-text">日志方面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络方面"><span class="nav-number">3.</span> <span class="nav-text">网络方面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#wget和curl"><span class="nav-number">4.</span> <span class="nav-text">wget和curl</span></a></li></ol></div>
             
 
           </div>

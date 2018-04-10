@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="java,hashcode," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -81,18 +81,17 @@
 
 
 
-<meta name="description" content="初始化一个整形变量，为此变量赋予一个非零的常数值，比如int result = 17; 选取equals方法中用于比较的所有域，然后针对每个域的属性进行计算： (1) 如果是boolean值，则计算flag ? 1:0(2) 如果是byte\char\short\int,则计算(int)f(3) 如果是long值，则计算(int)(f ^ (f &amp;gt;&amp;gt;&amp;gt; 32))(4) 如果是f">
-<meta name="keywords" content="java,hashcode">
+<meta name="description" content=".4 Git 基础 - 撤消操作撤消操作任何时候，你都有可能需要撤消刚才所做的某些操作。接下来，我们会介绍一些基本的撤消操作相关的命令。请注意，有些撤销操作是不可逆的，所以请务必谨慎小心，一旦失误，就有可能丢失部分工作成果。 修改最后一次提交有时候我们提交完了才发现漏掉了几个文件没有加，或者提交信息写错了。想要撤消刚才的提交操作，可以使用 –amend 选项重新提交： $ git commit –">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JAVA重写hashCode通用方法(摘录自《Effective Java》)">
-<meta property="og:url" content="http://shizhengchao.cn/2017/02/15/JAVA重写hashCode通用方法-摘录自《Effective-Java》/index.html">
+<meta property="og:title" content="git">
+<meta property="og:url" content="http://shizhengchao.cn/2018/04/03/git/index.html">
 <meta property="og:site_name" content="Hunter X Hunter">
-<meta property="og:description" content="初始化一个整形变量，为此变量赋予一个非零的常数值，比如int result = 17; 选取equals方法中用于比较的所有域，然后针对每个域的属性进行计算： (1) 如果是boolean值，则计算flag ? 1:0(2) 如果是byte\char\short\int,则计算(int)f(3) 如果是long值，则计算(int)(f ^ (f &amp;gt;&amp;gt;&amp;gt; 32))(4) 如果是f">
+<meta property="og:description" content=".4 Git 基础 - 撤消操作撤消操作任何时候，你都有可能需要撤消刚才所做的某些操作。接下来，我们会介绍一些基本的撤消操作相关的命令。请注意，有些撤销操作是不可逆的，所以请务必谨慎小心，一旦失误，就有可能丢失部分工作成果。 修改最后一次提交有时候我们提交完了才发现漏掉了几个文件没有加，或者提交信息写错了。想要撤消刚才的提交操作，可以使用 –amend 选项重新提交： $ git commit –">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-22T15:13:36.000Z">
+<meta property="og:updated_time" content="2018-04-03T07:02:42.847Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JAVA重写hashCode通用方法(摘录自《Effective Java》)">
-<meta name="twitter:description" content="初始化一个整形变量，为此变量赋予一个非零的常数值，比如int result = 17; 选取equals方法中用于比较的所有域，然后针对每个域的属性进行计算： (1) 如果是boolean值，则计算flag ? 1:0(2) 如果是byte\char\short\int,则计算(int)f(3) 如果是long值，则计算(int)(f ^ (f &amp;gt;&amp;gt;&amp;gt; 32))(4) 如果是f">
+<meta name="twitter:title" content="git">
+<meta name="twitter:description" content=".4 Git 基础 - 撤消操作撤消操作任何时候，你都有可能需要撤消刚才所做的某些操作。接下来，我们会介绍一些基本的撤消操作相关的命令。请注意，有些撤销操作是不可逆的，所以请务必谨慎小心，一旦失误，就有可能丢失部分工作成果。 修改最后一次提交有时候我们提交完了才发现漏掉了几个文件没有加，或者提交信息写错了。想要撤消刚才的提交操作，可以使用 –amend 选项重新提交： $ git commit –">
 
 
 
@@ -122,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://shizhengchao.cn/2017/02/15/JAVA重写hashCode通用方法-摘录自《Effective-Java》/"/>
+  <link rel="canonical" href="http://shizhengchao.cn/2018/04/03/git/"/>
 
 
 
 
 
-  <title>JAVA重写hashCode通用方法(摘录自《Effective Java》) | Hunter X Hunter</title>
+  <title>git | Hunter X Hunter</title>
   
 
 
@@ -246,7 +245,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://shizhengchao.cn/2017/02/15/JAVA重写hashCode通用方法-摘录自《Effective-Java》/">
+    <link itemprop="mainEntityOfPage" href="http://shizhengchao.cn/2018/04/03/git/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="轻薄的假像灬">
@@ -263,7 +262,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JAVA重写hashCode通用方法(摘录自《Effective Java》)</h1>
+          <h1 class="post-title" itemprop="name headline">git</h1>
         
 
         <div class="post-meta">
@@ -275,8 +274,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-15T17:48:00+08:00">
-                2017-02-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-03T15:02:40+08:00">
+                2018-04-03
               </time>
             
 
@@ -286,28 +285,6 @@
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -316,8 +293,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/02/15/JAVA重写hashCode通用方法-摘录自《Effective-Java》/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2017/02/15/JAVA重写hashCode通用方法-摘录自《Effective-Java》/" itemprop="commentsCount"></span>
+                <a href="/2018/04/03/git/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/04/03/git/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -345,15 +322,30 @@
       
 
       
-        <ol>
-<li>初始化一个整形变量，为此变量赋予一个非零的常数值，比如int result = 17;<br><br></li>
-<li>选取equals方法中用于比较的所有域，然后针对每个域的属性进行计算：<blockquote>
-<p>(1) 如果是boolean值，则计算<code>flag ? 1:0</code><br>(2) 如果是byte\char\short\int,则计算<code>(int)f</code><br>(3) 如果是long值，则计算<code>(int)(f ^ (f &gt;&gt;&gt; 32))</code><br>(4) 如果是float值，则计算<code>Float.floatToIntBits(f)</code></p>
-<a id="more"></a>
-<p>(5) 如果是double值，则计算<code>Double.doubleToLongBits(f)</code>，然后返回的结果是long,再用规则(3)去处理long,得到int<br>(6) 如果是对象应用，如果equals方法中采取递归调用的比较方式，那么hashCode中同样采取递归调用hashCode的方式。否则需要为这个域计算一个范式，比如当这个域的值为null的时候，那么hashCode 值为0。简单的说就是直接调用对象的hashcode()。<br>(7) 如果是数组，那么需要为每个元素当做单独的域来处理。如果你使用的是1.5及以上版本的JDK，那么没必要自己去重新遍历一遍数组，java.util.Arrays.hashCode方法包含了8种基本类型数组和引用数组的hashCode计算，算法同上，其中long[]的为:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">(<span class="keyword">long</span> a[])</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (a == <span class="keyword">null</span>)&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">int</span> result = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">long</span> element : a) &#123;</span><br><span class="line">  <span class="keyword">int</span> elementHash = (<span class="keyword">int</span>) (element ^ (element &gt;&gt;&gt; <span class="number">32</span>));</span><br><span class="line">  result = <span class="number">31</span> * result + elementHash;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></blockquote>
-</li>
-</ol>
+        <p>.4 Git 基础 - 撤消操作<br>撤消操作<br>任何时候，你都有可能需要撤消刚才所做的某些操作。接下来，我们会介绍一些基本的撤消操作相关的命令。请注意，有些撤销操作是不可逆的，所以请务必谨慎小心，一旦失误，就有可能丢失部分工作成果。</p>
+<p>修改最后一次提交<br>有时候我们提交完了才发现漏掉了几个文件没有加，或者提交信息写错了。想要撤消刚才的提交操作，可以使用 –amend 选项重新提交：</p>
+<p>$ git commit –amend<br>此命令将使用当前的暂存区域快照提交。如果刚才提交完没有作任何改动，直接运行此命令的话，相当于有机会重新编辑提交说明，但将要提交的文件快照和之前的一样。</p>
+<p>启动文本编辑器后，会看到上次提交时的说明，编辑它确认没问题后保存退出，就会使用新的提交说明覆盖刚才失误的提交。</p>
+<p>如果刚才提交时忘了暂存某些修改，可以先补上暂存操作，然后再运行 –amend 提交：</p>
+<p>$ git commit -m ‘initial commit’<br>$ git add forgotten_file<br>$ git commit –amend<br>上面的三条命令最终只是产生一个提交，第二个提交命令修正了第一个的提交内容。</p>
+<p>取消已经暂存的文件<br>接下来的两个小节将演示如何取消暂存区域中的文件，以及如何取消工作目录中已修改的文件。不用担心，查看文件状态的时候就提示了该如何撤消，所以不需要死记硬背。来看下面的例子，有两个修改过的文件，我们想要分开提交，但不小心用 git add . 全加到了暂存区域。该如何撤消暂存其中的一个文件呢？其实，git status 的命令输出已经告诉了我们该怎么做：</p>
+<p>$ git add .<br>$ git status<br>On branch master<br>Changes to be committed:<br>  (use “git reset HEAD <file>…” to unstage)</file></p>
+<pre><code>modified:   README.txt
+modified:   benchmarks.rb
+</code></pre><p>就在 “Changes to be committed” 下面，括号中有提示，可以使用 git reset HEAD <file>… 的方式取消暂存。好吧，我们来试试取消暂存 benchmarks.rb 文件：</file></p>
+<p>$ git reset HEAD benchmarks.rb<br>Unstaged changes after reset:<br>M       benchmarks.rb<br>$ git status<br>On branch master<br>Changes to be committed:<br>  (use “git reset HEAD <file>…” to unstage)</file></p>
+<pre><code>modified:   README.txt
+</code></pre><p>Changes not staged for commit:<br>  (use “git add <file>…” to update what will be committed)<br>  (use “git checkout – <file>…” to discard changes in working directory)</file></file></p>
+<pre><code>modified:   benchmarks.rb
+</code></pre><p>这条命令看起来有些古怪，先别管，能用就行。现在 benchmarks.rb 文件又回到了之前已修改未暂存的状态。</p>
+<p>取消对文件的修改<br>如果觉得刚才对 benchmarks.rb 的修改完全没有必要，该如何取消修改，回到之前的状态（也就是修改之前的版本）呢？git status 同样提示了具体的撤消方法，接着上面的例子，现在未暂存区域看起来像这样：</p>
+<p>Changes not staged for commit:<br>  (use “git add <file>…” to update what will be committed)<br>  (use “git checkout – <file>…” to discard changes in working directory)</file></file></p>
+<pre><code>modified:   benchmarks.rb
+</code></pre><p>在第二个括号中，我们看到了抛弃文件修改的命令（至少在 Git 1.6.1 以及更高版本中会这样提示，如果你还在用老版本，我们强烈建议你升级，以获取最佳的用户体验），让我们试试看：</p>
+<p>$ git checkout – benchmarks.rb<br>$ git status<br>On branch master<br>Changes to be committed:<br>  (use “git reset HEAD <file>…” to unstage)</file></p>
+<pre><code>modified:   README.txt
+</code></pre><p>可以看到，该文件已经恢复到修改前的版本。你可能已经意识到了，这条命令有些危险，所有对文件的修改都没有了，因为我们刚刚把之前版本的文件复制过来重写了此文件。所以在用这条命令前，请务必确定真的不再需要保留刚才的修改。如果只是想回退版本，同时保留刚才的修改以便将来继续工作，可以用下章介绍的 stashing 和分支来处理，应该会更好些。</p>
+<p>记住，任何已经提交到 Git 的都可以被恢复。即便在已经删除的分支中的提交，或者用 –amend 重新改写的提交，都可以被恢复（关于数据恢复的内容见第九章）。所以，你可能失去的数据，仅限于没有提交过的，对 Git 来说它们就像从未存在过一样。</p>
 
       
     </div>
@@ -369,14 +361,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
-          
-            <a href="/tags/hashcode/" rel="tag"><i class="fa fa-tag"></i> hashcode</a>
-          
-        </div>
-      
 
       
       
@@ -386,8 +370,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/15/Builder设计模式/" rel="next" title="Builder设计模式">
-                <i class="fa fa-chevron-left"></i> Builder设计模式
+              <a href="/2018/03/13/JAVA回调机制Callback/" rel="next" title="JAVA回调机制Callback">
+                <i class="fa fa-chevron-left"></i> JAVA回调机制Callback
               </a>
             
           </div>
@@ -395,10 +379,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/20/linux常用命令记录/" rel="prev" title="linux常用命令记录">
-                linux常用命令记录 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
