@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="在不停止系统的情况下, 当需要对表进行ddl操作如加索引、增删列时，数据量小时直接在线修改表结构影响不大。但当表达到百万、千万数据就不能直接在线修改表结构,这样会拖跨整个数据库系统。一般的解决办法是新建一张原表，改好表结构后把原表数据导入新表，再修改表名 具体过程  备份数据  mysql&amp;gt; select * from t_order into outfile &apos;D:/bak/order.txt&apos;">
+<meta name="description" content="在不停止系统的情况下, 当需要对表进行ddl操作如加索引、增删列时，数据量小时直接在线修改表结构影响不大。但当表达到百万、千万数据就不能直接在线修改表结构,这样会拖跨整个数据库系统。一般的解决办法是新建一张原表，改好表结构后把原表数据导入新表，再修改表名。建议建议使用在线ddl工具，且在访问量少时进行。(在5.6版本之后，mysql支持online ddl方式，即某些DDL操作不会锁表) 具体过程">
 <meta name="keywords" content="mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据库更新大表数据结构解决方案">
 <meta property="og:url" content="http://shizhengchao.cn/2018/03/20/数据库更新大表数据结构解决方案/index.html">
 <meta property="og:site_name" content="Hunter X Hunter">
-<meta property="og:description" content="在不停止系统的情况下, 当需要对表进行ddl操作如加索引、增删列时，数据量小时直接在线修改表结构影响不大。但当表达到百万、千万数据就不能直接在线修改表结构,这样会拖跨整个数据库系统。一般的解决办法是新建一张原表，改好表结构后把原表数据导入新表，再修改表名 具体过程  备份数据  mysql&amp;gt; select * from t_order into outfile &apos;D:/bak/order.txt&apos;">
+<meta property="og:description" content="在不停止系统的情况下, 当需要对表进行ddl操作如加索引、增删列时，数据量小时直接在线修改表结构影响不大。但当表达到百万、千万数据就不能直接在线修改表结构,这样会拖跨整个数据库系统。一般的解决办法是新建一张原表，改好表结构后把原表数据导入新表，再修改表名。建议建议使用在线ddl工具，且在访问量少时进行。(在5.6版本之后，mysql支持online ddl方式，即某些DDL操作不会锁表) 具体过程">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-11T15:01:26.988Z">
+<meta property="og:updated_time" content="2018-04-11T15:18:07.442Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据库更新大表数据结构解决方案">
-<meta name="twitter:description" content="在不停止系统的情况下, 当需要对表进行ddl操作如加索引、增删列时，数据量小时直接在线修改表结构影响不大。但当表达到百万、千万数据就不能直接在线修改表结构,这样会拖跨整个数据库系统。一般的解决办法是新建一张原表，改好表结构后把原表数据导入新表，再修改表名 具体过程  备份数据  mysql&amp;gt; select * from t_order into outfile &apos;D:/bak/order.txt&apos;">
+<meta name="twitter:description" content="在不停止系统的情况下, 当需要对表进行ddl操作如加索引、增删列时，数据量小时直接在线修改表结构影响不大。但当表达到百万、千万数据就不能直接在线修改表结构,这样会拖跨整个数据库系统。一般的解决办法是新建一张原表，改好表结构后把原表数据导入新表，再修改表名。建议建议使用在线ddl工具，且在访问量少时进行。(在5.6版本之后，mysql支持online ddl方式，即某些DDL操作不会锁表) 具体过程">
 
 
 
@@ -345,7 +345,7 @@
       
 
       
-        <p>在不停止系统的情况下, 当需要对表进行ddl操作如加索引、增删列时，数据量小时直接在线修改表结构影响不大。但当表达到百万、千万数据就不能直接在线修改表结构,这样会拖跨整个数据库系统。一般的解决办法是新建一张原表，改好表结构后把原表数据导入新表，再修改表名</p>
+        <p>在不停止系统的情况下, 当需要对表进行ddl操作如加索引、增删列时，数据量小时直接在线修改表结构影响不大。但当表达到百万、千万数据就不能直接在线修改表结构,这样会拖跨整个数据库系统。一般的解决办法是新建一张原表，改好表结构后把原表数据导入新表，再修改表名。建议建议使用在线ddl工具，且在访问量少时进行。(在5.6版本之后，mysql支持online ddl方式，即某些DDL操作不会锁表)</p>
 <p><strong><em>具体过程</em></strong></p>
 <ol>
 <li><p>备份数据</p>
@@ -377,11 +377,6 @@ mysql> rename table t_order_bak to t_order;
 
 </li>
 </ol>
-<p>注意：</p>
-<ul>
-<li>这种方法会影响业务运行,但应该是最优解，建议使用在线ddl工具：pt-online-schema-change，且在访问量少时进行</li>
-<li>大多数的alter table操作都会涉及lock–&gt;copy to new table–&gt;rename–&gt;unlock的过程，锁表时间会很长,而且alter table 的process不可被kill,一旦执行就不可回退。<br>在mysql5.5和之前版本，在运行的生产环境对大表（超过数百万纪录）执行alter操作是一件很困难的事情。因为将重建表和锁表，影响用户者的使用。<br>从mysql5.6开始，Online DDL特性被引进。增强了很多种类的Alter Table操作避免拷贝表和锁表，在运行Alter操作的同时允许运行select,insert,update,delete语句。因此在最新版本，我们可以通过使用ALGORITHM和LOCK选项抑制文件拷贝和加锁。<br>但是即使在mysql5.6，仍然有一些alter操作（增加/删除列，增加/删除主键,改变数据类型等）需要重建</li>
-</ul>
 
       
     </div>
@@ -421,6 +416,10 @@ mysql> rename table t_order_bak to t_order;
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/07/springboot-netty-protobuff实现rpc/" rel="prev" title="springboot+netty+protobuff实现rpc">
+                springboot+netty+protobuff实现rpc <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -499,7 +498,7 @@ mysql> rename table t_order_bak to t_order;
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -521,7 +520,7 @@ mysql> rename table t_order_bak to t_order;
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
