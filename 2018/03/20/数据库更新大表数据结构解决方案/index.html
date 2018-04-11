@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Hunter X Hunter">
 <meta property="og:description" content="在不停止系统的情况下, 当需要对表进行ddl操作如加索引、增删列时，数据量小时直接在线修改表结构影响不大。但当表达到百万、千万数据就不能直接在线修改表结构,这样会拖跨整个数据库系统。一般的解决办法是新建一张原表，改好表结构后把原表数据导入新表，再修改表名 具体过程  备份数据  mysql&amp;gt; select * from t_order into outfile &apos;D:/bak/order.txt&apos;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-11T14:56:25.614Z">
+<meta property="og:updated_time" content="2018-04-11T14:59:36.022Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据库更新大表数据结构解决方案">
 <meta name="twitter:description" content="在不停止系统的情况下, 当需要对表进行ddl操作如加索引、增删列时，数据量小时直接在线修改表结构影响不大。但当表达到百万、千万数据就不能直接在线修改表结构,这样会拖跨整个数据库系统。一般的解决办法是新建一张原表，改好表结构后把原表数据导入新表，再修改表名 具体过程  备份数据  mysql&amp;gt; select * from t_order into outfile &apos;D:/bak/order.txt&apos;">
@@ -353,7 +353,7 @@
 mysql> select * from t_order into outfile 'D:/bak/order.txt';
 </pre>
 </li>
-<li><p>复制原表物理结构<br><pre><br>mysql&gt; create table t_order_bak like ih_order;<br></pre></p>
+<li><p>复制原表物理结构<br><pre><br>mysql&gt; create table t_order_bak like t_order;<br></pre></p>
 <a id="more"></a></li>
 <li><p>执行表结构修改，比如增加索引</p>
 <pre>
