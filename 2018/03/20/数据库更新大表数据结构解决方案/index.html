@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="mysql," />
 
 
 
@@ -81,16 +81,18 @@
 
 
 
-<meta name="description" content="QQ:792790388, email:shizhengchao@outlook.com">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hunter X Hunter">
-<meta property="og:url" content="http://shizhengchao.cn/archives/2018/04/index.html">
+<meta name="description" content="在不停止系统的情况下, 当需要对表进行ddl操作如加索引、增删列时，数据量小时直接在线修改表结构影响不大。但当表达到百万、千万数据就不能直接在线修改表结构,这样会拖跨整个数据库系统。一般的解决办法是新建一张原表，改好表结构后把原表数据导入新表，再修改表名 具体过程  备份数据  mysql&amp;gt; select * from t_order into outfile &apos;D:/bak/order.txt&apos;">
+<meta name="keywords" content="mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库更新大表数据结构解决方案">
+<meta property="og:url" content="http://shizhengchao.cn/2018/03/20/数据库更新大表数据结构解决方案/index.html">
 <meta property="og:site_name" content="Hunter X Hunter">
-<meta property="og:description" content="QQ:792790388, email:shizhengchao@outlook.com">
+<meta property="og:description" content="在不停止系统的情况下, 当需要对表进行ddl操作如加索引、增删列时，数据量小时直接在线修改表结构影响不大。但当表达到百万、千万数据就不能直接在线修改表结构,这样会拖跨整个数据库系统。一般的解决办法是新建一张原表，改好表结构后把原表数据导入新表，再修改表名 具体过程  备份数据  mysql&amp;gt; select * from t_order into outfile &apos;D:/bak/order.txt&apos;">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-04-11T14:56:25.614Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hunter X Hunter">
-<meta name="twitter:description" content="QQ:792790388, email:shizhengchao@outlook.com">
+<meta name="twitter:title" content="数据库更新大表数据结构解决方案">
+<meta name="twitter:description" content="在不停止系统的情况下, 当需要对表进行ddl操作如加索引、增删列时，数据量小时直接在线修改表结构影响不大。但当表达到百万、千万数据就不能直接在线修改表结构,这样会拖跨整个数据库系统。一般的解决办法是新建一张原表，改好表结构后把原表数据导入新表，再修改表名 具体过程  备份数据  mysql&amp;gt; select * from t_order into outfile &apos;D:/bak/order.txt&apos;">
 
 
 
@@ -120,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://shizhengchao.cn/archives/2018/04/"/>
+  <link rel="canonical" href="http://shizhengchao.cn/2018/03/20/数据库更新大表数据结构解决方案/"/>
 
 
 
 
 
-  <title>归档 | Hunter X Hunter</title>
+  <title>数据库更新大表数据结构解决方案 | Hunter X Hunter</title>
   
 
 
@@ -145,7 +147,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
     <a href="https://github.com/shizhengchao" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
 
@@ -230,74 +232,215 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        嗯..! 目前共计 15 篇日志。 继续努力。
-      </span>
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2018">2018</h1>
-          </div>
-        
-        
-
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://shizhengchao.cn/2018/03/20/数据库更新大表数据结构解决方案/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="轻薄的假像灬">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/assert/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hunter X Hunter">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/04/03/git/" itemprop="url">
-              
-                <span itemprop="name">git</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">数据库更新大表数据结构解决方案</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-03T15:02:40+08:00"
-              content="2018-04-03" >
-          04-03
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-20T11:03:00+08:00">
+                2018-03-20
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/mysql/" itemprop="url" rel="index">
+                    <span itemprop="name">mysql</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/20/数据库更新大表数据结构解决方案/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/03/20/数据库更新大表数据结构解决方案/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+      
 
+      
+        <p>在不停止系统的情况下, 当需要对表进行ddl操作如加索引、增删列时，数据量小时直接在线修改表结构影响不大。但当表达到百万、千万数据就不能直接在线修改表结构,这样会拖跨整个数据库系统。一般的解决办法是新建一张原表，改好表结构后把原表数据导入新表，再修改表名</p>
+<p><strong><em>具体过程</em></strong></p>
+<ol>
+<li><p>备份数据</p>
+<pre>
+mysql> select * from t_order into outfile 'D:/bak/order.txt';
+</pre>
+</li>
+<li><p>复制原表物理结构<br><pre><br>mysql&gt; create table t_order_bak like ih_order;<br></pre></p>
+<a id="more"></a></li>
+<li><p>执行表结构修改，比如增加索引</p>
+<pre>
+alter table  `t_order_bak` add index (`a_index`);
+</pre>
+</li>
+<li><p>把原表数据导入新表</p>
+<pre>
+mysql> insert into t_order_bak select * from t_order;
+</pre>
+</li>
+<li><p>删除原表</p>
+<pre>
+drop table t_order;
+</pre>
+</li>
+<li><p>新表重命名原表</p>
+<pre>
+mysql> rename table t_order_bak to t_order;
+</pre>
+
+</li>
+</ol>
+<p>注意：</p>
+<ul>
+<li>这种方法会影响业务运行,但应该是最优解，建议使用在线ddl工具：pt-online-schema-change，且在访问量少时进行</li>
+<li>大多数的alter table操作都会涉及lock–&gt;copy to new table–&gt;rename–&gt;unlock的过程，锁表时间会很长,而且alter table 的process不可被kill,一旦执行就不可回退。<br>在mysql5.5和之前版本，在运行的生产环境对大表（超过数百万纪录）执行alter操作是一件很困难的事情。因为将重建表和锁表，影响用户者的使用。<br>从mysql5.6开始，Online DDL特性被引进。增强了很多种类的Alter Table操作避免拷贝表和锁表，在运行Alter操作的同时允许运行select,insert,update,delete语句。因此在最新版本，我们可以通过使用ALGORITHM和LOCK选项抑制文件拷贝和加锁。<br>但是即使在mysql5.6，仍然有一些alter操作（增加/删除列，增加/删除主键,改变数据类型等）需要重建</li>
+</ul>
+
+      
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/mysql/" rel="tag"><i class="fa fa-tag"></i> mysql</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/13/JAVA回调机制Callback/" rel="next" title="JAVA回调机制Callback">
+                <i class="fa fa-chevron-left"></i> JAVA回调机制Callback
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -305,6 +448,17 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
 
         </div>
         
@@ -345,7 +499,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -367,7 +521,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -548,6 +702,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -594,6 +752,30 @@
 
     
 
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'shizhengchao',
+            repo: 'shizhengchao.github.io',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '9ff05a42bcc14eb667c44a48264e1d0691b348b9',
+            
+                client_id: 'e6b534d104f8c4a0a764'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
     
 
 
