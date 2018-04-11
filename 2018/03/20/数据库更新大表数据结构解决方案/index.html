@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Hunter X Hunter">
 <meta property="og:description" content="在不停止系统的情况下, 当需要对表进行ddl操作如加索引、增删列时，数据量小时直接在线修改表结构影响不大。但当表达到百万、千万数据就不能直接在线修改表结构,这样会拖跨整个数据库系统。一般的解决办法是新建一张原表，改好表结构后把原表数据导入新表，再修改表名 具体过程  备份数据  mysql&amp;gt; select * from t_order into outfile &apos;D:/bak/order.txt&apos;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-11T14:59:36.022Z">
+<meta property="og:updated_time" content="2018-04-11T15:01:26.988Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据库更新大表数据结构解决方案">
 <meta name="twitter:description" content="在不停止系统的情况下, 当需要对表进行ddl操作如加索引、增删列时，数据量小时直接在线修改表结构影响不大。但当表达到百万、千万数据就不能直接在线修改表结构,这样会拖跨整个数据库系统。一般的解决办法是新建一张原表，改好表结构后把原表数据导入新表，再修改表名 具体过程  备份数据  mysql&amp;gt; select * from t_order into outfile &apos;D:/bak/order.txt&apos;">
@@ -367,7 +367,7 @@ mysql> insert into t_order_bak select * from t_order;
 </li>
 <li><p>删除原表</p>
 <pre>
-drop table t_order;
+drop table t_order; #可能你会担心，表删除后，应用程序会找不到表，但是一般系统都会有异常处理，而且我们会选择在凌晨处理
 </pre>
 </li>
 <li><p>新表重命名原表</p>
