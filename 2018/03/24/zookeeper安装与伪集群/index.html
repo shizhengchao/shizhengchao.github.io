@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="webapp,tomcat," />
+  <meta name="keywords" content="zookeeper,伪集群," />
 
 
 
@@ -81,24 +81,18 @@
 
 
 
-<meta name="description" content="用maven创建一个webapp的项目时，在eclipse用tomcat容器识别不了，那是因为用maven创建出来的项目不是一个web项目。 解决办法 首先创建一个maven的webapp项目(不要点create a simple project，否则到不了这个页面) 右键工程属性选择”Project Facets” 点击 “Convert faceted form”">
-<meta name="keywords" content="webapp,tomcat">
+<meta name="description" content="安装 下载最新版本的zookeeper [root@izbp1311i2pe1xiq3x174lz home]# wget https://mirrors.tuna.tsinghua.edu.cn/apache/zookeeper/zookeeper-3.4.10/zookeeper-3.4.10.tar.gz  解压zookeeper-3.4.10.tar.gz [root@izbp1311i2">
+<meta name="keywords" content="zookeeper,伪集群">
 <meta property="og:type" content="article">
-<meta property="og:title" content="maven项目转换成web项目">
-<meta property="og:url" content="http://shizhengchao.cn/2018/01/21/maven项目转换成web项目/index.html">
+<meta property="og:title" content="zookeeper安装与伪集群">
+<meta property="og:url" content="http://shizhengchao.cn/2018/03/24/zookeeper安装与伪集群/index.html">
 <meta property="og:site_name" content="Hunter X Hunter">
-<meta property="og:description" content="用maven创建一个webapp的项目时，在eclipse用tomcat容器识别不了，那是因为用maven创建出来的项目不是一个web项目。 解决办法 首先创建一个maven的webapp项目(不要点create a simple project，否则到不了这个页面) 右键工程属性选择”Project Facets” 点击 “Convert faceted form”">
+<meta property="og:description" content="安装 下载最新版本的zookeeper [root@izbp1311i2pe1xiq3x174lz home]# wget https://mirrors.tuna.tsinghua.edu.cn/apache/zookeeper/zookeeper-3.4.10/zookeeper-3.4.10.tar.gz  解压zookeeper-3.4.10.tar.gz [root@izbp1311i2">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://shizhengchao.cn/images/maven/1.png">
-<meta property="og:image" content="http://shizhengchao.cn/images/maven/2.png">
-<meta property="og:image" content="http://shizhengchao.cn/images/maven/3.png">
-<meta property="og:image" content="http://shizhengchao.cn/images/maven/4.png">
-<meta property="og:image" content="http://shizhengchao.cn/images/maven/5.png">
-<meta property="og:updated_time" content="2018-03-24T14:54:48.000Z">
+<meta property="og:updated_time" content="2018-04-18T16:35:56.319Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="maven项目转换成web项目">
-<meta name="twitter:description" content="用maven创建一个webapp的项目时，在eclipse用tomcat容器识别不了，那是因为用maven创建出来的项目不是一个web项目。 解决办法 首先创建一个maven的webapp项目(不要点create a simple project，否则到不了这个页面) 右键工程属性选择”Project Facets” 点击 “Convert faceted form”">
-<meta name="twitter:image" content="http://shizhengchao.cn/images/maven/1.png">
+<meta name="twitter:title" content="zookeeper安装与伪集群">
+<meta name="twitter:description" content="安装 下载最新版本的zookeeper [root@izbp1311i2pe1xiq3x174lz home]# wget https://mirrors.tuna.tsinghua.edu.cn/apache/zookeeper/zookeeper-3.4.10/zookeeper-3.4.10.tar.gz  解压zookeeper-3.4.10.tar.gz [root@izbp1311i2">
 
 
 
@@ -128,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://shizhengchao.cn/2018/01/21/maven项目转换成web项目/"/>
+  <link rel="canonical" href="http://shizhengchao.cn/2018/03/24/zookeeper安装与伪集群/"/>
 
 
 
 
 
-  <title>maven项目转换成web项目 | Hunter X Hunter</title>
+  <title>zookeeper安装与伪集群 | Hunter X Hunter</title>
   
 
 
@@ -252,7 +246,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://shizhengchao.cn/2018/01/21/maven项目转换成web项目/">
+    <link itemprop="mainEntityOfPage" href="http://shizhengchao.cn/2018/03/24/zookeeper安装与伪集群/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="轻薄的假像灬">
@@ -269,7 +263,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">maven项目转换成web项目</h1>
+          <h1 class="post-title" itemprop="name headline">zookeeper安装与伪集群</h1>
         
 
         <div class="post-meta">
@@ -281,8 +275,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-21T22:44:00+08:00">
-                2018-01-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-24T23:56:00+08:00">
+                2018-03-24
               </time>
             
 
@@ -304,8 +298,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/maven/" itemprop="url" rel="index">
-                    <span itemprop="name">maven</span>
+                  <a href="/categories/zookeeper/" itemprop="url" rel="index">
+                    <span itemprop="name">zookeeper</span>
                   </a>
                 </span>
 
@@ -341,17 +335,42 @@
       
 
       
-        <p>用maven创建一个webapp的项目时，在eclipse用tomcat容器识别不了，那是因为用maven创建出来的项目不是一个web项目。</p>
-<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><ol>
-<li>首先创建一个maven的webapp项目(<font color="red">不要点create a simple project，否则到不了这个页面</font>)<br><img src="/images/maven/1.png" alt="alt text"><br><br></li>
-<li>右键工程属性选择”Project Facets” 点击 “Convert faceted form”<br><a id="more"></a>
-<img src="/images/maven/2.png" alt="alt text"><br><br></li>
-<li>勾选Dynamic Web Module<br><img src="/images/maven/3.png" alt="alt text"><br><br></li>
-<li>点击Further configuration available…，更改web目录为 “src/main/webapp”<br><img src="/images/maven/4.png" alt="alt text"><br><br></li>
-<li>再右键工程属性选择”Deployment Assembly”,把webapp部署到tomcat里,并把依赖添加到WEB-INF/lib下<br><img src="/images/maven/5.png" alt="alt text"><br><br></li>
-<li>如果想要更改Context root path，可以右键工程属性选择”Web Project Settings”进行更改<br><br></li>
-<li>最后用tomcat进行add and remove时就能发现web工程了。</li>
+        <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ol>
+<li>下载最新版本的zookeeper<pre>
+[root@izbp1311i2pe1xiq3x174lz home]# wget https://mirrors.tuna.tsinghua.edu.cn/apache/zookeeper/zookeeper-3.4.10/zookeeper-3.4.10.tar.gz
+</pre></li>
+<li>解压zookeeper-3.4.10.tar.gz<pre>
+[root@izbp1311i2pe1xiq3x174lz home]# tar -zxvf zookeeper-3.4.10.tar.gz
+</pre></li>
+<li>进入到conf目录下配置zoo.cfg<br><pre><h1 id="ZooKeeper的最小时间单元-单位毫秒-ms-默认值为3000"><a href="#ZooKeeper的最小时间单元-单位毫秒-ms-默认值为3000" class="headerlink" title="ZooKeeper的最小时间单元,单位毫秒(ms),默认值为3000"></a>ZooKeeper的最小时间单元,单位毫秒(ms),默认值为3000</h1>tickTime=2000<br>#Leader服务器等待Follower启动并完成数据同步的时间,默认值10,表示tickTime的10倍<br>initLimit=10<br>#Leader服务器和Follower之间进行心跳检测的最大延时时间,默认值5,表示tickTime的5倍<br>syncLimit=5<h1 id="ZooKeeper服务器存储快照文件的目录-必须配值-建议放置在var目录下"><a href="#ZooKeeper服务器存储快照文件的目录-必须配值-建议放置在var目录下" class="headerlink" title="ZooKeeper服务器存储快照文件的目录,必须配值,建议放置在var目录下"></a>ZooKeeper服务器存储快照文件的目录,必须配值,建议放置在var目录下</h1>dataDir=/var/zookeeper1/data<br>dataLogDir=/var/zookeeper1/logs<h1 id="服务器对外服务端口-默认值为2181"><a href="#服务器对外服务端口-默认值为2181" class="headerlink" title="服务器对外服务端口,默认值为2181"></a>服务器对外服务端口,默认值为2181</h1>clientPort=2181<br></pre><a id="more"></a></li>
+<li>启动服务端<pre>
+[root@izbp1311i2pe1xiq3x174lz bin]# sh zkServer.sh start
+</pre></li>
+<li>客户端连接<pre>
+[root@izbp1311i2pe1xiq3x174lz bin]# sh zkCli.sh -server 127.0.0.1:2181
+</pre>
+
+</li>
 </ol>
+<h2 id="伪集群"><a href="#伪集群" class="headerlink" title="伪集群"></a>伪集群</h2><ol>
+<li><p>解压三个zookeeper，分别重命名为zookeeper1、zookeeper2、zookeeper3</p>
+</li>
+<li><p>分别在zoo.cfg中加入如下配置<br><pre><br>clientPort=2181 #端口分别为2181、2182、2183<br>server.1=127.0.0.1:2887:3887<br>server.2=127.0.0.1:2888:3888<br>server.3=127.0.0.1:2889:3889<br></pre><br>server.X=A:B:C, X代表第几号server，A是当前server的地址，B配置该server和集群中的leader交换消息所使用的端口. C配置选举leader时所使用的端口. 由于配置的是伪集群模式, 所以各个server的B, C参数必须不同</p>
+</li>
+<li><p>在第一个zookeeper的/var/zookeeper{num}/data目录下增加一个myid文件</p>
+<pre>
+[root@izbp1311i2pe1xiq3x174lz data]# touch myid
+[root@izbp1311i2pe1xiq3x174lz data]# vim myid #与入与server.x后面的x一样的数字，比如zookeeper1中就写入1.
+</pre>
+</li>
+<li><p>到这里伪集群模式就配置好了，写一个批量启动和停止的shell脚本</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">[root@izbp1311i2pe1xiq3x174lz zookeeper]# vim zookeeper_start.sh</span><br><span class="line">#!/bin/bash  </span><br><span class="line">    SERVERS=&quot;zookeeper1 zookeeper2 zookeeper3&quot;</span><br><span class="line"></span><br><span class="line">    for SERVER in $SERVERS</span><br><span class="line">    do</span><br><span class="line">          echo &quot;当前&quot;$SERVER&quot;正在启动....................&quot;  </span><br><span class="line">           #ssh root@$SERVER &quot;source /etc/profile;/usr/apps/zookeeper-3.4.9/bin/zkServer.sh start&quot;  </span><br><span class="line">          sh /home/zookeeper/$SERVER/bin/zkServer.sh start</span><br><span class="line">          echo $SERVER&quot;启动结束--------------------------------------------&quot;  </span><br><span class="line">          done</span><br><span class="line">          </span><br><span class="line">[root@izbp1311i2pe1xiq3x174lz zookeeper]# vim zookeeper_stop.sh</span><br><span class="line">#!/bin/bash  </span><br><span class="line">    SERVERS=&quot;zookeeper1 zookeeper2 zookeeper3&quot;</span><br><span class="line"></span><br><span class="line">    for SERVER in $SERVERS</span><br><span class="line">    do</span><br><span class="line">          echo &quot;当前&quot;$SERVER&quot;正在停止....................&quot;  </span><br><span class="line">           #ssh root@$SERVER &quot;source /etc/profile;/usr/apps/zookeeper-3.4.9/bin/zkServer.sh start&quot;  </span><br><span class="line">          sh /home/zookeeper/$SERVER/bin/zkServer.sh stop</span><br><span class="line">          echo $SERVER&quot;停止结束--------------------------------------------&quot;                                                                         </span><br><span class="line">    done</span><br></pre></td></tr></table></figure>
+<ol>
+<li>启动集群服务</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@izbp1311i2pe1xiq3x174lz zookeeper]# sh zookeeper_start.sh</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -369,9 +388,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/webapp/" rel="tag"><i class="fa fa-tag"></i> webapp</a>
+            <a href="/tags/zookeeper/" rel="tag"><i class="fa fa-tag"></i> zookeeper</a>
           
-            <a href="/tags/tomcat/" rel="tag"><i class="fa fa-tag"></i> tomcat</a>
+            <a href="/tags/伪集群/" rel="tag"><i class="fa fa-tag"></i> 伪集群</a>
           
         </div>
       
@@ -384,8 +403,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/20/Centos安装Node-js/" rel="next" title="Centos安装Node.js">
-                <i class="fa fa-chevron-left"></i> Centos安装Node.js
+              <a href="/2018/03/20/数据库更新大表数据结构解决方案/" rel="next" title="数据库更新大表数据结构解决方案">
+                <i class="fa fa-chevron-left"></i> 数据库更新大表数据结构解决方案
               </a>
             
           </div>
@@ -394,8 +413,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/01/29/quartz集群datasource使用问题/" rel="prev" title="quartz集群datasource使用问题">
-                quartz集群datasource使用问题 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/04/07/springboot-netty-protobuff实现rpc/" rel="prev" title="springboot+netty+protobuff实现rpc">
+                springboot+netty+protobuff实现rpc <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -555,7 +574,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#解决办法"><span class="nav-number">1.</span> <span class="nav-text">解决办法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ZooKeeper的最小时间单元-单位毫秒-ms-默认值为3000"><span class="nav-number"></span> <span class="nav-text">ZooKeeper的最小时间单元,单位毫秒(ms),默认值为3000</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ZooKeeper服务器存储快照文件的目录-必须配值-建议放置在var目录下"><span class="nav-number"></span> <span class="nav-text">ZooKeeper服务器存储快照文件的目录,必须配值,建议放置在var目录下</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#服务器对外服务端口-默认值为2181"><span class="nav-number"></span> <span class="nav-text">服务器对外服务端口,默认值为2181</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#伪集群"><span class="nav-number">1.</span> <span class="nav-text">伪集群</span></a></li></ol></div>
             
 
           </div>
