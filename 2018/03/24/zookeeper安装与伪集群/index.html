@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Hunter X Hunter">
 <meta property="og:description" content="安装 下载最新版本的zookeeper [root@izbp1311i2pe1xiq3x174lz home]# wget https://mirrors.tuna.tsinghua.edu.cn/apache/zookeeper/zookeeper-3.4.10/zookeeper-3.4.10.tar.gz  解压zookeeper-3.4.10.tar.gz [root@izbp1311i2">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-18T16:40:26.835Z">
+<meta property="og:updated_time" content="2018-04-18T16:42:57.519Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="zookeeper安装与伪集群">
 <meta name="twitter:description" content="安装 下载最新版本的zookeeper [root@izbp1311i2pe1xiq3x174lz home]# wget https://mirrors.tuna.tsinghua.edu.cn/apache/zookeeper/zookeeper-3.4.10/zookeeper-3.4.10.tar.gz  解压zookeeper-3.4.10.tar.gz [root@izbp1311i2">
@@ -342,24 +342,7 @@
 <li>解压zookeeper-3.4.10.tar.gz<pre>
 [root@izbp1311i2pe1xiq3x174lz home]# tar -zxvf zookeeper-3.4.10.tar.gz
 </pre></li>
-<li>进入到conf目录下配置zoo.cfg<pre>
-# ZooKeeper的最小时间单元,单位毫秒(ms),默认值为3000
-tickTime=2000
-#Leader服务器等待Follower启动并完成数据同步的时间,默认值10,表示tickTime的10倍
-initLimit=10
-#Leader服务器和Follower之间进行心跳检测的最大延时时间,默认值5,表示tickTime的5倍
-syncLimit=5
-# ZooKeeper服务器存储快照文件的目录,必须配值,建议放置在var目录下
-dataDir=/var/zookeeper1/data
-dataLogDir=/var/zookeeper1/logs
-# 服务器对外服务端口,默认值为2181
-clientPort=2181
-</pre>
-
-</li>
-</ol>
-<a id="more"></a>
-<ol>
+<li>进入到conf目录下配置zoo.cfg<br><pre><br>#ZooKeeper的最小时间单元,单位毫秒(ms),默认值为3000<br>tickTime=2000<br>#Leader服务器等待Follower启动并完成数据同步的时间,默认值10,表示tickTime的10倍<br>initLimit=10<br>#Leader服务器和Follower之间进行心跳检测的最大延时时间,默认值5,表示tickTime的5倍<br>syncLimit=5<br>#ZooKeeper服务器存储快照文件的目录,必须配值,建议放置在var目录下<br>dataDir=/var/zookeeper1/data<br>dataLogDir=/var/zookeeper1/logs<br>#服务器对外服务端口,默认值为2181<br>clientPort=2181<br></pre><a id="more"></a></li>
 <li>启动服务端<pre>
 [root@izbp1311i2pe1xiq3x174lz bin]# sh zkServer.sh start
 </pre></li>
@@ -381,13 +364,12 @@ clientPort=2181
 </pre>
 </li>
 <li><p>到这里伪集群模式就配置好了，写一个批量启动和停止的shell脚本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">[root@izbp1311i2pe1xiq3x174lz zookeeper]# vim zookeeper_start.sh</span><br><span class="line">#!/bin/bash  </span><br><span class="line">    SERVERS=&quot;zookeeper1 zookeeper2 zookeeper3&quot;</span><br><span class="line"></span><br><span class="line">    for SERVER in $SERVERS</span><br><span class="line">    do</span><br><span class="line">          echo &quot;当前&quot;$SERVER&quot;正在启动....................&quot;  </span><br><span class="line">           #ssh root@$SERVER &quot;source /etc/profile;/usr/apps/zookeeper-3.4.9/bin/zkServer.sh start&quot;  </span><br><span class="line">          sh /home/zookeeper/$SERVER/bin/zkServer.sh start</span><br><span class="line">          echo $SERVER&quot;启动结束--------------------------------------------&quot;  </span><br><span class="line">          done</span><br><span class="line">          </span><br><span class="line">[root@izbp1311i2pe1xiq3x174lz zookeeper]# vim zookeeper_stop.sh</span><br><span class="line">#!/bin/bash  </span><br><span class="line">    SERVERS=&quot;zookeeper1 zookeeper2 zookeeper3&quot;</span><br><span class="line"></span><br><span class="line">    for SERVER in $SERVERS</span><br><span class="line">    do</span><br><span class="line">          echo &quot;当前&quot;$SERVER&quot;正在停止....................&quot;  </span><br><span class="line">           #ssh root@$SERVER &quot;source /etc/profile;/usr/apps/zookeeper-3.4.9/bin/zkServer.sh start&quot;  </span><br><span class="line">          sh /home/zookeeper/$SERVER/bin/zkServer.sh stop</span><br><span class="line">          echo $SERVER&quot;停止结束--------------------------------------------&quot;                                                                         </span><br><span class="line">    done</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动集群服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@izbp1311i2pe1xiq3x174lz zookeeper]# sh zookeeper_start.sh</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">[root@izbp1311i2pe1xiq3x174lz zookeeper]# vim zookeeper_start.sh</span><br><span class="line">#!/bin/bash  </span><br><span class="line">    SERVERS=&quot;zookeeper1 zookeeper2 zookeeper3&quot;</span><br><span class="line"></span><br><span class="line">    for SERVER in $SERVERS</span><br><span class="line">    do</span><br><span class="line">          echo &quot;当前&quot;$SERVER&quot;正在启动....................&quot;  </span><br><span class="line">           #ssh root@$SERVER &quot;source /etc/profile;/usr/apps/zookeeper-3.4.9/bin/zkServer.sh start&quot;  </span><br><span class="line">          sh /home/zookeeper/$SERVER/bin/zkServer.sh start</span><br><span class="line">          echo $SERVER&quot;启动结束--------------------------------------------&quot;  </span><br><span class="line">          done</span><br><span class="line">          </span><br><span class="line">[root@izbp1311i2pe1xiq3x174lz zookeeper]# vim zookeeper_stop.sh</span><br><span class="line">#!/bin/bash  </span><br><span class="line">    SERVERS=&quot;zookeeper1 zookeeper2 zookeeper3&quot;</span><br><span class="line"></span><br><span class="line">    for SERVER in $SERVERS</span><br><span class="line">    do</span><br><span class="line">          echo &quot;当前&quot;$SERVER&quot;正在停止....................&quot;  </span><br><span class="line">           #ssh root@$SERVER &quot;source /etc/profile;/usr/apps/zookeeper-3.4.9/bin/zkServer.sh start&quot;  </span><br><span class="line">          sh /home/zookeeper/$SERVER/bin/zkServer.sh stop</span><br><span class="line">          echo $SERVER&quot;停止结束--------------------------------------------&quot;                                                                         </span><br><span class="line">    done</span><br></pre></td></tr></table></figure>
-<ol>
-<li>启动集群服务</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@izbp1311i2pe1xiq3x174lz zookeeper]# sh zookeeper_start.sh</span><br></pre></td></tr></table></figure>
 
       
     </div>
