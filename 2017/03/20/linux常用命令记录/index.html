@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="基本命令 查看磁盘使用情况 df -h  查看当前目录下的所有目录的使用情况 du -h --max-depth=1 #参数 --max-depth=1代表目录深度  找出当前目录下及子目录下的大于800M的文件 find . -type f -size +800M -print  删除包含子目录的所有文件 rm -rf xxx  #-f强制删除，-r删除目录;  创建文件夹 mkdir fold">
+<meta name="description" content="基本命令 查看目录 [root@izbp1311i2pe1xiq3x174lz home]# ls  [root@izbp1311i2pe1xiq3x174lz home]# ll [root@izbp1311i2pe1xiq3x174lz home]# ll -a #显示所有文件 比如在用vim编写文件时，由于没有退出保存，导致下一次编辑时被锁住，可以用此命令找到.xxxx.swp文件，删除此文">
 <meta name="keywords" content="linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux常用命令记录">
 <meta property="og:url" content="http://shizhengchao.cn/2017/03/20/linux常用命令记录/index.html">
 <meta property="og:site_name" content="Hunter X Hunter">
-<meta property="og:description" content="基本命令 查看磁盘使用情况 df -h  查看当前目录下的所有目录的使用情况 du -h --max-depth=1 #参数 --max-depth=1代表目录深度  找出当前目录下及子目录下的大于800M的文件 find . -type f -size +800M -print  删除包含子目录的所有文件 rm -rf xxx  #-f强制删除，-r删除目录;  创建文件夹 mkdir fold">
+<meta property="og:description" content="基本命令 查看目录 [root@izbp1311i2pe1xiq3x174lz home]# ls  [root@izbp1311i2pe1xiq3x174lz home]# ll [root@izbp1311i2pe1xiq3x174lz home]# ll -a #显示所有文件 比如在用vim编写文件时，由于没有退出保存，导致下一次编辑时被锁住，可以用此命令找到.xxxx.swp文件，删除此文">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-10T14:25:13.417Z">
+<meta property="og:updated_time" content="2018-04-18T16:52:48.157Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux常用命令记录">
-<meta name="twitter:description" content="基本命令 查看磁盘使用情况 df -h  查看当前目录下的所有目录的使用情况 du -h --max-depth=1 #参数 --max-depth=1代表目录深度  找出当前目录下及子目录下的大于800M的文件 find . -type f -size +800M -print  删除包含子目录的所有文件 rm -rf xxx  #-f强制删除，-r删除目录;  创建文件夹 mkdir fold">
+<meta name="twitter:description" content="基本命令 查看目录 [root@izbp1311i2pe1xiq3x174lz home]# ls  [root@izbp1311i2pe1xiq3x174lz home]# ll [root@izbp1311i2pe1xiq3x174lz home]# ll -a #显示所有文件 比如在用vim编写文件时，由于没有退出保存，导致下一次编辑时被锁住，可以用此命令找到.xxxx.swp文件，删除此文">
 
 
 
@@ -336,6 +336,17 @@
 
       
         <h2 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h2><ul>
+<li>查看目录<pre>
+[root@izbp1311i2pe1xiq3x174lz home]# ls 
+[root@izbp1311i2pe1xiq3x174lz home]# ll
+[root@izbp1311i2pe1xiq3x174lz home]# ll -a #显示所有文件
+比如在用vim编写文件时，由于没有退出保存，导致下一次编辑时被锁住，可以用此命令找到.xxxx.swp文件，删除此文件即可重新编辑
+</pre>
+
+
+</li>
+</ul>
+<ul>
 <li>查看磁盘使用情况<pre>
 df -h
 </pre></li>
