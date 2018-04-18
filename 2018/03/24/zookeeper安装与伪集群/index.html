@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Hunter X Hunter">
 <meta property="og:description" content="安装 下载最新版本的zookeeper [root@izbp1311i2pe1xiq3x174lz home]# wget https://mirrors.tuna.tsinghua.edu.cn/apache/zookeeper/zookeeper-3.4.10/zookeeper-3.4.10.tar.gz  解压zookeeper-3.4.10.tar.gz [root@izbp1311i2">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-18T16:35:56.319Z">
+<meta property="og:updated_time" content="2018-04-18T16:40:26.835Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="zookeeper安装与伪集群">
 <meta name="twitter:description" content="安装 下载最新版本的zookeeper [root@izbp1311i2pe1xiq3x174lz home]# wget https://mirrors.tuna.tsinghua.edu.cn/apache/zookeeper/zookeeper-3.4.10/zookeeper-3.4.10.tar.gz  解压zookeeper-3.4.10.tar.gz [root@izbp1311i2">
@@ -342,7 +342,24 @@
 <li>解压zookeeper-3.4.10.tar.gz<pre>
 [root@izbp1311i2pe1xiq3x174lz home]# tar -zxvf zookeeper-3.4.10.tar.gz
 </pre></li>
-<li>进入到conf目录下配置zoo.cfg<br><pre><h1 id="ZooKeeper的最小时间单元-单位毫秒-ms-默认值为3000"><a href="#ZooKeeper的最小时间单元-单位毫秒-ms-默认值为3000" class="headerlink" title="ZooKeeper的最小时间单元,单位毫秒(ms),默认值为3000"></a>ZooKeeper的最小时间单元,单位毫秒(ms),默认值为3000</h1>tickTime=2000<br>#Leader服务器等待Follower启动并完成数据同步的时间,默认值10,表示tickTime的10倍<br>initLimit=10<br>#Leader服务器和Follower之间进行心跳检测的最大延时时间,默认值5,表示tickTime的5倍<br>syncLimit=5<h1 id="ZooKeeper服务器存储快照文件的目录-必须配值-建议放置在var目录下"><a href="#ZooKeeper服务器存储快照文件的目录-必须配值-建议放置在var目录下" class="headerlink" title="ZooKeeper服务器存储快照文件的目录,必须配值,建议放置在var目录下"></a>ZooKeeper服务器存储快照文件的目录,必须配值,建议放置在var目录下</h1>dataDir=/var/zookeeper1/data<br>dataLogDir=/var/zookeeper1/logs<h1 id="服务器对外服务端口-默认值为2181"><a href="#服务器对外服务端口-默认值为2181" class="headerlink" title="服务器对外服务端口,默认值为2181"></a>服务器对外服务端口,默认值为2181</h1>clientPort=2181<br></pre><a id="more"></a></li>
+<li>进入到conf目录下配置zoo.cfg<pre>
+# ZooKeeper的最小时间单元,单位毫秒(ms),默认值为3000
+tickTime=2000
+#Leader服务器等待Follower启动并完成数据同步的时间,默认值10,表示tickTime的10倍
+initLimit=10
+#Leader服务器和Follower之间进行心跳检测的最大延时时间,默认值5,表示tickTime的5倍
+syncLimit=5
+# ZooKeeper服务器存储快照文件的目录,必须配值,建议放置在var目录下
+dataDir=/var/zookeeper1/data
+dataLogDir=/var/zookeeper1/logs
+# 服务器对外服务端口,默认值为2181
+clientPort=2181
+</pre>
+
+</li>
+</ol>
+<a id="more"></a>
+<ol>
 <li>启动服务端<pre>
 [root@izbp1311i2pe1xiq3x174lz bin]# sh zkServer.sh start
 </pre></li>
@@ -574,7 +591,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ZooKeeper的最小时间单元-单位毫秒-ms-默认值为3000"><span class="nav-number"></span> <span class="nav-text">ZooKeeper的最小时间单元,单位毫秒(ms),默认值为3000</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ZooKeeper服务器存储快照文件的目录-必须配值-建议放置在var目录下"><span class="nav-number"></span> <span class="nav-text">ZooKeeper服务器存储快照文件的目录,必须配值,建议放置在var目录下</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#服务器对外服务端口-默认值为2181"><span class="nav-number"></span> <span class="nav-text">服务器对外服务端口,默认值为2181</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#伪集群"><span class="nav-number">1.</span> <span class="nav-text">伪集群</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#伪集群"><span class="nav-number">2.</span> <span class="nav-text">伪集群</span></a></li></ol></div>
             
 
           </div>
