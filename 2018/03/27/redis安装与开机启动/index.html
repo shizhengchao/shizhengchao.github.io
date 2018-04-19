@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="git," />
+  <meta name="keywords" content="redis,安装," />
 
 
 
@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="初始化工程 在Git官网上点击New repository新建项目 在本地新建一个同名文件。 打开git bash切换到新建的文件目录 新建一个README文件并写入内容echo &quot;# myprojectname&quot;&amp;gt;&amp;gt;README.md 生成“.gitignore”文件。touch .gitignore写入 :.settings/target/.classpath.project.class">
-<meta name="keywords" content="git">
+<meta name="description" content="安装 下载redis,并解压 12[root@izbp1311i2pe1xiq3x174lz opt]# http://download.redis.io/releases/redis-4.0.9.tar.gz[root@izbp1311i2pe1xiq3x174lz opt]# tar -zxvf redis-4.0.9.tar.gz  安装,源码安装后,src下的脚本文件会被复制到usr/lo">
+<meta name="keywords" content="redis,安装">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GIT使用笔记">
-<meta property="og:url" content="http://shizhengchao.cn/2017/03/24/GIT使用笔记/index.html">
+<meta property="og:title" content="redis安装与开机启动">
+<meta property="og:url" content="http://shizhengchao.cn/2018/03/27/redis安装与开机启动/index.html">
 <meta property="og:site_name" content="Hunter X Hunter">
-<meta property="og:description" content="初始化工程 在Git官网上点击New repository新建项目 在本地新建一个同名文件。 打开git bash切换到新建的文件目录 新建一个README文件并写入内容echo &quot;# myprojectname&quot;&amp;gt;&amp;gt;README.md 生成“.gitignore”文件。touch .gitignore写入 :.settings/target/.classpath.project.class">
+<meta property="og:description" content="安装 下载redis,并解压 12[root@izbp1311i2pe1xiq3x174lz opt]# http://download.redis.io/releases/redis-4.0.9.tar.gz[root@izbp1311i2pe1xiq3x174lz opt]# tar -zxvf redis-4.0.9.tar.gz  安装,源码安装后,src下的脚本文件会被复制到usr/lo">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-04T03:47:35.888Z">
+<meta property="og:updated_time" content="2018-04-19T15:21:10.447Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="GIT使用笔记">
-<meta name="twitter:description" content="初始化工程 在Git官网上点击New repository新建项目 在本地新建一个同名文件。 打开git bash切换到新建的文件目录 新建一个README文件并写入内容echo &quot;# myprojectname&quot;&amp;gt;&amp;gt;README.md 生成“.gitignore”文件。touch .gitignore写入 :.settings/target/.classpath.project.class">
+<meta name="twitter:title" content="redis安装与开机启动">
+<meta name="twitter:description" content="安装 下载redis,并解压 12[root@izbp1311i2pe1xiq3x174lz opt]# http://download.redis.io/releases/redis-4.0.9.tar.gz[root@izbp1311i2pe1xiq3x174lz opt]# tar -zxvf redis-4.0.9.tar.gz  安装,源码安装后,src下的脚本文件会被复制到usr/lo">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://shizhengchao.cn/2017/03/24/GIT使用笔记/"/>
+  <link rel="canonical" href="http://shizhengchao.cn/2018/03/27/redis安装与开机启动/"/>
 
 
 
 
 
-  <title>GIT使用笔记 | Hunter X Hunter</title>
+  <title>redis安装与开机启动 | Hunter X Hunter</title>
   
 
 
@@ -246,7 +246,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://shizhengchao.cn/2017/03/24/GIT使用笔记/">
+    <link itemprop="mainEntityOfPage" href="http://shizhengchao.cn/2018/03/27/redis安装与开机启动/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="轻薄的假像灬">
@@ -263,7 +263,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">GIT使用笔记</h1>
+          <h1 class="post-title" itemprop="name headline">redis安装与开机启动</h1>
         
 
         <div class="post-meta">
@@ -275,8 +275,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-24T17:28:00+08:00">
-                2017-03-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-27T22:11:00+08:00">
+                2018-03-27
               </time>
             
 
@@ -298,8 +298,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
+                  <a href="/categories/redis/" itemprop="url" rel="index">
+                    <span itemprop="name">redis</span>
                   </a>
                 </span>
 
@@ -335,48 +335,36 @@
       
 
       
-        <h3 id="初始化工程"><a href="#初始化工程" class="headerlink" title="初始化工程"></a>初始化工程</h3><ol>
-<li>在Git官网上点击New repository新建项目<br></li>
-<li>在本地新建一个同名文件。<br></li>
-<li>打开git bash切换到新建的文件目录<br></li>
-<li>新建一个README文件并写入内容<pre>echo "# myprojectname">>README.md</pre></li>
-<li>生成“.gitignore”文件。<br><pre>touch .gitignore<br>写入 :<br>.settings/<br>target/<br>.classpath<br>.project<br>.class<br></pre> <a id="more"></a></li>
-<li>git初始化<pre>git init</pre> </li>
-<li>将全部文件添加到git中<pre>
-git add . #添加当前目录下的所有文件
-git add README.md #只添加README.md文件
-</pre></li>
-<li>提交，-m参数添加注释<pre>git commit -m "commit message" </pre></li>
-<li>创建远程仓库origin<pre>
-git remote add origin git@github.com:shizhengchao/hello.git
-如果出现: fatal: remote origin already exists. 说明远程仓库已经存在,如果想重新生成，执行git remote rm origin后，再新增。如果不想重新生成,则不用管,直接跳过这一步就行。
-</pre></li>
-<li>push代码更新远程仓库<pre>git push -u origin master</pre></li>
-<li>9和10可以合并为:<pre>git push git@github.com:shizhengchao/hello.git master</pre>
-
-
+        <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ol>
+<li><p>下载redis,并解压</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@izbp1311i2pe1xiq3x174lz opt]# http://download.redis.io/releases/redis-4.0.9.tar.gz</span><br><span class="line">[root@izbp1311i2pe1xiq3x174lz opt]# tar -zxvf redis-4.0.9.tar.gz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装,源码安装后,src下的脚本文件会被复制到usr/local/bin下面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[root@izbp1311i2pe1xiq3x174lz opt]# cd redis-4.0.9</span><br><span class="line">[root@izbp1311i2pe1xiq3x174lz redis-4.0.9]# make</span><br><span class="line">[root@izbp1311i2pe1xiq3x174lz redis-4.0.9]# make install</span><br><span class="line">    CC Makefile.dep</span><br><span class="line"> </span><br><span class="line">Hint: It&apos;s a good idea to run &apos;make test&apos; ;)</span><br><span class="line"> </span><br><span class="line">    INSTALL install</span><br><span class="line">    INSTALL install</span><br><span class="line">    INSTALL install</span><br><span class="line">    INSTALL install</span><br><span class="line">    INSTALL install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@izbp1311i2pe1xiq3x174lz redis-4.0.9]# cd src</span><br><span class="line">[root@izbp1311i2pe1xiq3x174lz src]# ./redis-server</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h3 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h3><ol>
-<li>删除远程仓库中的文件和文件夹<pre>
-git rm --cached ./xxx/xxx.log   #删除文件
-git rm -r --cached ./xxx/log/   #删除文件夹
-</pre></li>
-<li>clone工程<pre>
-git clone xxx.git   #完整的拉取git仓库里的工程
-</pre></li>
-<li>pull<pre>
-git pull   #远程获取最新版本并merge（合并）到本地
-</pre>
-
-
+<a id="more"></a>
+<h2 id="后台启动"><a href="#后台启动" class="headerlink" title="后台启动"></a>后台启动</h2><p>把redis设置成服务，需要依赖redis-4.0.9/utils/redis_init_script脚本文件，打开脚本文件可以看到如下信息：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">#</span><br><span class="line"># Simple Redis init.d script conceived to work on Linux systems</span><br><span class="line"># as it does use of the /proc filesystem.</span><br><span class="line"></span><br><span class="line">REDISPORT=6379</span><br><span class="line">EXEC=/usr/local/bin/redis-server</span><br><span class="line">CLIEXEC=/usr/local/bin/redis-cli</span><br><span class="line"></span><br><span class="line">PIDFILE=/var/run/redis_$&#123;REDISPORT&#125;.pid #这里设置成需要的服务名.pid,比如redis.pid</span><br><span class="line">CONF=&quot;/etc/redis/$&#123;REDISPORT&#125;.conf&quot;</span><br><span class="line"></span><br><span class="line">case &quot;$1&quot; in</span><br><span class="line">    start)</span><br><span class="line">        if [ -f $PIDFILE ]</span><br><span class="line">        then</span><br><span class="line">                echo &quot;$PIDFILE exists, process is already running or crashed&quot;</span><br><span class="line">        else</span><br><span class="line">                echo &quot;Starting Redis server...&quot;</span><br><span class="line">                $EXEC $CONF</span><br><span class="line">        fi</span><br><span class="line">        ;;</span><br></pre></td></tr></table></figure></p>
+<p>按照脚本里的配置创建文件</p>
+<ol>
+<li><p>首先把redis_init_script脚本复制到/etc/init.d/目录下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@izbp1311i2pe1xiq3x174lz etc]# cp /opt/redis-4.0.9/utils/redis_init_script /etc/init.d/</span><br><span class="line">[root@izbp1311i2pe1xiq3x174lz init.d]# mv redis_init_script redis #这里重命名要与&quot;PIDFILE=/var/run/xxx.pid&quot; 里的xxx一致</span><br></pre></td></tr></table></figure>
 </li>
-</ol>
-<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><ol>
-<li>unable to access ‘<a href="https://github.com/shizhengchao/spring-boot-all.git/&#39;" target="_blank" rel="noopener">https://github.com/shizhengchao/spring-boot-all.git/&#39;</a>: OpenSSL SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443<pre>
-env命令设置GIT_SSL_NO_VERIFY环境变量为”ture”
-$ env GIT_SSL_NO_VERIFY=true
-</pre></li>
+<li><p>创建/var/redis/6379文件夹</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@izbp1311i2pe1xiq3x174lz ~]# cd /var</span><br><span class="line">[root@izbp1311i2pe1xiq3x174lz var]# mkdir redis</span><br><span class="line">[root@izbp1311i2pe1xiq3x174lz var]# cd redis</span><br><span class="line">[root@izbp1311i2pe1xiq3x174lz redis]# mkdir 6379 #和端口号一样的文件夹</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建/etc/redis/${REDISPORT}.conf</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@izbp1311i2pe1xiq3x174lz etc]# mkdir redis # 在/etc下创建redis文件夹</span><br><span class="line">[root@izbp1311i2pe1xiq3x174lz etc]# cp /opt/redis-4.0.9/redis.conf /etc/redis/</span><br><span class="line">[root@izbp1311i2pe1xiq3x174lz redis]# mv redis.conf 6379.cnf #并且重命名为6379.conf</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>检测开机启动(先检测是否支持开机启动)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@izbp1311i2pe1xiq3x174lz ~]# cd /etc/init.d/</span><br><span class="line">[root@izbp1311i2pe1xiq3x174lz init.d]# chkconfig redis on #如果出现如下信息则不支持</span><br><span class="line">service redisd does not support chkconfig</span><br><span class="line">&lt;/pre&gt;</span><br><span class="line">使用vim编辑/etc/init.d/redis文件，在第一行加入如下两行注释，保存退出</span><br><span class="line">&lt;pre&gt;</span><br><span class="line"># chkconfig:   2345 90 10</span><br><span class="line"># description:  Redis is a persistent key-value database</span><br><span class="line">注释的意思是，redis服务必须在运行级2，3，4，5下被启动或关闭，启动的优先级是90，关闭的优先级是10。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>再次执行开机启动命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@izbp1311i2pe1xiq3x174lz init.d]# chkconfig redis on </span><br><span class="line">设置成功后，不可以使用service redis start/stop命令启动/停止redis了</span><br><span class="line">[root@izbp1311i2pe1xiq3x174lz init.d]# service redis start</span><br><span class="line">Starting Redis server...</span><br><span class="line">23297:C 19 Apr 23:13:45.149 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo</span><br><span class="line">23297:C 19 Apr 23:13:45.149 # Redis version=4.0.9, bits=64, commit=00000000, modified=0, pid=23297, just started</span><br><span class="line">23297:C 19 Apr 23:13:45.149 # Configuration loaded</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 
       
@@ -395,7 +383,9 @@ $ env GIT_SSL_NO_VERIFY=true
       
         <div class="post-tags">
           
-            <a href="/tags/git/" rel="tag"><i class="fa fa-tag"></i> git</a>
+            <a href="/tags/redis/" rel="tag"><i class="fa fa-tag"></i> redis</a>
+          
+            <a href="/tags/安装/" rel="tag"><i class="fa fa-tag"></i> 安装</a>
           
         </div>
       
@@ -408,8 +398,8 @@ $ env GIT_SSL_NO_VERIFY=true
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/20/linux常用命令记录/" rel="next" title="linux常用命令记录">
-                <i class="fa fa-chevron-left"></i> linux常用命令记录
+              <a href="/2018/03/24/zookeeper安装与伪集群/" rel="next" title="zookeeper安装与伪集群">
+                <i class="fa fa-chevron-left"></i> zookeeper安装与伪集群
               </a>
             
           </div>
@@ -418,8 +408,8 @@ $ env GIT_SSL_NO_VERIFY=true
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/03/25/JAVA责任链模式/" rel="prev" title="JAVA责任链模式">
-                JAVA责任链模式 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/04/07/springboot-netty-protobuff实现rpc/" rel="prev" title="spring+netty+protobuff实现rpc">
+                spring+netty+protobuff实现rpc <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -579,7 +569,7 @@ $ env GIT_SSL_NO_VERIFY=true
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化工程"><span class="nav-number">1.</span> <span class="nav-text">初始化工程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用操作"><span class="nav-number">2.</span> <span class="nav-text">常用操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题"><span class="nav-number">3.</span> <span class="nav-text">问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后台启动"><span class="nav-number">2.</span> <span class="nav-text">后台启动</span></a></li></ol></div>
             
 
           </div>
