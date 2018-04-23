@@ -1,0 +1,17 @@
+# hexo robots.txt
+User-agent: * Allow: /
+Allow: /archives/
+Disallow: /vendors/
+Disallow: /js/
+Disallow: /css/
+Disallow: /fonts/
+Disallow: /vendors/
+Disallow: /fancybox/
+
+Sitemap: http://lancelot_lewis.coding.me/sitemap.xml
+Sitemap: http://lancelot_lewis.coding.me/baidusitemap.xml
+
+作者：轻薄的假像灬
+链接：http://tinnycat.cn
+來源：HEXO
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。

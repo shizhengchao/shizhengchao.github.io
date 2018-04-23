@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+    
+    
+  <url>
+    <loc>http://shizhengchao.cn/2018/04/20/%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/</loc>
+    <lastmod>2018-04-23T14:00:12.910Z</lastmod>
+    <data>
+        <display>
+        <title>布隆过滤器简单实现</title>
+        <pubTime>2018-04-20T05:40:00.000Z</pubTime>
+        
+        <tag>布隆过滤器</tag>
+         
+        <tag>BitSet</tag>
+         
+        <tag>缓存穿透</tag>
+         
+         
+           
+             
+              <breadCrumb title="java" url="http://shizhengchao.cn/categories/java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shizhengchao.cn/2018/04/15/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F%E4%B9%8B%E6%9E%9A%E4%B8%BE%E5%AE%9E%E7%8E%B0/</loc>
+    <lastmod>2018-04-23T07:51:54.451Z</lastmod>
+    <data>
+        <display>
+        <title>策略模式之枚举实现</title>
+        <pubTime>2018-04-15T07:12:00.000Z</pubTime>
+        
+        <tag>策略模式</tag>
+         
+        <tag>strategy</tag>
+         
+         
+           
+             
+              <breadCrumb title="设计模式" url="http://shizhengchao.cn/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shizhengchao.cn/2018/03/27/redis%E5%AE%89%E8%A3%85%E4%B8%8E%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8/</loc>
+    <lastmod>2018-04-19T15:21:10.447Z</lastmod>
+    <data>
+        <display>
+        <title>redis安装与开机启动</title>
+        <pubTime>2018-03-27T14:11:00.000Z</pubTime>
+        
+        <tag>redis</tag>
+         
+        <tag>安装</tag>
+         
+         
+           
+             
+              <breadCrumb title="redis" url="http://shizhengchao.cn/categories/redis/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shizhengchao.cn/2017/01/01/hello-world/</loc>
+    <lastmod>2018-04-19T14:26:01.733Z</lastmod>
+    <data>
+        <display>
+        <title>Hello World</title>
+        <pubTime>2017-01-01T10:44:00.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shizhengchao.cn/2018/04/07/springboot-netty-protobuff%E5%AE%9E%E7%8E%B0rpc/</loc>
+    <lastmod>2018-04-19T07:57:54.912Z</lastmod>
+    <data>
+        <display>
+        <title>spring+netty+protobuff实现rpc</title>
+        <pubTime>2018-04-07T15:02:00.000Z</pubTime>
+        
+        <tag>netty</tag>
+         
+        <tag>rpc</tag>
+         
+         
+           
+             
+              <breadCrumb title="java" url="http://shizhengchao.cn/categories/java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shizhengchao.cn/2017/03/20/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E8%AE%B0%E5%BD%95/</loc>
+    <lastmod>2018-04-18T16:52:48.157Z</lastmod>
+    <data>
+        <display>
+        <title>linux常用命令记录</title>
+        <pubTime>2017-03-20T11:03:00.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="http://shizhengchao.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shizhengchao.cn/2018/03/24/zookeeper%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BC%AA%E9%9B%86%E7%BE%A4/</loc>
+    <lastmod>2018-04-18T16:42:57.519Z</lastmod>
+    <data>
+        <display>
+        <title>zookeeper安装与伪集群</title>
+        <pubTime>2018-03-24T15:56:00.000Z</pubTime>
+        
+        <tag>zookeeper</tag>
+         
+        <tag>伪集群</tag>
+         
+         
+           
+             
+              <breadCrumb title="zookeeper" url="http://shizhengchao.cn/categories/zookeeper/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shizhengchao.cn/2018/03/20/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9B%B4%E6%96%B0%E5%A4%A7%E8%A1%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</loc>
+    <lastmod>2018-04-11T15:18:07.442Z</lastmod>
+    <data>
+        <display>
+        <title>数据库更新大表数据结构解决方案</title>
+        <pubTime>2018-03-20T03:03:00.000Z</pubTime>
+        
+        <tag>mysql</tag>
+         
+         
+           
+             
+              <breadCrumb title="mysql" url="http://shizhengchao.cn/categories/mysql/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shizhengchao.cn/2018/03/11/java%E5%B9%B6%E5%8F%91%E9%87%8F%E6%A8%A1%E6%8B%9F/</loc>
+    <lastmod>2018-04-11T14:35:54.809Z</lastmod>
+    <data>
+        <display>
+        <title>java并发量模拟</title>
+        <pubTime>2018-03-11T11:41:00.000Z</pubTime>
+        
+        <tag>并发</tag>
+         
+        <tag>CountDownLatch</tag>
+         
+         
+           
+             
+              <breadCrumb title="java" url="http://shizhengchao.cn/categories/java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shizhengchao.cn/2017/03/24/GIT%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2018-04-04T03:47:35.888Z</lastmod>
+    <data>
+        <display>
+        <title>GIT使用笔记</title>
+        <pubTime>2017-03-24T09:28:00.000Z</pubTime>
+        
+        <tag>git</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="http://shizhengchao.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shizhengchao.cn/2018/02/02/synchronized%E7%9A%84%E4%BD%BF%E7%94%A8/</loc>
+    <lastmod>2018-04-02T09:56:33.525Z</lastmod>
+    <data>
+        <display>
+        <title>synchronized的使用</title>
+        <pubTime>2018-02-02T07:10:00.000Z</pubTime>
+        
+        <tag>synchronized</tag>
+         
+        <tag>java并发</tag>
+         
+         
+           
+             
+              <breadCrumb title="java" url="http://shizhengchao.cn/categories/java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
+    <loc>http://shizhengchao.cn/2017/01/03/Hexo-Github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</loc>
+    <lastmod>2018-03-29T15:09:31.208Z</lastmod>
+    <data>
+        <display>
+        <title>Hexo+Github搭建个人博客</title>
+        <pubTime>2017-01-03T14:57:00.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="hexo" url="http://shizhengchao.cn/categories/hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shizhengchao.cn/2018/03/13/JAVA%E5%9B%9E%E8%B0%83%E6%9C%BA%E5%88%B6Callback/</loc>
+    <lastmod>2018-03-29T07:15:40.537Z</lastmod>
+    <data>
+        <display>
+        <title>JAVA回调机制Callback</title>
+        <pubTime>2018-03-13T09:52:00.000Z</pubTime>
+        
+        <tag> callback</tag>
+         
+        <tag>回调机制</tag>
+         
+        <tag>java</tag>
+         
+         
+           
+             
+              <breadCrumb title="设计模式" url="http://shizhengchao.cn/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shizhengchao.cn/2018/01/29/quartz%E9%9B%86%E7%BE%A4datasource%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98/</loc>
+    <lastmod>2018-03-28T17:08:08.822Z</lastmod>
+    <data>
+        <display>
+        <title>quartz集群datasource使用问题</title>
+        <pubTime>2018-01-28T17:05:00.000Z</pubTime>
+        
+        <tag>mysql</tag>
+         
+        <tag>wait_timeout</tag>
+         
+         
+           
+             
+              <breadCrumb title="mysql" url="http://shizhengchao.cn/categories/mysql/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shizhengchao.cn/2017/03/25/JAVA%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F/</loc>
+    <lastmod>2018-03-28T15:58:35.086Z</lastmod>
+    <data>
+        <display>
+        <title>JAVA责任链模式</title>
+        <pubTime>2017-03-25T11:30:00.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+        <tag>chain</tag>
+         
+        <tag>责任链</tag>
+         
+         
+           
+             
+              <breadCrumb title="设计模式" url="http://shizhengchao.cn/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shizhengchao.cn/2017/05/26/%E7%BA%BF%E7%A8%8B%E6%B1%A0-%E5%9F%BA%E7%A1%80%E7%AF%87/</loc>
+    <lastmod>2018-03-25T16:24:24.992Z</lastmod>
+    <data>
+        <display>
+        <title>线程池-基础篇</title>
+        <pubTime>2017-05-25T16:10:00.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+        <tag>thread pool</tag>
+         
+         
+           
+             
+              <breadCrumb title="java" url="http://shizhengchao.cn/categories/java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shizhengchao.cn/2017/01/15/Builder%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
+    <lastmod>2018-03-25T13:03:26.351Z</lastmod>
+    <data>
+        <display>
+        <title>Builder设计模式</title>
+        <pubTime>2017-01-15T11:38:00.000Z</pubTime>
+        
+        <tag>builder</tag>
+         
+         
+           
+             
+              <breadCrumb title="设计模式" url="http://shizhengchao.cn/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shizhengchao.cn/2018/01/21/maven%E9%A1%B9%E7%9B%AE%E8%BD%AC%E6%8D%A2%E6%88%90web%E9%A1%B9%E7%9B%AE/</loc>
+    <lastmod>2018-03-24T14:54:48.000Z</lastmod>
+    <data>
+        <display>
+        <title>maven项目转换成web项目</title>
+        <pubTime>2018-01-21T14:44:00.000Z</pubTime>
+        
+        <tag>webapp</tag>
+         
+        <tag>tomcat</tag>
+         
+         
+           
+             
+              <breadCrumb title="maven" url="http://shizhengchao.cn/categories/maven/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shizhengchao.cn/2017/02/15/JAVA%E9%87%8D%E5%86%99hashCode%E9%80%9A%E7%94%A8%E6%96%B9%E6%B3%95-%E6%91%98%E5%BD%95%E8%87%AA%E3%80%8AEffective-Java%E3%80%8B/</loc>
+    <lastmod>2018-03-22T15:13:36.000Z</lastmod>
+    <data>
+        <display>
+        <title>JAVA重写hashCode通用方法(摘录自《Effective Java》)</title>
+        <pubTime>2017-02-15T09:48:00.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+        <tag>hashcode</tag>
+         
+         
+           
+             
+              <breadCrumb title="java" url="http://shizhengchao.cn/categories/java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shizhengchao.cn/2017/06/20/Centos%E5%AE%89%E8%A3%85Node-js/</loc>
+    <lastmod>2018-03-22T02:04:22.000Z</lastmod>
+    <data>
+        <display>
+        <title>Centos安装Node.js</title>
+        <pubTime>2017-06-20T15:01:00.000Z</pubTime>
+        
+        <tag>node</tag>
+         
+        <tag>npm</tag>
+         
+         
+           
+             
+              <breadCrumb title="nodejs" url="http://shizhengchao.cn/categories/nodejs/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shizhengchao.cn/2017/05/03/tomcat%E5%90%AF%E5%8A%A8%E8%B6%85%E6%85%A2/</loc>
+    <lastmod>2018-03-21T15:06:28.000Z</lastmod>
+    <data>
+        <display>
+        <title>Tomcat启动超慢</title>
+        <pubTime>2017-05-03T09:08:00.000Z</pubTime>
+        
+        <tag>tomcat</tag>
+         
+        <tag>SecureRandom</tag>
+         
+         
+           
+             
+              <breadCrumb title="tomcat" url="http://shizhengchao.cn/categories/tomcat/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+</urlset>
