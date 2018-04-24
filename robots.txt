@@ -1,5 +1,6 @@
 # hexo robots.txt
-User-agent: * Allow: /
+User-agent: * 
+Allow: /
 Allow: /archives/
 Disallow: /vendors/
 Disallow: /js/
@@ -10,8 +11,3 @@ Disallow: /fancybox/
 
 Sitemap: http://tinnycat.cn/sitemap.xml
 Sitemap: http://tinnycat.cn/baidusitemap.xml
-
-作者：轻薄的假像灬
-链接：http://tinnycat.cn
-來源：HEXO
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
