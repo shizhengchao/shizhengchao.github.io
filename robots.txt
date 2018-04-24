@@ -8,8 +8,8 @@ Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
 
-Sitemap: http://lancelot_lewis.coding.me/sitemap.xml
-Sitemap: http://lancelot_lewis.coding.me/baidusitemap.xml
+Sitemap: http://tinnycat.cn/sitemap.xml
+Sitemap: http://tinnycat.cn/baidusitemap.xml
 
 作者：轻薄的假像灬
 链接：http://tinnycat.cn
