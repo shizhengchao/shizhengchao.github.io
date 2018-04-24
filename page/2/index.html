@@ -11,6 +11,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
+<meta name="baidu-site-verification" content="4PDkUPSZ2f" />
 
 
 
@@ -84,7 +85,7 @@
 <meta name="description" content="QQ:792790388, email:shizhengchao@outlook.com">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Hunter X Hunter">
-<meta property="og:url" content="http://shizhengchao.cn/page/2/index.html">
+<meta property="og:url" content="http://tinnycat.cn/page/2/index.html">
 <meta property="og:site_name" content="Hunter X Hunter">
 <meta property="og:description" content="QQ:792790388, email:shizhengchao@outlook.com">
 <meta property="og:locale" content="zh-Hans">
@@ -120,7 +121,7 @@
 
 
 
-  <link rel="canonical" href="http://shizhengchao.cn/page/2/"/>
+  <link rel="canonical" href="http://tinnycat.cn/page/2/"/>
 
 
 
@@ -222,6 +223,16 @@
           </a>
         </li>
       
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
 
       
         <li class="menu-item menu-item-search">
@@ -289,7 +300,460 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://shizhengchao.cn/2018/03/11/java并发量模拟/">
+    <link itemprop="mainEntityOfPage" href="http://tinnycat.cn/2018/03/24/zookeeper安装与伪集群/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="轻薄的假像灬">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/assert/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hunter X Hunter">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/24/zookeeper安装与伪集群/" itemprop="url">zookeeper安装与伪集群</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-24T23:56:00+08:00">
+                2018-03-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/zookeeper/" itemprop="url" rel="index">
+                    <span itemprop="name">zookeeper</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ol>
+<li>下载最新版本的zookeeper<pre>
+[root@izbp1311i2pe1xiq3x174lz home]# wget https://mirrors.tuna.tsinghua.edu.cn/apache/zookeeper/zookeeper-3.4.10/zookeeper-3.4.10.tar.gz
+</pre></li>
+<li>解压zookeeper-3.4.10.tar.gz<pre>
+[root@izbp1311i2pe1xiq3x174lz home]# tar -zxvf zookeeper-3.4.10.tar.gz
+</pre></li>
+<li>进入到conf目录下配置zoo.cfg<br><pre><br>#ZooKeeper的最小时间单元,单位毫秒(ms),默认值为3000<br>tickTime=2000<br>#Leader服务器等待Follower启动并完成数据同步的时间,默认值10,表示tickTime的10倍<br>initLimit=10<br>#Leader服务器和Follower之间进行心跳检测的最大延时时间,默认值5,表示tickTime的5倍<br>syncLimit=5<br>#ZooKeeper服务器存储快照文件的目录,必须配值,建议放置在var目录下<br>dataDir=/var/zookeeper1/data<br>dataLogDir=/var/zookeeper1/logs<br>#服务器对外服务端口,默认值为2181<br>clientPort=2181<br></pre>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/24/zookeeper安装与伪集群/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://tinnycat.cn/2018/03/20/数据库更新大表数据结构解决方案/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="轻薄的假像灬">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/assert/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hunter X Hunter">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/20/数据库更新大表数据结构解决方案/" itemprop="url">数据库更新大表数据结构解决方案</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-20T11:03:00+08:00">
+                2018-03-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/mysql/" itemprop="url" rel="index">
+                    <span itemprop="name">mysql</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>在不停止系统的情况下, 当需要对表进行ddl操作如加索引、增删列时，数据量小时直接在线修改表结构影响不大。但当表达到百万、千万数据就不能直接在线修改表结构,这样会拖跨整个数据库系统。一般的解决办法是新建一张原表，改好表结构后把原表数据导入新表，再修改表名。建议建议使用在线ddl工具，且在访问量少时进行。(在5.6版本之后，mysql支持online ddl方式，即某些DDL操作不会锁表)</p>
+<p><strong><em>具体过程</em></strong></p>
+<ol>
+<li><p>备份数据</p>
+<pre>
+mysql> select * from t_order into outfile 'D:/bak/order.txt';
+</pre>
+</li>
+<li><p>复制原表物理结构<br><pre><br>mysql&gt; create table t_order_bak like t_order;<br></pre></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/20/数据库更新大表数据结构解决方案/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://tinnycat.cn/2018/03/13/JAVA回调机制Callback/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="轻薄的假像灬">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/assert/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hunter X Hunter">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/13/JAVA回调机制Callback/" itemprop="url">JAVA回调机制Callback</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-13T17:52:00+08:00">
+                2018-03-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>大家应该看过spring对jdbc和redis的代码，对JdbcTemplate和RedisTemplate两个类并不陌生，这两个框架中用到了大量的callback机制,因为不管在使用jdbc或者redis时，都需要先获取到这两个框架的客户端,比如jedis。比如这样的代码:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JedisSpringDemo</span> </span>&#123;  </span><br><span class="line">    <span class="meta">@Resource</span>(name = <span class="string">"shardedJedisPool"</span>)  </span><br><span class="line">    <span class="keyword">private</span> ShardedJedisPool shardedJedisPool;  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">set</span><span class="params">(String key, String value)</span></span>&#123;  </span><br><span class="line">        ShardedJedis shardedJedis = <span class="keyword">null</span>;  </span><br><span class="line">        <span class="keyword">try</span>&#123;  </span><br><span class="line">            <span class="comment">// 从连接池中获取jedis分片对象  </span></span><br><span class="line">            shardedJedis = shardedJedisPool.getResource();  </span><br><span class="line">            <span class="comment">// 设置值到redis中  </span></span><br><span class="line">            <span class="keyword">return</span> shardedJedis.set(key, value);  </span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e)&#123;  </span><br><span class="line">            System.out.println(e.getMessage());  </span><br><span class="line">        &#125;<span class="keyword">finally</span> &#123;  </span><br><span class="line">            <span class="keyword">if</span>(<span class="keyword">null</span> != shardedJedis)&#123;  </span><br><span class="line">                shardedJedis.close();  </span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;  </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">get</span><span class="params">(String key)</span></span>&#123;  </span><br><span class="line">        ShardedJedis shardedJedis = <span class="keyword">null</span>;  </span><br><span class="line">        <span class="keyword">try</span>&#123;  </span><br><span class="line">            <span class="comment">// 从连接池中获取jedis分片对象  </span></span><br><span class="line">            shardedJedis = shardedJedisPool.getResource();  </span><br><span class="line">            <span class="comment">// 设置值到redis中  </span></span><br><span class="line">            <span class="keyword">return</span> shardedJedis.set(key);  </span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e)&#123;  </span><br><span class="line">            System.out.println(e.getMessage());  </span><br><span class="line">        &#125;<span class="keyword">finally</span> &#123;  </span><br><span class="line">            <span class="keyword">if</span>(<span class="keyword">null</span> != shardedJedis)&#123;  </span><br><span class="line">                shardedJedis.close();  </span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;  </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/13/JAVA回调机制Callback/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://tinnycat.cn/2018/03/11/java并发量模拟/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="轻薄的假像灬">
@@ -448,7 +912,7 @@ countDown()方法计数器减1
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://shizhengchao.cn/2018/02/02/synchronized的使用/">
+    <link itemprop="mainEntityOfPage" href="http://tinnycat.cn/2018/02/02/synchronized的使用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="轻薄的假像灬">
@@ -590,917 +1054,11 @@ countDown()方法计数器减1
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://shizhengchao.cn/2018/01/29/quartz集群datasource使用问题/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="轻薄的假像灬">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/assert/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hunter X Hunter">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/29/quartz集群datasource使用问题/" itemprop="url">quartz集群datasource使用问题</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-29T01:05:00+08:00">
-                2018-01-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/mysql/" itemprop="url" rel="index">
-                    <span itemprop="name">mysql</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我在使用springboot+quartz集群对任务进行持久化过程中，出现了数据库连接问题，在没有增加quartz之前是没有出现过的。错误信息如下：</p>
-<p><pre><br>2018-01-28 10:48:17.170 [QuartzScheduler_schedulerFactoryBean-server-p-532411522141704336_ClusterManager] WARN  c.m.v2.c3p0.impl.NewPooledConnection - [c3p0] Another error has occurred [ com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException: No operations allowed after connection closed. ] which will not be reported to listeners!<br>com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException: No operations allowed after connection closed.<br>    at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.7.0_71]<br>    at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57) ~[na:1.7.0_71]<br>    at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.7.0_71]<br>    at java.lang.reflect.Constructor.newInstance(Constructor.java:526) ~[na:1.7.0_71]<br>    at com.mysql.jdbc.Util.handleNewInstance(Util.java:389) ~[mysql-connector-java-5.1.35.jar:5.1.35]<br>    at com.mysql.jdbc.Util.getInstance(Util.java:372) ~[mysql-connector-java-5.1.35.jar:5.1.35]<br>    at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:958) ~[mysql-connector-java-5.1.35.jar:5.1.35]<br>    at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:937) ~[mysql-connector-java-5.1.35.jar:5.1.35]<br>    at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:926) ~[mysql-connector-java-5.1.35.jar:5.1.35]<br>    at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:872) ~[mysql-connector-java-5.1.35.jar:5.1.35]<br>    at com.mysql.jdbc.ConnectionImpl.throwConnectionClosedException(ConnectionImpl.java:1236) ~[mysql-connector-java-5.1.35.jar:5.1.35]<br>    at com.mysql.jdbc.ConnectionImpl.checkClosed(ConnectionImpl.java:1231) ~[mysql-connector-java-5.1.35.jar:5.1.35]<br>    at com.mysql.jdbc.ConnectionImpl.setAutoCommit(ConnectionImpl.java:4811) ~[mysql-connector-java-5.1.35.jar:5.1.35]<br>    at com.mchange.v2.c3p0.impl.NewProxyConnection.setAutoCommit(NewProxyConnection.java:881) ~[c3p0-0.9.1.1.jar:0.9.1.1]<br>    at org.quartz.impl.jdbcjobstore.AttributeRestoringConnectionInvocationHandler.restoreOriginalAtributes(AttributeRestoringConnectionInvocationHandler.java:141) [quartz-2.2.1.jar:na]<br>    at org.quartz.impl.jdbcjobstore.JobStoreSupport.cleanupConnection(JobStoreSupport.java:3600) [quartz-2.2.1.jar:na]<br>    at org.quartz.impl.jdbcjobstore.JobStoreSupport.doCheckin(JobStoreSupport.java:3286) [quartz-2.2.1.jar:na]<br>    at org.quartz.impl.jdbcjobstore.JobStoreSupport$ClusterManager.manage(JobStoreSupport.java:3858) [quartz-2.2.1.jar:na]<br>    at org.quartz.impl.jdbcjobstore.JobStoreSupport$ClusterManager.run(JobStoreSupport.java:3895) [quartz-2.2.1.jar:na]<br>Caused by: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: The last packet successfully received from the server was 17,145,825 milliseconds ago.  The last packet sent successfully to the server was 17,145,825 milliseconds ago. is longer than the server configured value of ‘wait_timeout’. You should consider either expiring and/or testing connection validity before use in your application, increasing the server configured values for client timeouts, or using the Connector/J connection property ‘autoReconnect=true’ to avoid this problem.<br></pre><br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/01/29/quartz集群datasource使用问题/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://shizhengchao.cn/2018/01/21/maven项目转换成web项目/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="轻薄的假像灬">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/assert/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hunter X Hunter">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/21/maven项目转换成web项目/" itemprop="url">maven项目转换成web项目</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-21T22:44:00+08:00">
-                2018-01-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/maven/" itemprop="url" rel="index">
-                    <span itemprop="name">maven</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>用maven创建一个webapp的项目时，在eclipse用tomcat容器识别不了，那是因为用maven创建出来的项目不是一个web项目。</p>
-<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><ol>
-<li>首先创建一个maven的webapp项目(<font color="red">不要点create a simple project，否则到不了这个页面</font>)<br><img src="/images/maven/1.png" alt="alt text"><br><br></li>
-<li>右键工程属性选择”Project Facets” 点击 “Convert faceted form”<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/01/21/maven项目转换成web项目/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://shizhengchao.cn/2017/06/20/Centos安装Node-js/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="轻薄的假像灬">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/assert/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hunter X Hunter">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/06/20/Centos安装Node-js/" itemprop="url">Centos安装Node.js</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-20T23:01:00+08:00">
-                2017-06-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/nodejs/" itemprop="url" rel="index">
-                    <span itemprop="name">nodejs</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <ol>
-<li>下载源码<br><pre>cd /usr/local/src/<br>wget [<a href="https://nodejs.org/dist/v8.10.0/node-v8.10.0.tar.gz]" target="_blank" rel="noopener">https://nodejs.org/dist/v8.10.0/node-v8.10.0.tar.gz]</a></pre><br></li>
-<li>解压源码<br><pre>tar zxvf node-v0.10.24.tar.gz</pre><br></li>
-<li>进入到node根目录,编译并安装:<br><pre>cd node-v8.10.0<br>./configure –prefix=/usr/local/node/8.10.0<br>make &amp;&amp; make install</pre><br><font color="red">ps:安装这一步时，有可能会耗很多时间</font><br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/06/20/Centos安装Node-js/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://shizhengchao.cn/2017/05/26/线程池-基础篇/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="轻薄的假像灬">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/assert/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hunter X Hunter">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/05/26/线程池-基础篇/" itemprop="url">线程池-基础篇</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-26T00:10:00+08:00">
-                2017-05-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
-<p>通常情况下，要执行的任务是短暂的，而且任务的数量很大。 为每个任务创建一个新的线程将使系统花费更多的时间创建和销毁线程,却不能保证执行实际的任务。 线程池通过重用现有的线程来解决这个问题并消除了创建新线程的延迟。</p>
-</blockquote>
-<h2 id="适用性"><a href="#适用性" class="headerlink" title="适用性"></a>适用性</h2><blockquote>
-<p>当您有大量的短期任务需要并行执行时,可以考虑用线程池</p>
-</blockquote>
-<h2 id="本文举例"><a href="#本文举例" class="headerlink" title="本文举例"></a>本文举例</h2><blockquote>
-<p>假设有两个任务: 土豆去皮任务和制作咖啡任务,当对这两个任务量化执行时,可以考虑用线程池去完成。</p>
-</blockquote>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/05/26/线程池-基础篇/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://shizhengchao.cn/2017/05/03/tomcat启动超慢/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="轻薄的假像灬">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/assert/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hunter X Hunter">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/05/03/tomcat启动超慢/" itemprop="url">Tomcat启动超慢</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-03T17:08:00+08:00">
-                2017-05-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/tomcat/" itemprop="url" rel="index">
-                    <span itemprop="name">tomcat</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>前段时间在linux上使用tomcat部署项目的时候，启动tomcat没报什么错误，也没仔细看日志，认为启动成功，但是怎么也访问不了我的工程，再仔细看了下tomcat启动日志时，发现如下日志:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WARNING [localhost-startStop-1] org.apache.catalina.util.SessionIdGeneratorBase.createSecureRandom Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [269,564] milliseconds.</span><br></pre></td></tr></table></figure></p>
-<p>可以看到生成一个实例会话 ID用了 <font color="red">269,56毫秒</font>，差不多5分钟了。网上查了下资料，大致原因如下：</p>
-<blockquote>
-<p>Tomcat 7/8 都使用 org.apache.catalina.util.SessionIdGeneratorBase.createSecureRandom 类产生安全随机类 SecureRandom 的实例作&gt;为会话 ID。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/05/03/tomcat启动超慢/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://shizhengchao.cn/2017/03/25/JAVA责任链模式/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="轻薄的假像灬">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/assert/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hunter X Hunter">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/03/25/JAVA责任链模式/" itemprop="url">JAVA责任链模式</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-25T19:30:00+08:00">
-                2017-03-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/设计模式/" itemprop="url" rel="index">
-                    <span itemprop="name">设计模式</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
-<p>责任链模式是由命令对象和一系列处理对象组成的设计模式。 每个处理对象都包含用于定义它可以处理的命令对象类型的逻辑; 其余的被传递给链中的下一个处理对象。 也可以将新的处理对象添加到该链的末尾。<br>简单的说就是:请求从一端进入并继续从一个对象到对象，直到找到合适的处理程序。</p>
-</blockquote>
-<h2 id="适用性"><a href="#适用性" class="headerlink" title="适用性"></a>适用性</h2><p>什么情况下使用责任链</p>
-<ul>
-<li>一个请求被多个对象处理时,处理对象事先对请求并不可知，需要处理程序自动确定。</li>
-<li>多个对象之一发出请求，而无需明确指定接收者。</li>
-<li>可以动态地指定 可处理请求的对象集合。</li>
-</ul>
-<h2 id="经典案例"><a href="#经典案例" class="headerlink" title="经典案例"></a>经典案例</h2><ul>
-<li><a href="http://docs.oracle.com/javase/8/docs/api/java/util/logging/Logger.html#log%28java.util.logging.Level,%20java.lang.String%29" target="_blank" rel="noopener">java.util.logging.Logger#log()</a></li>
-<li><a href="https://commons.apache.org/proper/commons-chain/index.html" target="_blank" rel="noopener">Apache Commons Chain</a></li>
-<li><a href="http://docs.oracle.com/javaee/7/api/javax/servlet/Filter.html#doFilter-javax.servlet.ServletRequest-javax.servlet.ServletResponse-javax.servlet.FilterChain-" target="_blank" rel="noopener">javax.servlet.Filter#doFilter()</a>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/25/JAVA责任链模式/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
