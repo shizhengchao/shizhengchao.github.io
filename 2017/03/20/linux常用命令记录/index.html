@@ -90,7 +90,7 @@
 <meta property="og:site_name" content="Hunter X Hunter">
 <meta property="og:description" content="基本命令 查看目录 [root@izbp1311i2pe1xiq3x174lz home]# ls  [root@izbp1311i2pe1xiq3x174lz home]# ll [root@izbp1311i2pe1xiq3x174lz home]# ll -a #显示所有文件 比如在用vim编写文件时，由于没有退出保存，导致下一次编辑时被锁住，可以用此命令找到.xxxx.swp文件，删除此文">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-18T16:52:48.157Z">
+<meta property="og:updated_time" content="2018-04-24T13:01:00.492Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux常用命令记录">
 <meta name="twitter:description" content="基本命令 查看目录 [root@izbp1311i2pe1xiq3x174lz home]# ls  [root@izbp1311i2pe1xiq3x174lz home]# ll [root@izbp1311i2pe1xiq3x174lz home]# ll -a #显示所有文件 比如在用vim编写文件时，由于没有退出保存，导致下一次编辑时被锁住，可以用此命令找到.xxxx.swp文件，删除此文">
@@ -407,7 +407,12 @@ df -h
 </pre></li>
 <li>查看当前目录下的所有目录的使用情况<pre>
 du -h --max-depth=1 #参数 --max-depth=1代表目录深度
-</pre></li>
+</pre>
+
+</li>
+</ul>
+<a id="more"></a>
+<ul>
 <li>找出当前目录下及子目录下的大于800M的文件<pre>
 find . -type f -size +800M -print
 </pre></li>
@@ -456,7 +461,6 @@ comm -3 a.txt b.txt #除去a b两个文件中相同的行,输出不同的行
 
 </li>
 </ul>
-<a id="more"></a>
 <h2 id="日志方面"><a href="#日志方面" class="headerlink" title="日志方面"></a>日志方面</h2><ul>
 <li>监控最后400行日志文件的变化<pre>
 tail -400f demo.log

@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://tinnycat.cn/2017/03/20/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E8%AE%B0%E5%BD%95/</loc>
+    
+    <lastmod>2018-04-24T13:01:00.492Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://tinnycat.cn/categories/index.html</loc>
     
     <lastmod>2018-04-23T14:29:04.433Z</lastmod>
@@ -47,13 +54,6 @@
     <loc>http://tinnycat.cn/2018/04/07/springboot-netty-protobuff%E5%AE%9E%E7%8E%B0rpc/</loc>
     
     <lastmod>2018-04-19T07:57:54.912Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://tinnycat.cn/2017/03/20/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E8%AE%B0%E5%BD%95/</loc>
-    
-    <lastmod>2018-04-18T16:52:48.157Z</lastmod>
     
   </url>
   

@@ -718,51 +718,6 @@ df -h
 </pre></li>
 <li>查看当前目录下的所有目录的使用情况<pre>
 du -h --max-depth=1 #参数 --max-depth=1代表目录深度
-</pre></li>
-<li>找出当前目录下及子目录下的大于800M的文件<pre>
-find . -type f -size +800M -print
-</pre></li>
-<li>删除包含子目录的所有文件<pre>
-rm -rf xxx  #-f强制删除，-r删除目录;
-</pre></li>
-<li>创建文件夹<pre>
-mkdir folder
-</pre></li>
-<li>复制abc.log文件到/dir目录下<pre>
-cp abc.log /dir/
-</pre></li>
-<li>移动或者重命名文件<pre>
-mv abc.log /dir #把abc.log移到 /dir目录下
-mv abc.log def.log #把abc.log重命名为def.log
-</pre></li>
-<li>显示文件行数<pre>
-wc -l abc.log #显示abc.log中有多少行
-</pre></li>
-<li>comm按行来比较两个排序文件<pre>
-如果两个文件顺序不一样,请用sort命令排序后覆盖原文件再排序
-vim a.txt
-111
-222
-333
-vim b.txt
-333
-444
-555
-comm -1 a.txt b.txt #除去文件a中的唯一行
-333
-444
-555
-comm -2 a.txt b.txt #除去b中的唯一行
-111
-222
-333
-comm -12 a.txt b.txt #取交集
-333
-comm -3 a.txt b.txt #除去a b两个文件中相同的行,输出不同的行
-111
-222
-444
-555
 </pre>
 
 </li>
