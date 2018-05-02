@@ -82,18 +82,18 @@
 
 
 
-<meta name="description" content="jstack命令jstack是java虚拟机自带的一种堆栈跟踪工具。jstack用于打印出给定的java进程ID或core file或远程调试服务的Java堆栈信息。 用法  jstack pid   想要了解堆栈信息就要先知道线程各个状态:new、runnable、running、waiting、timed_waiting、blocked、dead； 对于jstack日志，我们主要关注 Dead">
+<meta name="description" content="JDK本身提供了很多方便的JVM性能调优监控工具，除了集成式的VisualVM和jConsole外，还有jps、jstack、jmap、jhat、jstat等小巧的工具.我们可以使用这些命令对GC和线程dump信息进行分析,方便快速定位和解决问题. jstack命令jstack是java虚拟机自带的一种堆栈跟踪工具。jstack用于打印出给定的java进程ID或core file或远程调试服务的J">
 <meta name="keywords" content="jvm,jstack,jstat">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jvm监控调优工具">
 <meta property="og:url" content="http://tinnycat.cn/2018/04/24/jvm监控调优工具/index.html">
 <meta property="og:site_name" content="Hunter X Hunter">
-<meta property="og:description" content="jstack命令jstack是java虚拟机自带的一种堆栈跟踪工具。jstack用于打印出给定的java进程ID或core file或远程调试服务的Java堆栈信息。 用法  jstack pid   想要了解堆栈信息就要先知道线程各个状态:new、runnable、running、waiting、timed_waiting、blocked、dead； 对于jstack日志，我们主要关注 Dead">
+<meta property="og:description" content="JDK本身提供了很多方便的JVM性能调优监控工具，除了集成式的VisualVM和jConsole外，还有jps、jstack、jmap、jhat、jstat等小巧的工具.我们可以使用这些命令对GC和线程dump信息进行分析,方便快速定位和解决问题. jstack命令jstack是java虚拟机自带的一种堆栈跟踪工具。jstack用于打印出给定的java进程ID或core file或远程调试服务的J">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-02T18:03:14.068Z">
+<meta property="og:updated_time" content="2018-05-02T18:13:36.277Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jvm监控调优工具">
-<meta name="twitter:description" content="jstack命令jstack是java虚拟机自带的一种堆栈跟踪工具。jstack用于打印出给定的java进程ID或core file或远程调试服务的Java堆栈信息。 用法  jstack pid   想要了解堆栈信息就要先知道线程各个状态:new、runnable、running、waiting、timed_waiting、blocked、dead； 对于jstack日志，我们主要关注 Dead">
+<meta name="twitter:description" content="JDK本身提供了很多方便的JVM性能调优监控工具，除了集成式的VisualVM和jConsole外，还有jps、jstack、jmap、jhat、jstat等小巧的工具.我们可以使用这些命令对GC和线程dump信息进行分析,方便快速定位和解决问题. jstack命令jstack是java虚拟机自带的一种堆栈跟踪工具。jstack用于打印出给定的java进程ID或core file或远程调试服务的J">
 
 
 
@@ -395,7 +395,8 @@
       
 
       
-        <h2 id="jstack命令"><a href="#jstack命令" class="headerlink" title="jstack命令"></a>jstack命令</h2><p>jstack是java虚拟机自带的一种堆栈跟踪工具。jstack用于打印出给定的java进程ID或core file或远程调试服务的Java堆栈信息。</p>
+        <p>JDK本身提供了很多方便的JVM性能调优监控工具，除了集成式的VisualVM和jConsole外，还有jps、jstack、jmap、jhat、jstat等小巧的工具.我们可以使用这些命令对GC和线程dump信息进行分析,方便快速定位和解决问题.</p>
+<h2 id="jstack命令"><a href="#jstack命令" class="headerlink" title="jstack命令"></a>jstack命令</h2><p>jstack是java虚拟机自带的一种堆栈跟踪工具。jstack用于打印出给定的java进程ID或core file或远程调试服务的Java堆栈信息。</p>
 <p><strong><em>用法</em></strong></p>
 <pre>
 jstack pid
@@ -403,6 +404,7 @@ jstack pid
 
 <p>想要了解堆栈信息就要先知道线程各个状态:new、runnable、running、waiting、timed_waiting、blocked、dead；</p>
 <p>对于jstack日志，我们主要关注 <font color="red">Deadlock、Waiting on condition、Blocked、Waiting on monitor entry、in Object.wait()</font></p>
+<a id="more"></a>
 <table>
 <thead>
 <tr>
