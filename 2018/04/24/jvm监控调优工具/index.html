@@ -90,7 +90,7 @@
 <meta property="og:site_name" content="Hunter X Hunter">
 <meta property="og:description" content="JDK本身提供了很多方便的JVM性能调优监控工具，除了集成式的VisualVM和jConsole外，还有jps、jstack、jmap、jhat、jstat等小巧的工具.我们可以使用这些命令对GC和线程dump信息进行分析,方便快速定位和解决问题. jstack命令jstack是java虚拟机自带的一种堆栈跟踪工具。jstack用于打印出给定的java进程ID或core file或远程调试服务的J">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-02T18:13:36.277Z">
+<meta property="og:updated_time" content="2018-05-04T05:03:22.549Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jvm监控调优工具">
 <meta name="twitter:description" content="JDK本身提供了很多方便的JVM性能调优监控工具，除了集成式的VisualVM和jConsole外，还有jps、jstack、jmap、jhat、jstat等小巧的工具.我们可以使用这些命令对GC和线程dump信息进行分析,方便快速定位和解决问题. jstack命令jstack是java虚拟机自带的一种堆栈跟踪工具。jstack用于打印出给定的java进程ID或core file或远程调试服务的J">
@@ -487,7 +487,39 @@ n [0x00000000023bf000]</font>
 </pre>
 
 <p>从dump文件里看到thread1状态是waiting for mon<br>itor entry等待获取锁对象0x00000000d5cb4f38,所以状态是BLOCKED,而锁对象0x00000000d5cb4f38此时正在被main线程所占有,但没有释放,所以线程main状态为waiting on conditio等待一个释放锁的条件触发.</p>
-<h3 id="deadlock死锁分析"><a href="#deadlock死锁分析" class="headerlink" title="deadlock死锁分析"></a><strong><em><font color="gray" size="3">deadlock死锁分析</font></em></strong></h3><h2 id="jstat命令使用"><a href="#jstat命令使用" class="headerlink" title="jstat命令使用"></a>jstat命令使用</h2><p>jstat命令可以查看堆内存各部分的使用量，以及加载类的数量。</p>
+<h3 id="deadlock死锁分析"><a href="#deadlock死锁分析" class="headerlink" title="deadlock死锁分析"></a><strong><em><font color="gray" size="3">deadlock死锁分析</font></em></strong></h3><p>死锁一般发生在重入锁里，两个线程互相占有对方需要的锁对象，都在等待对方释放锁。以下代码就是一个死锁,在多线程同步执行下可能发生死锁：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DeadLockThread</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">boolean</span> flag;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> Object lock1 = <span class="keyword">new</span> Object();</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> Object lock2 = <span class="keyword">new</span> Object();</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">DeadLockThread</span><span class="params">(<span class="keyword">boolean</span> flag, String name)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.flag = flag;</span><br><span class="line">		<span class="keyword">this</span>.setName(name);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(flag) &#123;</span><br><span class="line">			<span class="keyword">synchronized</span>(lock1) &#123;</span><br><span class="line">				System.out.println(Thread.currentThread().getName() + <span class="string">"获得取锁1"</span>);</span><br><span class="line">				</span><br><span class="line">				<span class="keyword">synchronized</span>(lock2) &#123;</span><br><span class="line">					System.out.println(Thread.currentThread().getName() + <span class="string">"获得取锁2"</span>);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">synchronized</span>(lock2) &#123;</span><br><span class="line">				System.out.println(Thread.currentThread().getName() + <span class="string">"获得取锁2"</span>);</span><br><span class="line">				</span><br><span class="line">				<span class="keyword">synchronized</span>(lock1) &#123;</span><br><span class="line">					System.out.println(Thread.currentThread().getName() + <span class="string">"获得取锁1"</span>);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>下面使用jstack分析线程的dump日志:</p>
+<pre>
+C:\Users\Administrator>jstack 16776
+"thread2" #11 prio=5 os_prio=0 tid=0x00000000182e7000 nid=0x8174 waiting for mon
+itor entry [0x000000001957e000]
+   java.lang.Thread.State: BLOCKED (on object monitor)
+        at com.szc.blog.deadlock.DeadLockThread.run(DeadLockThread.java:29)
+        <font color="red">- waiting to lock <0x00000000d5d5c6a0> (a java.lang.Object)</0x00000000d5d5c6a0></font>
+        <font color="red">- locked <0x00000000d5d5c6b0> (a java.lang.Object)</0x00000000d5d5c6b0></font>
+
+"thread1" #10 prio=5 os_prio=0 tid=0x00000000182e6000 nid=0x604 waiting for moni
+tor entry [0x000000001938f000]
+   java.lang.Thread.State: BLOCKED (on object monitor)
+        at com.szc.blog.deadlock.DeadLockThread.run(DeadLockThread.java:21)
+        <font color="red">- waiting to lock <0x00000000d5d5c6b0> (a java.lang.Object)</0x00000000d5d5c6b0></font>
+        <font color="red">- locked <0x00000000d5d5c6a0> (a java.lang.Object)</0x00000000d5d5c6a0></font>
+
+Found one Java-level deadlock:
+=============================
+"thread2":
+  waiting to lock monitor 0x000000001702eb38 (object 0x00000000d5d5c6a0, a java.
+lang.Object),
+  which is held by "thread1"
+"thread1":
+  waiting to lock monitor 0x00000000170315d8 (object 0x00000000d5d5c6b0, a java.
+lang.Object),
+  which is held by "thread2"
+</pre>
+
+<p>可以看到jstack已经发现了一个死锁:Found one Java-level deadlock: 线程thread2等待的monitor 0x00000000d5d5c6a0 被thead1占用，线程hread1等待的monitor  0x00000000d5d5c6b0被thread2占用。</p>
+<hr>
+<h2 id="jstat命令使用"><a href="#jstat命令使用" class="headerlink" title="jstat命令使用"></a>jstat命令使用</h2><p>jstat命令可以查看堆内存各部分的使用量，以及加载类的数量。</p>
 <p>命令的格式如下:</p>
 <p>jstat [-命令选项] [vmid] [间隔时间/毫秒] [查询次数]</p>
 <h3 id="类加载统计"><a href="#类加载统计" class="headerlink" title="类加载统计"></a><strong><em><font color="gray" size="3">类加载统计</font></em></strong></h3><pre>
@@ -738,10 +770,6 @@ C:\Users\Administrator> jstat -gcutil 35012
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/02/类图/" rel="prev" title="类图">
-                类图 <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
       
@@ -826,7 +854,7 @@ C:\Users\Administrator> jstat -gcutil 35012
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

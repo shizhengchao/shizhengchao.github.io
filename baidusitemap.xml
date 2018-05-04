@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://tinnycat.cn/2018/04/24/jvm%E7%9B%91%E6%8E%A7%E8%B0%83%E4%BC%98%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2018-05-02T18:13:36.277Z</lastmod>
+    <lastmod>2018-05-04T05:03:22.549Z</lastmod>
     <data>
         <display>
         <title>jvm监控调优工具</title>
@@ -22,21 +22,6 @@
              
               <breadCrumb title="java" url="http://tinnycat.cn/categories/java/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://tinnycat.cn/2018/05/02/%E7%B1%BB%E5%9B%BE/</loc>
-    <lastmod>2018-05-02T07:26:02.030Z</lastmod>
-    <data>
-        <display>
-        <title>类图</title>
-        <pubTime>2018-05-02T07:23:08.000Z</pubTime>
-        
-         
-           
         </display>
     </data>
     </url>
@@ -304,11 +289,11 @@
         <title>JAVA回调机制Callback</title>
         <pubTime>2018-03-13T09:52:00.000Z</pubTime>
         
+        <tag>java</tag>
+         
         <tag> callback</tag>
          
         <tag>回调机制</tag>
-         
-        <tag>java</tag>
          
          
            
@@ -350,9 +335,9 @@
         <title>JAVA责任链模式</title>
         <pubTime>2017-03-25T11:30:00.000Z</pubTime>
         
-        <tag>java</tag>
-         
         <tag>chain</tag>
+         
+        <tag>java</tag>
          
         <tag>责任链</tag>
          
