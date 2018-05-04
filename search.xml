@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[类图]]></title>
+    <url>%2F2018%2F05%2F02%2F%E7%B1%BB%E5%9B%BE%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>UML</category>
+      </categories>
+      <tags>
+        <tag>时序图</tag>
+        <tag>类图</tag>
+        <tag>微信开发</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[jvm监控调优工具]]></title>
     <url>%2F2018%2F04%2F24%2Fjvm%E7%9B%91%E6%8E%A7%E8%B0%83%E4%BC%98%E5%B7%A5%E5%85%B7%2F</url>
     <content type="text"><![CDATA[JDK本身提供了很多方便的JVM性能调优监控工具，除了集成式的VisualVM和jConsole外，还有jps、jstack、jmap、jhat、jstat等小巧的工具.我们可以使用这些命令对GC和线程dump信息进行分析,方便快速定位和解决问题. jstack命令jstack是java虚拟机自带的一种堆栈跟踪工具。jstack用于打印出给定的java进程ID或core file或远程调试服务的Java堆栈信息。 用法 jstack pid 想要了解堆栈信息就要先知道线程各个状态:new、runnable、running、waiting、timed_waiting、blocked、dead； 对于jstack日志，我们主要关注 Deadlock、Waiting on condition、Blocked、Waiting on monitor entry、in Object.wait() 状态 描述 New 当线程对象创建时存在的状态，此时线程不可能执行 Runnable 当调用thread.start()后，线程变成为Runnable状态。只要得到CPU，就可以执行 Running 线程正在执行 Waiting 执行thread.join()或在锁对象调用obj.wait()等情况就会进该状态，表明线程正处于等待某个资源或条件发生来唤醒自己 Timed_Waiting 执行Thread.sleep(long)、thread.join(long)或obj.wait(long)等就会进该状态，与Waiting的区别在于Timed_Waiting的等待有时间限制 Blocked 如果进入同步方法或同步代码块，没有获取到锁，则会进入该状态 Dead 线程执行完毕，或者抛出了未捕获的异常之后，会进入dead状态，表示该线程结束 Deadlock 表示有死锁 Waiting on condition 等待某个资源或条件发生来唤醒自己。具体需要结合jstacktrace来分析，比如线程正在sleep，网络读写繁忙而等待 Blocked 阻塞 Waiting on monitor entry 在等待获取锁 in Object.wait() 获取锁后又执行obj.wait()放弃锁 对于Waiting on monitor entry 和 in Object.wait()的详细描述：Monitor是 Java中用以实现线程之间的互斥与协作的主要手段，它可以看成是对象或者 Class的锁。每一个对象都有，也仅有一个 monitor。每个 Monitor在某个时刻，只能被一个线程拥有，该线程就是 “Active Thread”，而其它线程都是 “Waiting Thread”，分别在两个队列 “ Entry Set”和 “Wait Set”里面等候。在 “Entry Set”中等待的线程状态是 “Waiting for monitor entry”，而在 “Wait Set”中等待的线程状态是 “in Object.wait()” blocked阻塞示例123456789101112131415161718192021222324252627282930313233public class JstackTest &#123; private static final Object mutex = new Object(); public static void main(String[] args) &#123; final Thread thread = new Thread(new Runnable() &#123; @Override public void run() &#123; synchronized(mutex) &#123; System.out.println(Thread.currentThread().getName()); try &#123; TimeUnit.SECONDS.sleep(60); &#125; catch (InterruptedException e) &#123; // TODO Auto-generated catch block e.printStackTrace(); &#125; &#125; &#125; &#125;); thread.setName("thread1"); thread.start(); synchronized (mutex) &#123; System.out.println(Thread.currentThread().getName()); try &#123; TimeUnit.SECONDS.sleep(60); &#125; catch (InterruptedException e) &#123; // TODO Auto-generated catch block e.printStackTrace(); &#125; &#125; &#125;&#125; 运行后,输出main,然后sleep 60秒,thread1等待main线程释放锁,下面使用jstack分析线程的dump日志: C:\Users\Administrator>jstack 32036 "thread1" #10 prio=5 os_prio=0 tid=0x0000000018513000 nid=0x6514 waiting for mon itor entry [0x000000001956f000] java.lang.Thread.State: BLOCKED (on object monitor) at com.szc.blog.jstack.JstackTest$1.run(JstackTest.java:14) - waiting to lock (a java.lang.Object) at java.lang.Thread.run(Thread.java:748) "main" #1 prio=5 os_prio=0 tid=0x000000000027e000 nid=0x6a10 waiting on conditio n [0x00000000023bf000] java.lang.Thread.State: TIMED_WAITING (sleeping) at java.lang.Thread.sleep(Native Method) at java.lang.Thread.sleep(Thread.java:340) at java.util.concurrent.TimeUnit.sleep(TimeUnit.java:386) at com.szc.blog.jstack.JstackTest.main(JstackTest.java:30) - locked (a java.lang.Object) 从dump文件里看到thread1状态是waiting for monitor entry等待获取锁对象0x00000000d5cb4f38,所以状态是BLOCKED,而锁对象0x00000000d5cb4f38此时正在被main线程所占有,但没有释放,所以线程main状态为waiting on conditio等待一个释放锁的条件触发. deadlock死锁分析死锁一般发生在重入锁里，两个线程互相占有对方需要的锁对象，都在等待对方释放锁。以下代码就是一个死锁,在多线程同步执行下可能发生死锁：123456789101112131415161718192021222324252627282930313233public class DeadLockThread extends Thread &#123; private boolean flag; private static Object lock1 = new Object(); private static Object lock2 = new Object(); public DeadLockThread(boolean flag, String name) &#123; this.flag = flag; this.setName(name); &#125; @Override public void run() &#123; if(flag) &#123; synchronized(lock1) &#123; System.out.println(Thread.currentThread().getName() + "获得取锁1"); synchronized(lock2) &#123; System.out.println(Thread.currentThread().getName() + "获得取锁2"); &#125; &#125; &#125; else &#123; synchronized(lock2) &#123; System.out.println(Thread.currentThread().getName() + "获得取锁2"); synchronized(lock1) &#123; System.out.println(Thread.currentThread().getName() + "获得取锁1"); &#125; &#125; &#125; &#125;&#125; 下面使用jstack分析线程的dump日志: C:\Users\Administrator>jstack 16776 "thread2" #11 prio=5 os_prio=0 tid=0x00000000182e7000 nid=0x8174 waiting for mon itor entry [0x000000001957e000] java.lang.Thread.State: BLOCKED (on object monitor) at com.szc.blog.deadlock.DeadLockThread.run(DeadLockThread.java:29) - waiting to lock (a java.lang.Object) - locked (a java.lang.Object) "thread1" #10 prio=5 os_prio=0 tid=0x00000000182e6000 nid=0x604 waiting for moni tor entry [0x000000001938f000] java.lang.Thread.State: BLOCKED (on object monitor) at com.szc.blog.deadlock.DeadLockThread.run(DeadLockThread.java:21) - waiting to lock (a java.lang.Object) - locked (a java.lang.Object) Found one Java-level deadlock: ============================= "thread2": waiting to lock monitor 0x000000001702eb38 (object 0x00000000d5d5c6a0, a java. lang.Object), which is held by "thread1" "thread1": waiting to lock monitor 0x00000000170315d8 (object 0x00000000d5d5c6b0, a java. lang.Object), which is held by "thread2" 可以看到jstack已经发现了一个死锁:Found one Java-level deadlock: 线程thread2等待的monitor 0x00000000d5d5c6a0 被thead1占用，线程hread1等待的monitor 0x00000000d5d5c6b0被thread2占用。 jstat命令使用jstat命令可以查看堆内存各部分的使用量，以及加载类的数量。 命令的格式如下: jstat [-命令选项] [vmid] [间隔时间/毫秒] [查询次数] 类加载统计 C:\Users\Administrator> jstat -class 35012 Loaded Bytes Unloaded Bytes Time 430 881.6 0 0.0 0.07 表头 描述 Loaded 加载class的数量 Bytes 所占用空间大小 Unloaded 未加载数量 Bytes 未加载占用空间 Time 时间 垃圾回收统计 C:\Users\Administrator> jstat -gc 35012 S0C S1C S0U S1U EC EU OC OU MC MU CCSC CCSU YGC YGCT FGC FGCT GCT 5120.0 5120.0 0.0 0.0 33280.0 3328.4 87552.0 0.0 4480.0 781.2 384.0 75.9 0 0.000 0 0.000 0.000 表头 描述 jdk版本 S0C 新生代中Survivor space中S0当前容量的大小（KB） - S1C 新生代中Survivor space中S1当前容量的大小（KB） - S0U 新生代中Survivor space中S0容量使用的大小（KB） - S1U 新生代中Survivor space中S1容量使用的大小（KB） - EC Eden space当前容量的大小（KB） - EU Eden space容量使用的大小（KB） - OC Old space当前容量的大小（KB） - OU Old space使用容量的大小（KB） - PC Permanent space当前容量的大小（KB） 1.8以下 PU Permanent space使用容量的大小（KB） 1.8以下 MC MeteSpace 当前容量的大小（KB） 1.8及以上 MU MeteSpace 使用容量的大小（KB） 1.8及以上 CCSC 压缩类空间大小(KB) 1.8及以上 CCSU 压缩类空间大小（KB） 1.8及以上 YGC 从应用程序启动到采样时发生 Young GC 的次数 - YGCT 从应用程序启动到采样时 Young GC 所用的时间(秒) - FGC 从应用程序启动到采样时发生 Full GC 的次数 - FGCT 从应用程序启动到采样时 Full GC 所用的时间(秒) - GCT 从jvm启动到采样时用于垃圾回收的总时间(单位秒)，它的值等于YGC+FGC - 总结垃圾回收统计 C:\Users\Administrator> jstat -gcutil 35012 S0 S1 E O M CCS YGC YGCT FGC FGCT GCT 0.00 0.00 10.00 0.00 17.44 19.76 0 0.000 0 0.000 0.000 表头 描述 S0 幸存1区当前使用比例 S1 幸存2区当前使用比例 E 伊甸园区使用比例 O 老年代使用比例 M 元数据区使用比例 CCS 压缩使用比例 YGC 年轻代垃圾回收次数 FGC 老年代垃圾回收次数 FGCT 老年代垃圾回收消耗时间 GCT 垃圾回收消耗总时间]]></content>
@@ -93,9 +106,9 @@
         <category>设计模式</category>
       </categories>
       <tags>
-        <tag>java</tag>
         <tag> callback</tag>
         <tag>回调机制</tag>
+        <tag>java</tag>
       </tags>
   </entry>
   <entry>
@@ -190,8 +203,8 @@
         <category>设计模式</category>
       </categories>
       <tags>
-        <tag>chain</tag>
         <tag>java</tag>
+        <tag>chain</tag>
         <tag>责任链</tag>
       </tags>
   </entry>
@@ -250,10 +263,5 @@
       <tags>
         <tag>hexo</tag>
       </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2F2017%2F01%2F01%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[I hear and I forget. I see and I remember. I do and I understand]]></content>
   </entry>
 </search>
