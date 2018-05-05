@@ -850,12 +850,9 @@ jstack pid
 
       
         
-          <h2 id="BitSet介绍"><a href="#BitSet介绍" class="headerlink" title="BitSet介绍"></a>BitSet介绍</h2><p><strong>BitSet的原理</strong></p>
-<p>Java BitSet可以按位存储，计算机中一个字节(byte)占8位(bit)；而BitSet是位操作的对象，值只有0或1（即true 和 false），内部维护一个long数组，初始化只有一个long segement，所以BitSet最小的size是64；随着存储的元素越来越多，BitSet内部会自动扩充，一次扩充64位，最终内部是由N个long segement 来存储；默认情况下，BitSet所有位都是0即false；</p>
-<p><strong>BitSet的应用场景</strong></p>
-<p>海量数据去重、排序、压缩存储</p>
-<p><strong>BitSet的基本操作</strong></p>
-<p>and（与）、or（或）、xor（异或）</p>
+          <h2 id="BitSet介绍"><a href="#BitSet介绍" class="headerlink" title="BitSet介绍"></a>BitSet介绍</h2><h3 id="BitSet的原理"><a href="#BitSet的原理" class="headerlink" title="BitSet的原理"></a><font color="gray" size="3">BitSet的原理</font></h3><p>Java BitSet可以按位存储，计算机中一个字节(byte)占8位(bit)；而BitSet是位操作的对象，值只有0或1（即true 和 false），内部维护一个long数组，初始化只有一个long segement，所以BitSet最小的size是64；随着存储的元素越来越多，BitSet内部会自动扩充，一次扩充64位，最终内部是由N个long segement 来存储；默认情况下，BitSet所有位都是0即false；</p>
+<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a><font color="gray" size="3">应用场景</font></h3><p>海量数据去重、排序、压缩存储</p>
+<h3 id="BitSet的基本操作"><a href="#BitSet的基本操作" class="headerlink" title="BitSet的基本操作"></a><font color="gray" size="3">BitSet的基本操作</font></h3><p>and（与）、or（或）、xor（异或）</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/04/20/布隆过滤器简单实现/#more" rel="contents">

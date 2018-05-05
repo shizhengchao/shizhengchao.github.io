@@ -82,20 +82,20 @@
 
 
 
-<meta name="description" content="BitSet介绍BitSet的原理 Java BitSet可以按位存储，计算机中一个字节(byte)占8位(bit)；而BitSet是位操作的对象，值只有0或1（即true 和 false），内部维护一个long数组，初始化只有一个long segement，所以BitSet最小的size是64；随着存储的元素越来越多，BitSet内部会自动扩充，一次扩充64位，最终内部是由N个long sege">
+<meta name="description" content="BitSet介绍BitSet的原理Java BitSet可以按位存储，计算机中一个字节(byte)占8位(bit)；而BitSet是位操作的对象，值只有0或1（即true 和 false），内部维护一个long数组，初始化只有一个long segement，所以BitSet最小的size是64；随着存储的元素越来越多，BitSet内部会自动扩充，一次扩充64位，最终内部是由N个long segem">
 <meta name="keywords" content="布隆过滤器,BitSet,缓存穿透">
 <meta property="og:type" content="article">
 <meta property="og:title" content="布隆过滤器简单实现">
 <meta property="og:url" content="http://tinnycat.cn/2018/04/20/布隆过滤器简单实现/index.html">
 <meta property="og:site_name" content="TinnyCat">
-<meta property="og:description" content="BitSet介绍BitSet的原理 Java BitSet可以按位存储，计算机中一个字节(byte)占8位(bit)；而BitSet是位操作的对象，值只有0或1（即true 和 false），内部维护一个long数组，初始化只有一个long segement，所以BitSet最小的size是64；随着存储的元素越来越多，BitSet内部会自动扩充，一次扩充64位，最终内部是由N个long sege">
+<meta property="og:description" content="BitSet介绍BitSet的原理Java BitSet可以按位存储，计算机中一个字节(byte)占8位(bit)；而BitSet是位操作的对象，值只有0或1（即true 和 false），内部维护一个long数组，初始化只有一个long segement，所以BitSet最小的size是64；随着存储的元素越来越多，BitSet内部会自动扩充，一次扩充64位，最终内部是由N个long segem">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://tinnycat.cn/images/bloom/1.png">
 <meta property="og:image" content="http://tinnycat.cn/images/bloom/2.png">
-<meta property="og:updated_time" content="2018-04-23T14:00:12.910Z">
+<meta property="og:updated_time" content="2018-05-05T10:39:34.713Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="布隆过滤器简单实现">
-<meta name="twitter:description" content="BitSet介绍BitSet的原理 Java BitSet可以按位存储，计算机中一个字节(byte)占8位(bit)；而BitSet是位操作的对象，值只有0或1（即true 和 false），内部维护一个long数组，初始化只有一个long segement，所以BitSet最小的size是64；随着存储的元素越来越多，BitSet内部会自动扩充，一次扩充64位，最终内部是由N个long sege">
+<meta name="twitter:description" content="BitSet介绍BitSet的原理Java BitSet可以按位存储，计算机中一个字节(byte)占8位(bit)；而BitSet是位操作的对象，值只有0或1（即true 和 false），内部维护一个long数组，初始化只有一个long segement，所以BitSet最小的size是64；随着存储的元素越来越多，BitSet内部会自动扩充，一次扩充64位，最终内部是由N个long segem">
 <meta name="twitter:image" content="http://tinnycat.cn/images/bloom/1.png">
 
 
@@ -398,26 +398,20 @@
       
 
       
-        <h2 id="BitSet介绍"><a href="#BitSet介绍" class="headerlink" title="BitSet介绍"></a>BitSet介绍</h2><p><strong>BitSet的原理</strong></p>
-<p>Java BitSet可以按位存储，计算机中一个字节(byte)占8位(bit)；而BitSet是位操作的对象，值只有0或1（即true 和 false），内部维护一个long数组，初始化只有一个long segement，所以BitSet最小的size是64；随着存储的元素越来越多，BitSet内部会自动扩充，一次扩充64位，最终内部是由N个long segement 来存储；默认情况下，BitSet所有位都是0即false；</p>
-<p><strong>BitSet的应用场景</strong></p>
-<p>海量数据去重、排序、压缩存储</p>
-<p><strong>BitSet的基本操作</strong></p>
-<p>and（与）、or（或）、xor（异或）</p>
+        <h2 id="BitSet介绍"><a href="#BitSet介绍" class="headerlink" title="BitSet介绍"></a>BitSet介绍</h2><h3 id="BitSet的原理"><a href="#BitSet的原理" class="headerlink" title="BitSet的原理"></a><font color="gray" size="3">BitSet的原理</font></h3><p>Java BitSet可以按位存储，计算机中一个字节(byte)占8位(bit)；而BitSet是位操作的对象，值只有0或1（即true 和 false），内部维护一个long数组，初始化只有一个long segement，所以BitSet最小的size是64；随着存储的元素越来越多，BitSet内部会自动扩充，一次扩充64位，最终内部是由N个long segement 来存储；默认情况下，BitSet所有位都是0即false；</p>
+<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a><font color="gray" size="3">应用场景</font></h3><p>海量数据去重、排序、压缩存储</p>
+<h3 id="BitSet的基本操作"><a href="#BitSet的基本操作" class="headerlink" title="BitSet的基本操作"></a><font color="gray" size="3">BitSet的基本操作</font></h3><p>and（与）、or（或）、xor（异或）</p>
 <a id="more"></a>
-<p><strong>BitSet的优缺点</strong></p>
-<ul>
+<h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a><font color="gray" size="3">优缺点</font></h3><ul>
 <li><p>优点：按位存储，内存占用空间小；丰富的api操作</p>
 </li>
 <li><p>缺点：线程不安全；BitSet内部动态扩展long型数组，若数据稀疏会占用较大的内存</p>
 </li>
 </ul>
-<p><strong>long型数组作为内部存储结构</strong></p>
-<p>JDK选择long数组作为BitSet的内部存储结构是出于性能的考虑，在and和or的时候减少循环次数，提高性能；因为BitSet提供and和or这种操作，需要对两个BitSet中的所有bit位做and或者or，实现的时候需要遍历所有的数组元素。使用long能够使得循环的次数降到最低，所以Java选择使用long数组作为BitSet的内部存储结构。</p>
+<h3 id="内部存储结构"><a href="#内部存储结构" class="headerlink" title="内部存储结构"></a><font color="gray" size="3">内部存储结构</font></h3><p>JDK选择long数组作为BitSet的内部存储结构是出于性能的考虑，在and和or的时候减少循环次数，提高性能；因为BitSet提供and和or这种操作，需要对两个BitSet中的所有bit位做and或者or，实现的时候需要遍历所有的数组元素。使用long能够使得循环的次数降到最低，所以Java选择使用long数组作为BitSet的内部存储结构。</p>
 <p>举个例子：</p>
 <p>当我们进行BitSet中的and, or, xor操作时，要对整个bitset中的bit都进行操作，需要依次读出bitset中所有的word，如果是long数组存储，我们可以每次读入64个bit,而int数组存储时，只能每次读入32个bit</p>
-<h2 id="布隆过滤器"><a href="#布隆过滤器" class="headerlink" title="布隆过滤器"></a>布隆过滤器</h2><p><strong>布隆过滤器原理</strong></p>
-<p>Bloom Filter是一个占用空间很小、效率很高的随机数据结构，它由一个bit数组和一组Hash算法构成。可用于判断一个元素是否在一个集合中。本身并不存储数据真实的值,而是把数据N 通过 K次映射函数f(hash)，把每次得到的值 V放入bit数组对应的索引位置，并把值设置为1。在判断是否存在时，只要判断每一次的映射对应的位都是1则可能存在(可能存在冲突，像哈希一样)，但如果只要有一个不为1，则一定不存在。原理图如下：</p>
+<h2 id="布隆过滤器"><a href="#布隆过滤器" class="headerlink" title="布隆过滤器"></a>布隆过滤器</h2><h3 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a><font color="gray" size="3">基本原理</font></h3><p>Bloom Filter是一个占用空间很小、效率很高的随机数据结构，它由一个bit数组和一组Hash算法构成。可用于判断一个元素是否在一个集合中。本身并不存储数据真实的值,而是把数据N 通过 K次映射函数f(hash)，把每次得到的值 V放入bit数组对应的索引位置，并把值设置为1。在判断是否存在时，只要判断每一次的映射对应的位都是1则可能存在(可能存在冲突，像哈希一样)，但如果只要有一个不为1，则一定不存在。原理图如下：</p>
 <ul>
 <li>初始化一个位数组值全部为0</li>
 </ul>
@@ -426,8 +420,7 @@
 <li>数据N经过K次映射函数f()得到的哈希值(f1,f2,f3,…fk)存入bit数组，对应的位设置成1</li>
 </ul>
 <p><img src="/images/bloom/2.png"></p>
-<p><strong>应用场景</strong></p>
-<ul>
+<h3 id="应用场景-1"><a href="#应用场景-1" class="headerlink" title="应用场景"></a><font color="gray" size="3">应用场景</font></h3><ul>
 <li><p>网页爬虫对URL的去重，避免爬取相同的URL地址；</p>
 </li>
 <li><p>反垃圾邮件，从数十亿个垃圾邮件列表中判断某邮箱是否垃圾邮箱（同理，垃圾短信）；</p>
@@ -435,8 +428,7 @@
 <li><p>缓存击穿，将已存在的缓存放到布隆中，当黑客访问不存在的缓存时迅速返回避免缓存及DB挂掉。</p>
 </li>
 </ul>
-<p><strong>简单实现</strong></p>
-<p>实现布隆过滤器最主要的是映射函数的选择，思路就是将比较字符串问题变成一个比较数字的问题。常见的方法有：</p>
+<h3 id="简单实现"><a href="#简单实现" class="headerlink" title="简单实现"></a><font color="gray" size="3">简单实现</font></h3><p>实现布隆过滤器最主要的是映射函数的选择，思路就是将比较字符串问题变成一个比较数字的问题。常见的方法有：</p>
 <ul>
 <li>各字符串的首字母和尾字母的编码之乘积</li>
 <li>取奇数个字符的编码执行异或等。</li>
@@ -655,7 +647,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#BitSet介绍"><span class="nav-number">1.</span> <span class="nav-text">BitSet介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#布隆过滤器"><span class="nav-number">2.</span> <span class="nav-text">布隆过滤器</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#BitSet介绍"><span class="nav-number">1.</span> <span class="nav-text">BitSet介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#BitSet的原理"><span class="nav-number">1.1.</span> <span class="nav-text">BitSet的原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用场景"><span class="nav-number">1.2.</span> <span class="nav-text">应用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BitSet的基本操作"><span class="nav-number">1.3.</span> <span class="nav-text">BitSet的基本操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优缺点"><span class="nav-number">1.4.</span> <span class="nav-text">优缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内部存储结构"><span class="nav-number">1.5.</span> <span class="nav-text">内部存储结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#布隆过滤器"><span class="nav-number">2.</span> <span class="nav-text">布隆过滤器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本原理"><span class="nav-number">2.1.</span> <span class="nav-text">基本原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用场景-1"><span class="nav-number">2.2.</span> <span class="nav-text">应用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简单实现"><span class="nav-number">2.3.</span> <span class="nav-text">简单实现</span></a></li></ol></li></ol></div>
             
 
           </div>
