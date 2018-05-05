@@ -69,13 +69,13 @@
 
 
 
-  <meta name="keywords" content="java,chain,责任链," />
+  <meta name="keywords" content="chain,java,责任链," />
 
 
 
 
 
-  <link rel="alternate" href="/atom.xml" title="Hunter X Hunter" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="TinnyCat" type="application/atom+xml" />
 
 
 
@@ -83,11 +83,11 @@
 
 
 <meta name="description" content="前言 责任链模式是由命令对象和一系列处理对象组成的设计模式。 每个处理对象都包含用于定义它可以处理的命令对象类型的逻辑; 其余的被传递给链中的下一个处理对象。 也可以将新的处理对象添加到该链的末尾。简单的说就是:请求从一端进入并继续从一个对象到对象，直到找到合适的处理程序。  适用性什么情况下使用责任链  一个请求被多个对象处理时,处理对象事先对请求并不可知，需要处理程序自动确定。 多个对象之一发">
-<meta name="keywords" content="java,chain,责任链">
+<meta name="keywords" content="chain,java,责任链">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JAVA责任链模式">
 <meta property="og:url" content="http://tinnycat.cn/2017/03/25/JAVA责任链模式/index.html">
-<meta property="og:site_name" content="Hunter X Hunter">
+<meta property="og:site_name" content="TinnyCat">
 <meta property="og:description" content="前言 责任链模式是由命令对象和一系列处理对象组成的设计模式。 每个处理对象都包含用于定义它可以处理的命令对象类型的逻辑; 其余的被传递给链中的下一个处理对象。 也可以将新的处理对象添加到该链的末尾。简单的说就是:请求从一端进入并继续从一个对象到对象，直到找到合适的处理程序。  适用性什么情况下使用责任链  一个请求被多个对象处理时,处理对象事先对请求并不可知，需要处理程序自动确定。 多个对象之一发">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://tinnycat.cn/images/chain/1.png">
@@ -105,7 +105,7 @@
     root: '/',
     scheme: 'Gemini',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -131,7 +131,7 @@
 
 
 
-  <title>JAVA责任链模式 | Hunter X Hunter</title>
+  <title>JAVA责任链模式 | TinnyCat</title>
   
 
 
@@ -172,7 +172,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Hunter X Hunter</span>
+        <span class="site-title">TinnyCat</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -312,7 +312,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hunter X Hunter">
+      <meta itemprop="name" content="TinnyCat">
     </span>
 
     
@@ -446,9 +446,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
-          
             <a href="/tags/chain/" rel="tag"><i class="fa fa-tag"></i> chain</a>
+          
+            <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
           
             <a href="/tags/责任链/" rel="tag"><i class="fa fa-tag"></i> 责任链</a>
           
@@ -526,6 +526,8 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
     
     <div class="sidebar-inner">
 

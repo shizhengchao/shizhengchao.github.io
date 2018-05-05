@@ -75,7 +75,7 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="Hunter X Hunter" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="TinnyCat" type="application/atom+xml" />
 
 
 
@@ -87,7 +87,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="synchronized的使用">
 <meta property="og:url" content="http://tinnycat.cn/2018/02/02/synchronized的使用/index.html">
-<meta property="og:site_name" content="Hunter X Hunter">
+<meta property="og:site_name" content="TinnyCat">
 <meta property="og:description" content="前言线程安全中需要解决的两个关键点：一是存在共享数据(也称临界资源)，二是存在多条线程共同操作共享数据。解决这两个问题需要让线程在执行过程中互斥。在 Java 中，关键字 synchronized可以保证在同一个时刻，只有一个线程可以执行某个方法或者某个代码块，同时我们还应该注意到synchronized另外一个重要的作用，synchronized可保证一个线程的变化(主要是共享数据的变化)被其他">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-04-02T09:56:33.525Z">
@@ -103,7 +103,7 @@
     root: '/',
     scheme: 'Gemini',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -129,7 +129,7 @@
 
 
 
-  <title>synchronized的使用 | Hunter X Hunter</title>
+  <title>synchronized的使用 | TinnyCat</title>
   
 
 
@@ -170,7 +170,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Hunter X Hunter</span>
+        <span class="site-title">TinnyCat</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -310,7 +310,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hunter X Hunter">
+      <meta itemprop="name" content="TinnyCat">
     </span>
 
     
@@ -526,6 +526,8 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
     
     <div class="sidebar-inner">
 

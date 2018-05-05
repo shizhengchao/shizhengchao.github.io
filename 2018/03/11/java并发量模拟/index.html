@@ -75,7 +75,7 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="Hunter X Hunter" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="TinnyCat" type="application/atom+xml" />
 
 
 
@@ -87,7 +87,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="java并发量模拟">
 <meta property="og:url" content="http://tinnycat.cn/2018/03/11/java并发量模拟/index.html">
-<meta property="og:site_name" content="Hunter X Hunter">
+<meta property="og:site_name" content="TinnyCat">
 <meta property="og:description" content="CountDownLatch能够使一个线程等待其他线程完成各自的工作后再执行。例如，应用程序的主线程希望在负责启动框架服务的线程已经启动所有的框架服务之后再执行。CountDownLatch是通过一个计数器来实现的，计数器的初始值为线程的数量。每当一个线程完成了自己的任务后，计数器的值就会减1。当计数器值到达0时，它表示所有的线程已经完成了任务，然后在闭锁上等待的线程就可以恢复执行任务。代码并发量">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-04-11T14:35:54.809Z">
@@ -103,7 +103,7 @@
     root: '/',
     scheme: 'Gemini',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -129,7 +129,7 @@
 
 
 
-  <title>java并发量模拟 | Hunter X Hunter</title>
+  <title>java并发量模拟 | TinnyCat</title>
   
 
 
@@ -170,7 +170,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Hunter X Hunter</span>
+        <span class="site-title">TinnyCat</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -310,7 +310,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hunter X Hunter">
+      <meta itemprop="name" content="TinnyCat">
     </span>
 
     
@@ -509,6 +509,8 @@ countDown()方法计数器减1
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
     
     <div class="sidebar-inner">
 
