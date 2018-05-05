@@ -4,6 +4,68 @@
 
     
   <url>
+    <loc>http://tinnycat.cn/2018/03/24/zookeeper%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BC%AA%E9%9B%86%E7%BE%A4/</loc>
+    <lastmod>2018-05-05T14:11:27.898Z</lastmod>
+    <data>
+        <display>
+        <title>zookeeper安装与伪集群</title>
+        <pubTime>2018-03-24T15:56:00.000Z</pubTime>
+        
+        <tag>zookeeper</tag>
+         
+        <tag>伪集群</tag>
+         
+         
+           
+             
+              <breadCrumb title="zookeeper" url="http://tinnycat.cn/categories/zookeeper/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tinnycat.cn/2018/03/27/redis%E5%AE%89%E8%A3%85%E4%B8%8E%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8/</loc>
+    <lastmod>2018-05-05T14:10:48.981Z</lastmod>
+    <data>
+        <display>
+        <title>redis安装与开机启动</title>
+        <pubTime>2018-03-27T14:11:00.000Z</pubTime>
+        
+        <tag>redis</tag>
+         
+        <tag>安装</tag>
+         
+         
+           
+             
+              <breadCrumb title="redis" url="http://tinnycat.cn/categories/redis/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tinnycat.cn/2018/05/05/shell%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%B8%80/</loc>
+    <lastmod>2018-05-05T13:41:19.585Z</lastmod>
+    <data>
+        <display>
+        <title>shell学习笔记(一)</title>
+        <pubTime>2018-05-05T12:22:00.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="shell" url="http://tinnycat.cn/categories/shell/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://tinnycat.cn/2018/04/20/%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/</loc>
     <lastmod>2018-05-05T10:39:34.713Z</lastmod>
     <data>
@@ -140,28 +202,6 @@
 
     
   <url>
-    <loc>http://tinnycat.cn/2018/03/27/redis%E5%AE%89%E8%A3%85%E4%B8%8E%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8/</loc>
-    <lastmod>2018-04-19T15:21:10.447Z</lastmod>
-    <data>
-        <display>
-        <title>redis安装与开机启动</title>
-        <pubTime>2018-03-27T14:11:00.000Z</pubTime>
-        
-        <tag>redis</tag>
-         
-        <tag>安装</tag>
-         
-         
-           
-             
-              <breadCrumb title="redis" url="http://tinnycat.cn/categories/redis/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://tinnycat.cn/2018/04/07/springboot-netty-protobuff%E5%AE%9E%E7%8E%B0rpc/</loc>
     <lastmod>2018-04-19T07:57:54.912Z</lastmod>
     <data>
@@ -177,28 +217,6 @@
            
              
               <breadCrumb title="java" url="http://tinnycat.cn/categories/java/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://tinnycat.cn/2018/03/24/zookeeper%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BC%AA%E9%9B%86%E7%BE%A4/</loc>
-    <lastmod>2018-04-18T16:42:57.519Z</lastmod>
-    <data>
-        <display>
-        <title>zookeeper安装与伪集群</title>
-        <pubTime>2018-03-24T15:56:00.000Z</pubTime>
-        
-        <tag>zookeeper</tag>
-         
-        <tag>伪集群</tag>
-         
-         
-           
-             
-              <breadCrumb title="zookeeper" url="http://tinnycat.cn/categories/zookeeper/"/>
           
         </display>
     </data>

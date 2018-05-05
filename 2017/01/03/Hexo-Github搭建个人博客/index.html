@@ -422,44 +422,44 @@
 <p>当然，你不绑定域名肯定也是可以的，就用默认的 xxx.github.io 来访问。<br>但如果要绑定域名,首先你要注册一个域名，我是用阿里的万网注册的<br>绑定域名分2种情况：带www和不带www的。<br>域名配置最常见有2种方式，CNAME和A记录，CNAME填写域名，A记录填写IP，由于不带www方式只能采用A记录，所以必须先ping一下你的用户名.github.io的IP，然后到你的域名DNS设置页，将A记录指向你ping出来的IP，将CNAME指向你的用户名.github.io，这样可以保证无论是否添加www都可以访问，如下：<br><img src="/images/bindDNS.png" alt="alt text" title="绑定域名"><br>然后到你的xxx.github.io仓库的设置里面绑定域名：<br><img src="/images/bindDNS2.png" alt="alt text" title="绑定域名"></p>
 </blockquote>
 <h2 id="配置SSH-key"><a href="#配置SSH-key" class="headerlink" title="配置SSH key"></a>配置SSH key</h2><blockquote>
-<p>在使用git提交或者拉取代码时，每次都要输入用户名和密码，可以配置SSH key以跳过这个步骤。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cd ~/. ssh #检查本机已存在的ssh密钥,如果提示：No such file or directory 说明你是第一次使用git</span><br></pre></td></tr></table></figure></p>
+<p>在使用git提交或者拉取代码时，每次都要输入用户名和密码，可以配置SSH key以跳过这个步骤。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cd ~/. ssh #检查本机已存在的ssh密钥,如果提示：No such file or directory 说明你是第一次使用git</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <blockquote>
-<p>再输入如下命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;shizhengchao@outlook.com&quot; #后面这个是自己注册github的邮箱地址</span><br></pre></td></tr></table></figure></p>
+<p>再输入如下命令<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;shizhengchao@outlook.com&quot; #后面这个是自己注册github的邮箱地址</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <blockquote>
-<p>然后连续3次回车，最终会生成一个文件在用户目录下，打开用户目录，找到.ssh\id_rsa.pub文件，打开并复制里面的内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ~/.ssh/</span><br></pre></td></tr></table></figure></p>
+<p>然后连续3次回车，最终会生成一个文件在用户目录下，打开用户目录，找到.ssh\id_rsa.pub文件，打开并复制里面的内容<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd ~/.ssh/</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <blockquote>
 <p>打开你的github主页，进入个人设置(点右上角头像倒三角那里) -&gt; SSH and GPG keys -&gt; New SSH key,将刚复制的内容粘贴到key那里，title随便填，保存。</p>
 </blockquote>
 <blockquote>
-<p>输入如下命令测试是否配置成功，如果出现:<br>Hi shizhengchao! You’ve successfully authenticated, but GitHub does not provide shell access.则配置成功<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com  #第一次会有一个提示,输入yes</span><br></pre></td></tr></table></figure></p>
+<p>输入如下命令测试是否配置成功，如果出现:<br>Hi shizhengchao! You’ve successfully authenticated, but GitHub does not provide shell access.则配置成功<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh -T git@github.com  #第一次会有一个提示,输入yes</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <blockquote>
-<p>最后配置全局的用户名和邮箱地址<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;shizhengchao&quot;// 你的github用户名，非昵称</span><br><span class="line">git config --global user.email  &quot;shizhengchao@outlook.com&quot;// 填写你的github注册邮箱</span><br></pre></td></tr></table></figure></p>
+<p>最后配置全局的用户名和邮箱地址<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;shizhengchao&quot;// 你的github用户名，非昵称</span><br><span class="line">git config --global user.email  &quot;shizhengchao@outlook.com&quot;// 填写你的github注册邮箱</span><br></pre></td></tr></table></figure></p>
 </blockquote>
-<h2 id="搭建Hexo"><a href="#搭建Hexo" class="headerlink" title="搭建Hexo"></a>搭建Hexo</h2><p><strong><em>安装Heox</em></strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g #安装hexo-cli</span><br><span class="line">cd /home/workspace    </span><br><span class="line">hexo init hexoblog    #初始化一个目录</span><br><span class="line">cd hexoblog</span><br><span class="line">npm install        #生成目录结构</span><br><span class="line">hexo g</span><br><span class="line">hexo server        #启动hexo</span><br></pre></td></tr></table></figure></p>
+<h2 id="搭建Hexo"><a href="#搭建Hexo" class="headerlink" title="搭建Hexo"></a>搭建Hexo</h2><p><strong><em>安装Heox</em></strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-cli -g #安装hexo-cli</span><br><span class="line">cd /home/workspace    </span><br><span class="line">hexo init hexoblog    #初始化一个目录</span><br><span class="line">cd hexoblog</span><br><span class="line">npm install        #生成目录结构</span><br><span class="line">hexo g</span><br><span class="line">hexo server        #启动hexo</span><br></pre></td></tr></table></figure></p>
 <blockquote>
 <p>浏览器打开 [<a href="http://localhost:4000]" target="_blank" rel="noopener">http://localhost:4000]</a>,  就可以看到如下默认主题:<br><img src="/images/hexo/1.png" alt="alt text"></p>
 </blockquote>
-<p><strong><em>下载github上的内容</em></strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd source</span><br><span class="line">git clone https://github.com/shizhengchao/shizhengchao.github.io.git</span><br></pre></td></tr></table></figure></p>
+<p><strong><em>下载github上的内容</em></strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd source</span><br><span class="line">git clone https://github.com/shizhengchao/shizhengchao.github.io.git</span><br></pre></td></tr></table></figure></p>
 <blockquote>
-<p>安装好hexo后,如果是第一次搭建的github.io，那么只有一个CNAME文件<br>把CNAME文件clone到source里<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd source/shizhengchao.github.io.git</span><br><span class="line">mv CNAME ../</span><br><span class="line">rm -rf shizhengchao.github.io.git</span><br></pre></td></tr></table></figure></p>
+<p>安装好hexo后,如果是第一次搭建的github.io，那么只有一个CNAME文件<br>把CNAME文件clone到source里<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd source/shizhengchao.github.io.git</span><br><span class="line">mv CNAME ../</span><br><span class="line">rm -rf shizhengchao.github.io.git</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <blockquote>
-<p>如果不是第一次搭建github.io，也就是说你已经写了一些博客了，在另一台电脑上使用hexo，除了把CNAME移到source里, 还要先删除public里的所有内容,再把shizhengchao.github.io.git全部移到public里<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd source/shizhengchao.github.io.git</span><br><span class="line">mv CNAME ../  #这里如果还有其它自己的静态文件也一起移到外面去</span><br><span class="line">mv * ../../public/</span><br><span class="line">rm -rf shizhengchao.github.io.git</span><br></pre></td></tr></table></figure></p>
+<p>如果不是第一次搭建github.io，也就是说你已经写了一些博客了，在另一台电脑上使用hexo，除了把CNAME移到source里, 还要先删除public里的所有内容,再把shizhengchao.github.io.git全部移到public里<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd source/shizhengchao.github.io.git</span><br><span class="line">mv CNAME ../  #这里如果还有其它自己的静态文件也一起移到外面去</span><br><span class="line">mv * ../../public/</span><br><span class="line">rm -rf shizhengchao.github.io.git</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <p><strong><em>更换主题</em></strong></p>
 <blockquote>
-<p>下载yilia主题, 下载的主题都在themes目录里<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /home/workspace/hexoblog</span><br><span class="line">git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia</span><br></pre></td></tr></table></figure></p>
+<p>下载yilia主题, 下载的主题都在themes目录里<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd /home/workspace/hexoblog</span><br><span class="line">git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <blockquote>
-<p>修改hexoblog目录下的_config.yml, 把theme换成yilia,deploy也改成git<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">theme: yilia</span><br><span class="line"></span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:shizhengchao/shizhengchao.github.io.git #注意这里如果配置成了ssh就要这样写</span><br><span class="line">  branch: maste</span><br></pre></td></tr></table></figure></p>
+<p>修改hexoblog目录下的_config.yml, 把theme换成yilia,deploy也改成git<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">theme: yilia</span><br><span class="line"></span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:shizhengchao/shizhengchao.github.io.git #注意这里如果配置成了ssh就要这样写</span><br><span class="line">  branch: maste</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <p><strong><em>上传到github</em></strong></p>
 <blockquote>
-<p>安装hexo-deployer插件，然后部署<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br><span class="line">hexo clean</span><br><span class="line">hexo g # 如果你在source里加了东西或者改了主题里的_config.yml，要执行下这个命令.</span><br><span class="line">hexo d #上传到github</span><br></pre></td></tr></table></figure></p>
+<p>安装hexo-deployer插件，然后部署<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br><span class="line">hexo clean</span><br><span class="line">hexo g # 如果你在source里加了东西或者改了主题里的_config.yml，要执行下这个命令.</span><br><span class="line">hexo d #上传到github</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <p>最后试着在浏览器打开你绑定的域名，就可以看到效果了, 推荐一个比较好的写hexo博客的插件hexo-admin，网上资料比较多，按着官网就能完成安装，所以这里就不再多说.</p>
 
@@ -588,7 +588,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -599,7 +599,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>

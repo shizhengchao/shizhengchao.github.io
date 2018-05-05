@@ -82,18 +82,18 @@
 
 
 
-<meta name="description" content="安装 下载redis,并解压 12[root@izbp1311i2pe1xiq3x174lz opt]# http://download.redis.io/releases/redis-4.0.9.tar.gz[root@izbp1311i2pe1xiq3x174lz opt]# tar -zxvf redis-4.0.9.tar.gz  安装,源码安装后,src下的脚本文件会被复制到usr/lo">
+<meta name="description" content="安装 下载redis,并解压  [root@izbp1311i2pe1xiq3x174lz opt]# http://download.redis.io/releases/redis-4.0.9.tar.gz[root@izbp1311i2pe1xiq3x174lz opt]# tar -zxvf redis-4.0.9.tar.gz  安装,源码安装后,src下的脚本文件会被复制到usr/loc">
 <meta name="keywords" content="redis,安装">
 <meta property="og:type" content="article">
 <meta property="og:title" content="redis安装与开机启动">
 <meta property="og:url" content="http://tinnycat.cn/2018/03/27/redis安装与开机启动/index.html">
 <meta property="og:site_name" content="TinnyCat">
-<meta property="og:description" content="安装 下载redis,并解压 12[root@izbp1311i2pe1xiq3x174lz opt]# http://download.redis.io/releases/redis-4.0.9.tar.gz[root@izbp1311i2pe1xiq3x174lz opt]# tar -zxvf redis-4.0.9.tar.gz  安装,源码安装后,src下的脚本文件会被复制到usr/lo">
+<meta property="og:description" content="安装 下载redis,并解压  [root@izbp1311i2pe1xiq3x174lz opt]# http://download.redis.io/releases/redis-4.0.9.tar.gz[root@izbp1311i2pe1xiq3x174lz opt]# tar -zxvf redis-4.0.9.tar.gz  安装,源码安装后,src下的脚本文件会被复制到usr/loc">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-19T15:21:10.447Z">
+<meta property="og:updated_time" content="2018-05-05T14:10:48.981Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="redis安装与开机启动">
-<meta name="twitter:description" content="安装 下载redis,并解压 12[root@izbp1311i2pe1xiq3x174lz opt]# http://download.redis.io/releases/redis-4.0.9.tar.gz[root@izbp1311i2pe1xiq3x174lz opt]# tar -zxvf redis-4.0.9.tar.gz  安装,源码安装后,src下的脚本文件会被复制到usr/lo">
+<meta name="twitter:description" content="安装 下载redis,并解压  [root@izbp1311i2pe1xiq3x174lz opt]# http://download.redis.io/releases/redis-4.0.9.tar.gz[root@izbp1311i2pe1xiq3x174lz opt]# tar -zxvf redis-4.0.9.tar.gz  安装,源码安装后,src下的脚本文件会被复制到usr/loc">
 
 
 
@@ -396,37 +396,41 @@
 
       
         <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ol>
-<li><p>下载redis,并解压</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@izbp1311i2pe1xiq3x174lz opt]# http://download.redis.io/releases/redis-4.0.9.tar.gz</span><br><span class="line">[root@izbp1311i2pe1xiq3x174lz opt]# tar -zxvf redis-4.0.9.tar.gz</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装,源码安装后,src下的脚本文件会被复制到usr/local/bin下面</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[root@izbp1311i2pe1xiq3x174lz opt]# cd redis-4.0.9</span><br><span class="line">[root@izbp1311i2pe1xiq3x174lz redis-4.0.9]# make</span><br><span class="line">[root@izbp1311i2pe1xiq3x174lz redis-4.0.9]# make install</span><br><span class="line">    CC Makefile.dep</span><br><span class="line"> </span><br><span class="line">Hint: It&apos;s a good idea to run &apos;make test&apos; ;)</span><br><span class="line"> </span><br><span class="line">    INSTALL install</span><br><span class="line">    INSTALL install</span><br><span class="line">    INSTALL install</span><br><span class="line">    INSTALL install</span><br><span class="line">    INSTALL install</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>启动</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@izbp1311i2pe1xiq3x174lz redis-4.0.9]# cd src</span><br><span class="line">[root@izbp1311i2pe1xiq3x174lz src]# ./redis-server</span><br></pre></td></tr></table></figure>
-</li>
+<li>下载redis,并解压</li>
 </ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@izbp1311i2pe1xiq3x174lz opt]# http://download.redis.io/releases/redis-4.0.9.tar.gz</span><br><span class="line">[root@izbp1311i2pe1xiq3x174lz opt]# tar -zxvf redis-4.0.9.tar.gz</span><br></pre></td></tr></table></figure>
+<ol>
+<li>安装,源码安装后,src下的脚本文件会被复制到usr/local/bin下面</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@izbp1311i2pe1xiq3x174lz opt]# cd redis-4.0.9</span><br><span class="line">[root@izbp1311i2pe1xiq3x174lz redis-4.0.9]# make</span><br><span class="line">[root@izbp1311i2pe1xiq3x174lz redis-4.0.9]# make install</span><br><span class="line">    CC Makefile.dep</span><br><span class="line"> </span><br><span class="line">Hint: It's a good idea to run 'make test' ;)</span><br><span class="line"> </span><br><span class="line">    INSTALL install</span><br><span class="line">    INSTALL install</span><br><span class="line">    INSTALL install</span><br><span class="line">    INSTALL install</span><br><span class="line">    INSTALL install</span><br></pre></td></tr></table></figure>
+<ol>
+<li>启动</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@izbp1311i2pe1xiq3x174lz redis-4.0.9]# cd src</span><br><span class="line">[root@izbp1311i2pe1xiq3x174lz src]# ./redis-server</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h2 id="后台启动"><a href="#后台启动" class="headerlink" title="后台启动"></a>后台启动</h2><p>把redis设置成服务，需要依赖redis-4.0.9/utils/redis_init_script脚本文件，打开脚本文件可以看到如下信息：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">#</span><br><span class="line"># Simple Redis init.d script conceived to work on Linux systems</span><br><span class="line"># as it does use of the /proc filesystem.</span><br><span class="line"></span><br><span class="line">REDISPORT=6379</span><br><span class="line">EXEC=/usr/local/bin/redis-server</span><br><span class="line">CLIEXEC=/usr/local/bin/redis-cli</span><br><span class="line"></span><br><span class="line">PIDFILE=/var/run/redis_$&#123;REDISPORT&#125;.pid #这里设置成需要的服务名.pid,比如redis.pid</span><br><span class="line">CONF=&quot;/etc/redis/$&#123;REDISPORT&#125;.conf&quot;</span><br><span class="line"></span><br><span class="line">case &quot;$1&quot; in</span><br><span class="line">    start)</span><br><span class="line">        if [ -f $PIDFILE ]</span><br><span class="line">        then</span><br><span class="line">                echo &quot;$PIDFILE exists, process is already running or crashed&quot;</span><br><span class="line">        else</span><br><span class="line">                echo &quot;Starting Redis server...&quot;</span><br><span class="line">                $EXEC $CONF</span><br><span class="line">        fi</span><br><span class="line">        ;;</span><br></pre></td></tr></table></figure></p>
+<h2 id="后台启动"><a href="#后台启动" class="headerlink" title="后台启动"></a>后台启动</h2><p>把redis设置成服务，需要依赖redis-4.0.9/utils/redis_init_script脚本文件，打开脚本文件可以看到如下信息：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Simple Redis init.d script conceived to work on Linux systems</span></span><br><span class="line"><span class="comment"># as it does use of the /proc filesystem.</span></span><br><span class="line"></span><br><span class="line">REDISPORT=6379</span><br><span class="line">EXEC=/usr/<span class="built_in">local</span>/bin/redis-server</span><br><span class="line">CLIEXEC=/usr/<span class="built_in">local</span>/bin/redis-cli</span><br><span class="line"></span><br><span class="line">PIDFILE=/var/run/redis_<span class="variable">$&#123;REDISPORT&#125;</span>.pid <span class="comment">#这里设置成需要的服务名.pid,比如redis.pid</span></span><br><span class="line">CONF=<span class="string">"/etc/redis/<span class="variable">$&#123;REDISPORT&#125;</span>.conf"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">case</span> <span class="string">"<span class="variable">$1</span>"</span> <span class="keyword">in</span></span><br><span class="line">    start)</span><br><span class="line">        <span class="keyword">if</span> [ -f <span class="variable">$PIDFILE</span> ]</span><br><span class="line">        <span class="keyword">then</span></span><br><span class="line">                <span class="built_in">echo</span> <span class="string">"<span class="variable">$PIDFILE</span> exists, process is already running or crashed"</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">                <span class="built_in">echo</span> <span class="string">"Starting Redis server..."</span></span><br><span class="line">                <span class="variable">$EXEC</span> <span class="variable">$CONF</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">        ;;</span><br></pre></td></tr></table></figure>
 <p>按照脚本里的配置创建文件</p>
 <ol>
-<li><p>首先把redis_init_script脚本复制到/etc/init.d/目录下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@izbp1311i2pe1xiq3x174lz etc]# cp /opt/redis-4.0.9/utils/redis_init_script /etc/init.d/</span><br><span class="line">[root@izbp1311i2pe1xiq3x174lz init.d]# mv redis_init_script redis #这里重命名要与&quot;PIDFILE=/var/run/xxx.pid&quot; 里的xxx一致</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建/var/redis/6379文件夹</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@izbp1311i2pe1xiq3x174lz ~]# cd /var</span><br><span class="line">[root@izbp1311i2pe1xiq3x174lz var]# mkdir redis</span><br><span class="line">[root@izbp1311i2pe1xiq3x174lz var]# cd redis</span><br><span class="line">[root@izbp1311i2pe1xiq3x174lz redis]# mkdir 6379 #和端口号一样的文件夹</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建/etc/redis/${REDISPORT}.conf</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@izbp1311i2pe1xiq3x174lz etc]# mkdir redis # 在/etc下创建redis文件夹</span><br><span class="line">[root@izbp1311i2pe1xiq3x174lz etc]# cp /opt/redis-4.0.9/redis.conf /etc/redis/</span><br><span class="line">[root@izbp1311i2pe1xiq3x174lz redis]# mv redis.conf 6379.cnf #并且重命名为6379.conf</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>检测开机启动(先检测是否支持开机启动)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@izbp1311i2pe1xiq3x174lz ~]# cd /etc/init.d/</span><br><span class="line">[root@izbp1311i2pe1xiq3x174lz init.d]# chkconfig redis on #如果出现如下信息则不支持</span><br><span class="line">service redisd does not support chkconfig</span><br><span class="line">&lt;/pre&gt;</span><br><span class="line">使用vim编辑/etc/init.d/redis文件，在第一行加入如下两行注释，保存退出</span><br><span class="line">&lt;pre&gt;</span><br><span class="line"># chkconfig:   2345 90 10</span><br><span class="line"># description:  Redis is a persistent key-value database</span><br><span class="line">注释的意思是，redis服务必须在运行级2，3，4，5下被启动或关闭，启动的优先级是90，关闭的优先级是10。</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>再次执行开机启动命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@izbp1311i2pe1xiq3x174lz init.d]# chkconfig redis on </span><br><span class="line">设置成功后，不可以使用service redis start/stop命令启动/停止redis了</span><br><span class="line">[root@izbp1311i2pe1xiq3x174lz init.d]# service redis start</span><br><span class="line">Starting Redis server...</span><br><span class="line">23297:C 19 Apr 23:13:45.149 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo</span><br><span class="line">23297:C 19 Apr 23:13:45.149 # Redis version=4.0.9, bits=64, commit=00000000, modified=0, pid=23297, just started</span><br><span class="line">23297:C 19 Apr 23:13:45.149 # Configuration loaded</span><br></pre></td></tr></table></figure>
-</li>
+<li>首先把redis_init_script脚本复制到/etc/init.d/目录下</li>
 </ol>
-
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@izbp1311i2pe1xiq3x174lz etc]# cp /opt/redis-4.0.9/utils/redis_init_script /etc/init.d/</span><br><span class="line">[root@izbp1311i2pe1xiq3x174lz init.d]# mv redis_init_script redis #这里重命名要与"PIDFILE=/var/run/xxx.pid" 里的xxx一致</span><br></pre></td></tr></table></figure>
+<ol>
+<li>创建/var/redis/6379文件夹</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@izbp1311i2pe1xiq3x174lz ~]# cd /var</span><br><span class="line">[root@izbp1311i2pe1xiq3x174lz var]# mkdir redis</span><br><span class="line">[root@izbp1311i2pe1xiq3x174lz var]# cd redis</span><br><span class="line">[root@izbp1311i2pe1xiq3x174lz redis]# mkdir 6379 #和端口号一样的文件夹</span><br></pre></td></tr></table></figure>
+<ol>
+<li>创建/etc/redis/${REDISPORT}.conf</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@izbp1311i2pe1xiq3x174lz etc]# mkdir redis # 在/etc下创建redis文件夹</span><br><span class="line">[root@izbp1311i2pe1xiq3x174lz etc]# cp /opt/redis-4.0.9/redis.conf /etc/redis/</span><br><span class="line">[root@izbp1311i2pe1xiq3x174lz redis]# mv redis.conf 6379.cnf #并且重命名为6379.conf</span><br></pre></td></tr></table></figure>
+<ol>
+<li>检测开机启动(先检测是否支持开机启动)</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@izbp1311i2pe1xiq3x174lz ~]# cd /etc/init.d/</span><br><span class="line">[root@izbp1311i2pe1xiq3x174lz init.d]# chkconfig redis on #如果出现如下信息则不支持</span><br><span class="line">service redisd does not support chkconfig</span><br><span class="line">&lt;/pre&gt;</span><br><span class="line">使用vim编辑/etc/init.d/redis文件，在第一行加入如下两行注释，保存退出</span><br><span class="line">&lt;pre&gt;</span><br><span class="line"><span class="meta">#</span><span class="bash"> chkconfig:   2345 90 10</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> description:  Redis is a persistent key-value database</span></span><br><span class="line">注释的意思是，redis服务必须在运行级2，3，4，5下被启动或关闭，启动的优先级是90，关闭的优先级是10。</span><br></pre></td></tr></table></figure>
+<ol>
+<li>再次执行开机启动命令</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@izbp1311i2pe1xiq3x174lz init.d]# chkconfig redis on </span><br><span class="line">设置成功后，不可以使用service redis start/stop命令启动/停止redis了</span><br><span class="line">[root@izbp1311i2pe1xiq3x174lz init.d]# service redis start</span><br><span class="line">Starting Redis server...</span><br><span class="line">23297:C 19 Apr 23:13:45.149 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo</span><br><span class="line">23297:C 19 Apr 23:13:45.149 # Redis version=4.0.9, bits=64, commit=00000000, modified=0, pid=23297, just started</span><br><span class="line">23297:C 19 Apr 23:13:45.149 # Configuration loaded</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -558,7 +562,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -569,7 +573,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
