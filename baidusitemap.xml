@@ -4,8 +4,26 @@
 
     
   <url>
+    <loc>http://tinnycat.cn/2018/05/05/shell%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%B8%80/</loc>
+    <lastmod>2018-05-05T15:20:29.145Z</lastmod>
+    <data>
+        <display>
+        <title>shell学习笔记-一</title>
+        <pubTime>2018-05-05T15:17:00.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="shell" url="http://tinnycat.cn/categories/shell/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://tinnycat.cn/2018/03/24/zookeeper%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BC%AA%E9%9B%86%E7%BE%A4/</loc>
-    <lastmod>2018-05-05T14:11:27.898Z</lastmod>
+    <lastmod>2018-05-05T14:20:57.388Z</lastmod>
     <data>
         <display>
         <title>zookeeper安装与伪集群</title>
@@ -41,24 +59,6 @@
            
              
               <breadCrumb title="redis" url="http://tinnycat.cn/categories/redis/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://tinnycat.cn/2018/05/05/shell%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%B8%80/</loc>
-    <lastmod>2018-05-05T13:41:19.585Z</lastmod>
-    <data>
-        <display>
-        <title>shell学习笔记(一)</title>
-        <pubTime>2018-05-05T12:22:00.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="shell" url="http://tinnycat.cn/categories/shell/"/>
           
         </display>
     </data>
