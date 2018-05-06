@@ -90,7 +90,7 @@
 <meta property="og:site_name" content="TinnyCat">
 <meta property="og:description" content="字符串字符串是shell编程中最常用最有用的数据类型（除了数字和字符串，也没啥其它类型好用了），字符串可以用单引号，也可以用双引号，也可以不用引号 单引号#!/bin/bash# 注意shell变量命名变量前后不能有空格str=&apos;this is a string&apos; 单引号特点  单引号里的任何字符都会原样输出，单引号字符串中的变量是无效的；">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-05T15:57:14.687Z">
+<meta property="og:updated_time" content="2018-05-06T06:42:12.750Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="shell学习笔记-一">
 <meta name="twitter:description" content="字符串字符串是shell编程中最常用最有用的数据类型（除了数字和字符串，也没啥其它类型好用了），字符串可以用单引号，也可以用双引号，也可以不用引号 单引号#!/bin/bash# 注意shell变量命名变量前后不能有空格str=&apos;this is a string&apos; 单引号特点  单引号里的任何字符都会原样输出，单引号字符串中的变量是无效的；">
@@ -422,6 +422,43 @@
 <div class="note info"><p>ps: 如果参数为字符串，则只识别首字符。</p></div>
 
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">str=<span class="string">"hello, world"</span></span><br><span class="line"><span class="built_in">echo</span> $(expr index <span class="string">"<span class="variable">$str</span>"</span> l) <span class="comment">#输出3</span></span><br><span class="line"><span class="built_in">echo</span> $(expr index <span class="string">"<span class="variable">$str</span>"</span> habc) <span class="comment">#输出1</span></span><br></pre></td></tr></table></figure>
+<h3 id="-5"><a href="#-5" class="headerlink" title=""></a><font size="3"><span class="label primary">字符串运算符</span></font></h3><p>下表列出了常用的字符串运算符，假定变量 a 为 “abc”，变量 b 为 “efg”：</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th style="text-align:left">说明</th>
+<th style="text-align:left">举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>=</td>
+<td style="text-align:left">检测两个字符串是否相等，相等返回 true。</td>
+<td style="text-align:left">[ $a = $b ] 返回 false。</td>
+</tr>
+<tr>
+<td>!=</td>
+<td style="text-align:left">非等于</td>
+<td style="text-align:left">[ $a != $b ] 返回 true。</td>
+</tr>
+<tr>
+<td>-z</td>
+<td style="text-align:left">检测字符串长度是否为0，为0返回 true。</td>
+<td style="text-align:left">[ -z $a ] 返回 false。</td>
+</tr>
+<tr>
+<td>-n</td>
+<td style="text-align:left">检测字符串长度是否为0，不为0返回 true。</td>
+<td style="text-align:left">[ -n $a ] 返回 true。</td>
+</tr>
+<tr>
+<td>str</td>
+<td style="text-align:left">检测字符串是否为空，不为空返回 true。</td>
+<td style="text-align:left">[ $a ] 返回 true。</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
@@ -628,7 +665,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串"><span class="nav-number">1.</span> <span class="nav-text">字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#"><span class="nav-number">1.1.</span> <span class="nav-text">单引号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#-1"><span class="nav-number">1.2.</span> <span class="nav-text">双引号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#-2"><span class="nav-number">1.3.</span> <span class="nav-text">字符串长度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#-3"><span class="nav-number">1.4.</span> <span class="nav-text">截取字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#-4"><span class="nav-number">1.5.</span> <span class="nav-text">定位字符位置</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串"><span class="nav-number">1.</span> <span class="nav-text">字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#"><span class="nav-number">1.1.</span> <span class="nav-text">单引号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#-1"><span class="nav-number">1.2.</span> <span class="nav-text">双引号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#-2"><span class="nav-number">1.3.</span> <span class="nav-text">字符串长度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#-3"><span class="nav-number">1.4.</span> <span class="nav-text">截取字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#-4"><span class="nav-number">1.5.</span> <span class="nav-text">定位字符位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#-5"><span class="nav-number">1.6.</span> <span class="nav-text">字符串运算符</span></a></li></ol></li></ol></div>
             
 
           </div>
