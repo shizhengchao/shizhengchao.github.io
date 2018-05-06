@@ -69,7 +69,7 @@
 
 
 
-  <meta name="keywords" content="java,hashcode," />
+  <meta name="keywords" content="hashcode,java," />
 
 
 
@@ -83,7 +83,7 @@
 
 
 <meta name="description" content="初始化一个整形变量，为此变量赋予一个非零的常数值，比如int result = 17; 选取equals方法中用于比较的所有域，然后针对每个域的属性进行计算： (1) 如果是boolean值，则计算flag ? 1:0(2) 如果是byte\char\short\int,则计算(int)f(3) 如果是long值，则计算(int)(f ^ (f &amp;gt;&amp;gt;&amp;gt; 32))(4) 如果是f">
-<meta name="keywords" content="java,hashcode">
+<meta name="keywords" content="hashcode,java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JAVA重写hashCode通用方法(摘录自《Effective Java》)">
 <meta property="og:url" content="http://tinnycat.cn/2017/02/15/JAVA重写hashCode通用方法-摘录自《Effective-Java》/index.html">
@@ -427,9 +427,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
-          
             <a href="/tags/hashcode/" rel="tag"><i class="fa fa-tag"></i> hashcode</a>
+          
+            <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
           
         </div>
       
@@ -1142,7 +1142,7 @@
 
   
   <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-  <script>AV.initialize("GgtRHSzQoMvsFVqIzKoK7LyP-gzGzoHsz", "VVzrjoXzSvugvVwr36uVV3Jf");</script>
+  <script>AV.initialize("9xGwRCrKSrmrRe7TCndSgtbK-gzGzoHsz", "ibAWuaaUjv6ldHt6aGqWqYmv");</script>
   <script>
     function showTime(Counter) {
       var query = new AV.Query(Counter);
@@ -1275,90 +1275,5 @@
 
   
 
-  
-  
-	<!-- custom analytics part create by xiamo -->
-<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
-<script>AV.initialize("GgtRHSzQoMvsFVqIzKoK7LyP-gzGzoHsz", "VVzrjoXzSvugvVwr36uVV3Jf");</script>
-<script>
-function showTime(Views) {
-	var query = new AV.Query(Views);
-	$(".leancloud_visitors").each(function() {
-		var url = $(this).attr("id").trim();
-		query.equalTo("url", url);
-		query.find({
-			success: function(results) {
-				if (results.length == 0) {
-					var content = '0 ' + $(document.getElementById(url)).text();
-					$(document.getElementById(url)).text(content);
-					return;
-				}
-				for (var i = 0; i < results.length; i++) {
-					var object = results[i];
-					var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
-					$(document.getElementById(url)).text(content);
-				}
-			},
-			error: function(object, error) {
-				console.log("Error: " + error.code + " " + error.message);
-			}
-		});
-
-	});
-}
-
-function addCount(Views) {
-	var Views = AV.Object.extend("Views");
-	url = $(".leancloud_visitors").attr('id').trim();
-	title = $(".leancloud_visitors").attr('data-flag-title').trim();
-	var query = new AV.Query(Views);
-	query.equalTo("url", url);
-	query.find({
-		success: function(results) {
-			if (results.length > 0) {
-				var counter = results[0];
-				counter.fetchWhenSave(true);
-				counter.increment("time");
-				counter.save(null, {
-					success: function(counter) {
-						var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
-						$(document.getElementById(url)).text(content);
-					},
-					error: function(counter, error) {
-						console.log('Failed to save Visitor num, with error message: ' + error.message);
-					}
-				});
-			} else {
-				var newcounter = new Views();
-				newcounter.set("title", title);
-				newcounter.set("url", url);
-				newcounter.set("time", 1);
-				newcounter.save(null, {
-					success: function(newcounter) {
-					    console.log("newcounter.get('time')="+newcounter.get('time'));
-						var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
-						$(document.getElementById(url)).text(content);
-					},
-					error: function(newcounter, error) {
-						console.log('Failed to create');
-					}
-				});
-			}
-		},
-		error: function(error) {
-			console.log('Error:' + error.code + " " + error.message);
-		}
-	});
-}
-$(function() {
-	var Views = AV.Object.extend("Views");
-	if ($('.leancloud_visitors').length == 1) {
-		addCount(Views);
-	} else if ($('.post-title-link').length > 1) {
-		showTime(Views);
-	}
-}); 
-</script>
- 
 </body>
 </html>
